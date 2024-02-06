@@ -26,7 +26,7 @@ export default function Page({params}) {
     ];
 
     useEffect(() => {
-        axios.get(`http://montlucon.loc/wp-json/wp/v2/posts?slug=${params.slug}`).then((response) => {
+        axios.get(`https://api-montlucon.netcomdev2.com/wp-json/wp/v2/posts?slug=${params.slug}`).then((response) => {
             setPost(response.data[0]);
             setLoaded(true);
         })

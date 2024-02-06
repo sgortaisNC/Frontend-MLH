@@ -22,7 +22,7 @@ export default function Home() {
 
     useEffect(() => {
         if (!isLoaded) {
-            axios.get("http://montlucon.loc/wp-json/montlucon/v1/options/homepage").then((response) => {
+            axios.get("https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/homepage").then((response) => {
                 setDatas(response.data);
                 setIsLoaded(true);
             })

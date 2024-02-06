@@ -8,7 +8,7 @@ export default function Page() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        axios.get("http://montlucon.loc/wp-json/wp/v2/posts").then((response) => {
+        axios.get("https://api-montlucon.netcomdev2.com/wp-json/wp/v2/posts").then((response) => {
             setPosts(response.data);
         })
     }, []);

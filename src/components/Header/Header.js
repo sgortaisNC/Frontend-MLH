@@ -12,7 +12,7 @@ export default function Header() {
 
     useEffect(() => {
         if (!isLoaded) {
-            axios.get("http://montlucon.loc/wp-json/montlucon/v1/options/header").then((response) => {
+            axios.get("https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/header").then((response) => {
                 setOptions(response.data);
                 setIsLoaded(true);
             })

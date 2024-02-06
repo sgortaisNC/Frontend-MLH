@@ -14,7 +14,7 @@ export default function Page({params}) {
 
     useEffect(() => {
         if (!isLoaded) {
-            axios.get('http://montlucon.loc/wp-json/wp/v2/pages?slug=' + lastSlug)
+            axios.get('https://api-montlucon.netcomdev2.com/wp-json/wp/v2/pages?slug=' + lastSlug)
                 .then((response) => {
                     setIsLoaded(true);
 

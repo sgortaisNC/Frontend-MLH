@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const fetcher = url => fetch(url).then(r => r.json())
 export default function Footer({datas}) {
-    const {data, error} = useSWR("http://montlucon.loc/wp-json/montlucon/v1/options/footer", fetcher)
+    const {data, error} = useSWR("https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/footer", fetcher)
     if (error) return <div>Failed to load</div>
     if (!data) return <></>
 
