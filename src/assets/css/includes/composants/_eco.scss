@@ -1,0 +1,128 @@
+.eco-btn{
+  position: relative;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  column-gap: 10px;
+  span{
+    font-size: 13px;
+    font-weight: 500;
+  }
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 21px;
+}
+
+.switch input {
+  position: relative;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switcher {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+
+}
+
+.switcher:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  left: 1px;
+  bottom: 1px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .switcher {
+  background-color: var(--vertC);
+}
+
+input:focus + .switcher {
+  box-shadow: 0 0 1px var(--vertC);
+}
+
+input:checked + .switcher:before {
+  transform: translateX(21px); /* Adjusted translation */
+}
+
+/* Rounded switchers */
+.switcher.round {
+  border-radius: 21px; /* Adjusted border radius - Half of the height of the switch */
+  border: 1px solid #FFFFFF;
+}
+
+.switcher.round:before {
+  border-radius: 50%;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+
+  pointer-events: none;
+  opacity: 0;
+  transition: var(--transition);
+
+  &.active {
+    pointer-events: all;
+    opacity: 1;
+  }
+
+  .flex{
+    margin-top: 30px;
+    gap:20px;
+  }
+
+  .modal__content {
+    background: white;
+    padding: 15px;
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    border-radius: 15px;
+
+    .modal__close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 24px;
+      color: var(--dark);
+    }
+    .wysiwyg{
+      h2{
+        font-size: 30px;
+        margin-bottom: 0;
+      }
+      p{
+        margin-bottom: 30px;
+        font-size: 14px;
+        text-align: left;
+      }
+    }
+  }
+}

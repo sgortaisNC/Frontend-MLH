@@ -1,0 +1,32 @@
+//--------- GLOBAL ------------------------------
+@use 'global/variables';
+@use 'global/mixins';
+@use 'global/reset';
+
+//--------- INCLUDES ----------------------------
+@use 'includes/header';
+@use 'includes/footer';
+@use 'includes/fixed';
+@use 'includes/moduleSearch';
+
+//--------- PAGE --------------------------------
+@use 'includes/pages/home';
+@use 'includes/pages/content';
+@use 'includes/pages/wysiwyg';
+@use 'includes/pages/listes';
+@use 'includes/pages/recherche';
+
+//--------- COMPOSANTS --------------------------
+@use 'includes/composants/hero';
+@use 'includes/composants/actualites';
+@use 'includes/composants/keys';
+@use 'includes/composants/description';
+@use 'includes/composants/buttons';
+@use 'includes/composants/select';
+@use 'includes/composants/accordeon';
+@use 'includes/composants/ariane';
+@use 'includes/composants/formulaire';
+@use 'includes/composants/sidebar';
+@use 'includes/composants/pagination';
+@use 'includes/composants/slider';
+@use 'includes/composants/bienTeaser';

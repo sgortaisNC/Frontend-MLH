@@ -1,0 +1,168 @@
+@use '../global/mixins' as *;
+.footer {
+  background: var(--lightGrey);
+  a{
+    transition: var(--transition);
+    @include hover{
+      color: var(--pourpre);
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  &__logo img{
+    border-radius: 0;
+  }
+
+  &__top {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    line-height: 26px;
+    .container{
+      @include laptop{
+        flex-flow: row wrap;
+        & > *{
+          flex: 1 1 30%;
+        }
+      }
+      @include phone{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        & > *{
+          flex: 1 1 100%;
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: 0.02em;
+    color: #95a3ab;
+    text-transform: uppercase;
+  }
+  &__coordonnees{
+    font-size: 17px;
+  }
+
+  &__acces {
+    flex: 1;
+
+    ul {
+      margin-top: 15px;
+
+      svg {
+        width: 0;
+        transition: var(--transition);
+      }
+    }
+
+    li {
+      margin-bottom: 25px;
+    }
+
+    a {
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 28px;
+      transition: var(--transition);
+      color: #4b7388;
+      position: relative;
+      left: -6px;
+      padding-left: 0;
+
+      &:hover {
+        color: var(--pourpre);
+        padding-left: 15px;
+
+        svg {
+          width: 22px;
+        }
+      }
+    }
+  }
+
+  &__rs {
+    flex: none;
+    display: grid;
+    gap: 10px;
+
+    ul {
+      display: flex;
+      gap: 15px;
+
+      .rs {
+        border: 1px solid var(--vert);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+      }
+    }
+
+    .input-grouped{
+      width: min(421px, 75vw);
+    }
+
+    input {
+      width: min(421px, 75vw);
+      @include phone{
+        width: 100%;
+      }
+      max-width: 100%;
+      background: rgba(149, 163, 171, 0.1);
+    }
+  }
+
+  &__bottom {
+    height: 67px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    @include phone{
+      padding-top: 25px;
+      flex-direction: column;
+      height: auto;
+    }
+
+    border-top: 1px solid #CBD2D6;
+
+    ul {
+      display: flex;
+      gap: 37px;
+
+      @include phone{
+        flex-direction: column;
+        height: auto;
+      }
+
+      li {
+        position: relative;
+        &:not(:last-child) {
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -18px;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 100%;
+            background: #CBD2D6;
+            @include phone{
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

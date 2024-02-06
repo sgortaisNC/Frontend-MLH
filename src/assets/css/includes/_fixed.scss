@@ -1,0 +1,45 @@
+@use '../global/mixins' as *;
+
+.fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  opacity: 1;
+  pointer-events: all;
+  transition: opacity 0.3s ease-in-out;
+  @include tablet {
+    left: 0;
+    ul {
+      display: flex;
+
+      li {
+        flex: 1;
+
+        a {
+          border-radius: 0;
+          margin-bottom: 0;
+          border-right: 1px solid white;
+          justify-content: center;
+          gap: 5px;
+        }
+      }
+    }
+  }
+
+  a {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    line-height: normal;
+    background: var(--bleu);
+    color: white;
+    gap: 15px;
+    border-radius: 50px 0 0 50px;
+    margin-bottom: 20px;
+    @include phone {
+      margin-bottom: 10px;
+    }
+    box-shadow: 3px 4px 0px rgba(0, 0, 0, 0.1);
+  }
+}

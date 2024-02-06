@@ -1,0 +1,39 @@
+@use "../../global/mixins" as *;
+.description {
+  margin-bottom: 120px;
+    @include tablet{
+        margin-bottom: 60px;
+    }
+
+  h2 {
+    strong {
+      padding-left: 40px;
+      @include tablet{
+        padding-left: 0;
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    margin-top: 60px;
+    grid-template-columns: min(805px, 100%) 1fr;
+    @include laptop{
+      grid-template-columns: 1fr;
+      justify-items: center;
+      grid-row-gap: 50px;
+    }
+    gap: 83px;
+    align-items: center;
+    > div {
+      font-weight: normal;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      line-height: 28px;
+
+      img{
+        border-radius: 0;
+      }
+    }
+  }
+}

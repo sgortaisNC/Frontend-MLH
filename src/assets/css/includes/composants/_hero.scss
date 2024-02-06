@@ -1,0 +1,116 @@
+@use '../../global/mixins' as *;
+
+.hero {
+  position: relative;
+  height: 717px;
+  @include tablet{
+    height: calc(100vh - 48px - 53px);
+  }
+  margin-bottom: 50px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+
+    h1 {
+      padding-top: 180px;
+      position: relative;
+      z-index: 1;
+      text-align: right;
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: calc(50% + 100px);
+        @include tablet{
+            top: 50%;
+        }
+        transform: translate(-50%, -50%);
+        left: 50%;
+        width: 916px;
+        z-index: -1;
+        object-fit: contain;
+        opacity: 0.67;
+        aspect-ratio: 1;
+        background-image: url('/img/autres/Fleur.png');
+      }
+
+      .first-line {
+        display: block;
+        font-weight: normal;
+        font-size: 35px;
+        line-height: 50px;
+        text-align: right;
+        color: #4b7388;
+      }
+
+      .second-line {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        font-weight: bold;
+        font-size: 75px;
+        line-height: 77px;
+      }
+
+      .third-line {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 70px;
+        letter-spacing: 0.02em;
+        line-height: 79px;
+        text-align: right;
+        color: #a7c830;
+      }
+
+      @include phone {
+        .first-line {
+          font-size: 28px;
+        }
+        .second-line {
+          font-size: 60px;
+        }
+        .third-line {
+          font-size: 46px;
+        }
+      }
+    }
+
+  }
+
+  img {
+    position: absolute;
+    inset: 0;
+    border-radius: 0;
+    z-index: -1;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.6) 80%, rgba(255, 255, 255, 0) 100%);
+    @include phone{
+      width: 100%;
+      background: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 66px;
+    background: url('/img/autres/triangle.png') no-repeat center bottom;
+  }
+}

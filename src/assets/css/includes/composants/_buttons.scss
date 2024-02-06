@@ -1,0 +1,67 @@
+@use '../../global/mixins' as *;
+
+input[type="submit"], button{
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+input[type="checkbox"], input[type="radio"]{
+  accent-color: var(--rouge);
+}
+
+.btn{
+  background: var(--pourpre);
+  border: 2px solid var(--pourpre);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  padding: 20px 42px;
+  @include phone{
+    padding: 15px;
+  }
+  border-radius: 50px;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  &:hover{
+    color: var(--pourpre);
+    background: #FFFFFF;
+  }
+
+  svg{
+    margin-top: -3px;
+  }
+
+  &--outline{
+    background: transparent;
+    color: var(--fontColor);
+  }
+
+  &--xs{
+    padding: 12px 16px 10px;
+    font-size: 14px;
+    border-width: 1px;
+    line-height: 1;
+  }
+}
+
+.type{
+  text-transform: uppercase;
+  color: white;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 50px;
+  font-size: 17px;
+  padding: 12px 17px 8px;
+  background: var(--fontColor);
+  letter-spacing: 0.05em;
+
+  transition: var(--transition);
+}

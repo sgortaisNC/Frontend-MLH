@@ -1,0 +1,69 @@
+@use "../../global/mixins" as *;
+
+.wysiwyg {
+  a:not([class]) {
+    text-decoration: underline;
+  }
+
+  h2 {
+
+  }
+  h3, h4{
+
+  }
+
+  > * {
+    margin-bottom: 20px;
+  }
+
+  > p {
+
+  }
+
+  ul:not([class]) {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  iframe {
+    aspect-ratio: 16 / 9;
+  }
+
+  table {
+
+    thead tr {
+
+      tr, td {
+
+        &:first-child {
+
+        }
+
+        &:last-child {
+
+        }
+      }
+    }
+
+    tbody{
+      tr {
+
+
+        th, td {
+
+        }
+      }
+    }
+  }
+}
+
+.chapo{
+
+}
+
+.table-responsive{
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-spacing: 0;
+}

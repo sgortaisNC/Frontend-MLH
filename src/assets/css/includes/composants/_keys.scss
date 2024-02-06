@@ -1,0 +1,96 @@
+@use "../../global/mixins" as *;
+
+.keys {
+  position: relative;
+  padding-top: 30px;
+  @include tablet{
+    padding-top: 0;
+  }
+  margin-bottom: 50px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -205px;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--lightVert);
+  }
+
+  .bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+  @include tablet{
+    .infographie{
+      display: none;
+    }
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    @include tablet{
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 36px;
+    padding-bottom: 65px;
+    @include tablet{
+      grid-template-columns: 1fr 1fr;
+      justify-items: center;
+      gap: 45px 15px;
+    }
+  }
+}
+
+.key {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 33px;
+  width: 260px;
+  @include tablet{
+    width: 100%;
+  }
+
+  b{
+    font-weight: bolder;
+    font-size: 34px;
+    letter-spacing: 0.02em;
+    line-height: 39px;
+    margin-bottom: -28px;
+    color: var(--vert);
+  }
+  span{
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  position: relative;
+  &:not(:last-child)::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -18px;
+    width: 1px;
+    height: 200px;
+    background: var(--vert);
+    @include tablet{
+      display: none;
+    }
+  }
+}
+
+
+

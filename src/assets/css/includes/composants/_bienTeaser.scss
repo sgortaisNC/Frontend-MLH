@@ -1,0 +1,205 @@
+@use '../../global/mixins' as *;
+.biens {
+  position: relative;
+  padding-bottom: 125px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: calc(100% - 355px);
+    left: 355px;
+    width: 2554px;
+    height: 1014px;
+    background: url(/img/autres/fond.webp) no-repeat;
+    z-index: -1;
+  }
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+
+
+  h2 {
+    grid-column: 1/-1;
+    padding-left: 40px;
+    @include tablet{
+      padding-left: 0;
+    }
+    width: 100%;
+  }
+
+  &__cta {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+}
+
+.bien-teaser {
+  position: relative;
+  z-index: 3;
+  display: block;
+  background: transparent;
+  padding: 10px 25px 25px;
+  border-radius: calc(var(--radius) * 2);
+
+  h3 {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 32px;
+    margin-block: 5px;
+  }
+
+  .card {
+    position: relative;
+    max-width: 660px;
+
+    .type {
+      position: absolute;
+      top: 17px;
+      left: 17px;
+    }
+
+    .meta {
+      position: absolute;
+      right: 17px;
+      top: 17px;
+    }
+
+    figure {
+      position: relative;
+
+      img {
+        opacity: 1;
+        transition: var(--transition);
+      }
+
+      figcaption {
+        position: absolute;
+        bottom: -1px;
+        left: -1px;
+        font-weight: 600;
+        font-size: 20px;
+        background: white;
+        padding: 12px 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        transition: color, background-color 0.5s ease-in-out;
+        border-radius: 0 16px 0 0;
+
+        svg {
+          margin-top: -4px;
+        }
+
+        path {
+          fill: var(--fontColor);
+          transition: fill 0.2s ease-in-out
+        }
+      }
+    }
+  }
+
+  transition: var(--transition);
+
+  &:hover {
+    color: #FFFFFF;
+
+    .meta-datas {
+      color: var(--fontColor);
+      border-color: var(--pourpre);
+    }
+
+    .meta-commune {
+      background: var(--pourpre);
+    }
+
+    background: var(--vert);
+
+    .type {
+      background: var(--pourpre);
+    }
+
+
+    .card figure {
+      img {
+        opacity: 0.7;
+      }
+
+      figcaption {
+        color: white;
+        background: var(--vert);
+
+        path {
+          fill: white;
+        }
+      }
+    }
+  }
+
+  @include tablet {
+     svg{
+       display: none;
+     }
+
+    .card .type{
+      top: 67px;
+      left: auto;
+      right: 17px;
+    }
+
+  }
+
+}
+
+.meta {
+  height: 37px;
+  display: flex;
+  align-items: stretch;
+
+  &-commune {
+    display: flex;
+    align-items: center;
+    padding-left: 17px;
+    gap: 7px;
+    padding-right: 14px;
+    background: var(--vert);
+    border-radius: 50px 0 0 50px;
+    color: white;
+    font-size: 18px;
+    transition: var(--transition);
+  }
+
+  &-datas {
+    font-weight: 500;
+    font-size: 18px;
+
+    > div {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      svg {
+        margin-top: -5px;
+      }
+    }
+
+    display: flex;
+    padding-right: 13px;
+    padding-left: 13px;
+    padding-top: 2px;
+    gap: 7px;
+    align-items: center;
+    background: white;
+    border: 1px solid var(--bordure);
+    border-left: 0;
+    border-radius: 0 50px 50px 0;
+    transition: var(--transition);
+  }
+}

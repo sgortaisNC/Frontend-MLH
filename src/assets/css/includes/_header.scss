@@ -1,0 +1,344 @@
+@use "../global/mixins" as *;
+
+.header {
+  position: relative;
+  z-index: 1000;
+
+  &__top__grid {
+    display: flex;
+    height: 53px;
+    align-items: center;
+    justify-content: space-between;
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      font-weight: 500;
+
+      a {
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        svg {
+          position: relative;
+          top: -2px;
+        }
+      }
+
+      @include tablet {
+        width: 0;
+        overflow: hidden;
+      }
+    }
+
+    .right {
+      background: var(--vert);
+      color: white;
+      height: 100%;
+      padding-left: 40px;
+      text-transform: uppercase;
+      border-bottom-left-radius: 50px;
+
+      svg {
+        margin-top: -3px;
+      }
+
+      @include tablet {
+        span {
+          display: none;
+        }
+      }
+
+      ul {
+        display: flex;
+        height: 100%;
+        gap: 35px;
+        margin-bottom: 0;
+        align-items: center;
+
+        a {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          font-weight: bold;
+          letter-spacing: 0.04em;
+        }
+      }
+
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 99%;
+        z-index: -1;
+        width: calc(100vw - 100%);
+        height: 100%;
+        background: var(--vert);
+      }
+
+    }
+
+    a {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 100%;
+        height: 2px;
+        background: var(--pourpre);
+        transform: scaleX(0);
+        transition: var(--transition);
+      }
+
+      @include hover {
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+
+    .right {
+      a::after {
+        background: white;
+      }
+    }
+  }
+
+  &__bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    top: calc(100% + 65px);
+
+    .container {
+      background: white;
+      height: 106px;
+      position: relative;
+      display: flex;
+      padding-right: calc(95px + 10%);
+      align-items: center;
+      justify-content: space-between;
+      border-radius: var(--radius);
+      gap:30px;
+      box-shadow: -11px 20px 20px rgba(0, 0, 0, 0.2);
+
+      @include laptop{
+        padding-right: 150px;
+      }
+      padding-left: 48px;
+      @include tablet {
+        padding-left: 15px;
+
+      }
+
+
+      img {
+        position: relative;
+        top: -40px;
+        border-radius: 0;
+        max-width: 30vw;
+        @include tablet {
+          top: -15px;
+        }
+      }
+    }
+
+    .burger {
+      display: none;
+      @include tablet {
+        display: flex;
+      }
+      width: 100px;
+      gap: 5px;
+      justify-content: center;
+      align-items: center;
+
+      .picto {
+        display: grid;
+        grid-row-gap: 5px;
+      }
+
+      span {
+        display: block;
+        height: 2px;
+        background: var(--fontColor);
+        width: 25px;
+      }
+    }
+
+    nav {
+      > ul {
+        display: flex;
+        gap: 91px;
+        @include laptop {
+          gap: 45px;
+        }
+
+        > li {
+          max-width: 110px;
+          position: relative;
+
+          &:not(:last-child) {
+            &::after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              right: -45px;
+              transform: translateY(-50%);
+              width: 1px;
+              height: 100%;
+              background: var(--bordure);
+              opacity: .30;
+              @include laptop {
+                display: none;
+              }
+            }
+          }
+
+
+          > a {
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 24px;
+            text-align: left;
+            color: #4b7388;
+            transition: var(--transition);
+            @include hover {
+              color: var(--pourpre);
+            }
+          }
+        }
+      }
+
+      @include tablet {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1000;
+        opacity: 0;
+        background: white;
+        transition: var(--transition);
+        &.open {
+          pointer-events: all;
+          opacity: 1;
+          right: 40px;
+
+          &::after {
+            content: "";
+            position: absolute;
+            left: 100%;
+            top: 0;
+            bottom: 0;
+            z-index: 1;
+            width: 40px;
+            background: rgba(0, 0, 0, 0.6);
+          }
+
+          &::before {
+            content: "Fermer";
+            position: absolute;
+            left: 100%;
+            color: white;
+            top: 50px;
+            font-weight: bold;
+            font-size: 20px;
+            z-index: 2;
+            rotate: 90deg;
+            width: 40px;
+          }
+        }
+
+        > ul {
+          height: 100%;
+          overflow: auto;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          > li {
+            max-width: 75%;
+            text-align: center;
+
+            &::after {
+              display: none;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  &__search {
+    position: absolute;
+    right: 0;
+
+    height: 100%;
+    width: 95px;
+    padding: 15px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      background: var(--pourpre);
+      top: 0;
+      right: 0;
+      z-index: -1;
+      bottom: 0;
+      width: 100%;
+      border-radius: 100px 0 0 100px;
+      position: absolute;
+      transition: var(--transition);
+
+    }
+
+    transition: var(--transition);
+
+    form {
+      opacity: 0;
+      width: 0;
+      display: none;
+      transition: var(--transition);
+    }
+
+    &.active {
+      form {
+        opacity: 1;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        @include phone{
+          input{
+            width: 200px;
+          }
+        }
+      }
+
+      width: min(100%, 450px);
+
+      > svg {
+        display: none;
+      }
+
+      &::before {
+        background: var(--vert);
+      }
+    }
+  }
+}
