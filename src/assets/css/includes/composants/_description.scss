@@ -14,26 +14,10 @@
     }
   }
 
-  &__grid {
-    display: grid;
+  &__content {
     margin-top: 60px;
-    grid-template-columns: min(805px, 100%) 1fr;
-    @include laptop{
-      grid-template-columns: 1fr;
-      justify-items: center;
-      grid-row-gap: 50px;
-    }
-    gap: 83px;
-    align-items: center;
-    > div {
-      font-weight: normal;
-      font-size: 18px;
-      letter-spacing: -0.02em;
-      line-height: 28px;
-
-      img{
-        border-radius: 0;
-      }
-    }
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    line-height: 28px;
   }
 }

@@ -1,13 +1,16 @@
 import Image from 'next/image'
-export default function TeaserActu({title}) {
+export default function TeaserActu({actu}) {
+
+    const {titre, image, date_partielle, date, lien} = actu;
+
     return (
-        <a href="">
+        <a href={lien}>
             <article className="actuTeaser">
                 <figure>
-                    <Image src="/img/dummies/actu1.webp" width={469} height={362} alt=""/>
+                    <Image src={image} width={469} height={362} alt={titre}/>
                     <figcaption>
-                        <time dateTime="2024-11-21"><b>21</b> Nov</time>
-                        <h3>{title}</h3>
+                        <time dateTime={date}>{date_partielle}</time>
+                        <h3>{titre}</h3>
                     </figcaption>
                 </figure>
             </article>

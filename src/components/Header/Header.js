@@ -2,22 +2,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import SousMenu from '@/components/SousMenu/SousMenu';
-import {useEffect, useState} from "react";
-import axios from "axios";
+import useSWR from "swr";
+import PostNotFound from "@/app/not-found";
+
+const fetcher = url => fetch(url).then(r => r.json())
 
 export default function Header() {
 
-    const [options, setOptions] = useState({});
-    const [isLoaded, setIsLoaded] = useState(false);
-
-    useEffect(() => {
-        if (!isLoaded) {
-            axios.get("https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/header").then((response) => {
-                setOptions(response.data);
-                setIsLoaded(true);
-            })
-        }
-    }, [isLoaded])
+    const {data, error} = useSWR("https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/header", fetcher)
+    if (error) return  <PostNotFound/>
+    if (!data) return <></>
 
     return (
         <header className="header">
@@ -36,7 +30,7 @@ export default function Header() {
                         <div className="right">
                             <ul>
                                 <li>
-                                    <a href={options.espace ?? "#"} target={"_blank"}>
+                                    <a href={data.espace ?? "#"} target={"_blank"}>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27"
                                              viewBox="0 0 27 27">
                                             <g transform="translate(-1447 -12)">
@@ -52,7 +46,7 @@ export default function Header() {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href={options.demande_logement ?? "#"} target={"_blank"}>
+                                    <a href={data.demande_logement ?? "#"} target={"_blank"}>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27"
                                              viewBox="0 0 27 27">
                                             <g transform="translate(-1447 -12)">
@@ -76,10 +70,10 @@ export default function Header() {
                     <div className="logo">
                         <Link href={"/"}>
                             <Image
-                                src={options.logo ? options.logo.sizes.nc_header : "/logo.png"}
+                                src={data.logo ? data.logo.sizes.nc_header : "/logo.png"}
                                 alt='Logo de Montluçon Habitat'
-                                width={options.logo ? options.logo.sizes['nc_header-width'] : 235}
-                                height={options.logo ? options.logo.sizes['nc_header-height'] : 121}/>
+                                width={data.logo ? data.logo.sizes['nc_header-width'] : 235}
+                                height={data.logo ? data.logo.sizes['nc_header-height'] : 121}/>
                         </Link>
                     </div>
                     <div className="burger">
@@ -92,7 +86,7 @@ export default function Header() {
                     </div>
                     <nav>
                         <ul>
-                            {options.menu && options.menu.map((item, index) => {
+                            {data.menu && data.menu.map((item, index) => {
                                 return <li key={index}>
                                     <Link href={item.url}>{item.title}</Link>
                                     {item.niveau2 !== [] ? <ul><SousMenu links={item.niveau2} /></ul> : ''}
