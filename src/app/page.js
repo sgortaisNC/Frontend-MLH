@@ -54,7 +54,6 @@ export default function Home() {
                     </div>
                 </section>
             </div>
-
             <section className="module-search">
                 <div className="module-search__grid">
                     <div id="map">
@@ -124,7 +123,6 @@ export default function Home() {
                     </form>
                 </div>
             </section>
-
             <section className="actualites">
                 <div className="container">
                     <div className="actualites__title">
