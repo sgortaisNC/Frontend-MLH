@@ -1,10 +1,11 @@
 import Image from 'next/image'
+import Link from "next/link";
 export default function TeaserActu({actu}) {
 
     const {titre, image, jour, mois, date, lien} = actu;
 
     return (
-        <a href={lien}>
+        <Link href={lien}>
             <article className="actuTeaser">
                 <figure>
                     <Image src={image} width={469} height={362} alt={titre}/>
@@ -14,6 +15,6 @@ export default function TeaserActu({actu}) {
                     </figcaption>
                 </figure>
             </article>
-        </a>
+        </Link>
     )
 }

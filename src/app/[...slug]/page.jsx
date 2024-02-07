@@ -16,7 +16,9 @@ export default function Page({params}) {
 
     const page = data[0];
 
-    return <>
+    return <div>
         {page.title.rendered}
-    </>
+        <div className="wysiwyg" dangerouslySetInnerHTML={{ __html: page.content.rendered }}></div>
+
+    </div>
 }

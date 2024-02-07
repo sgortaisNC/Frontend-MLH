@@ -7,10 +7,17 @@ import TeaserActu from "@/components/Teaseractu/TeaserActu";
 import Chiffre from "@/components/Chiffre/Chiffre";
 import useSWR from "swr";
 import PostNotFound from "@/app/not-found";
+import SelectSearch from "react-select-search";
+import 'react-select-search/style.css'
+
 const fetcher = url => fetch(url).then(r => r.json())
 
-
 export default function Home() {
+
+    const searchLogement = (e) => {
+        e.preventDefault()
+        alert('"aze"')
+    };
 
     const {data, error} = useSWR("https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/homepage", fetcher)
     if (error) return <PostNotFound/>
@@ -59,7 +66,7 @@ export default function Home() {
                     <div id="map">
                         <Image src="/img/dummies/map.webp" width={1096} height={773} alt=""/>
                     </div>
-                    <form action="">
+                    <form onSubmit={searchLogement}>
                         <h2>Trouvez facilement le logement <strong>qui vous correspond</strong></h2>
                         <div className="fields">
                             <div className="field">
@@ -67,9 +74,7 @@ export default function Home() {
                                     <label htmlFor="commune">Commune</label>
                                 </div>
                                 <div className="field__input">
-                                    <select name="commune" id="commune">
-                                        {data.filtres.villes.map(ville => <option key={ville.valeur} value={ville.valeur}>{ville.label}</option> )}
-                                    </select>
+                                    <SelectSearch options={data.filtres.villes} search={true} name="language" placeholder="Exemple de selecteur"/>
                                 </div>
                             </div>
                             <div className="field">
@@ -89,9 +94,7 @@ export default function Home() {
                                     <label htmlFor="commune">Appartement / Maison</label>
                                 </div>
                                 <div className="field__input">
-                                    <select name="" id="commune">
-                                        {data.filtres.types.map(type => <option key={type.valeur} value={type.valeur}>{type.label}</option> )}
-                                    </select>
+                                    <SelectSearch options={data.filtres.types} search={true} name="language" placeholder="Exemple de selecteur"/>
                                 </div>
                             </div>
                             <div className="field">
@@ -100,7 +103,7 @@ export default function Home() {
                                 </div>
                                 <div className="field__input">
                                     <select name="" id="commune">
-                                        {data.filtres.nombre_piece.map(type => <option key={type.valeur} value={type.valeur}>{type.label}</option> )}
+                                        <SelectSearch options={data.filtres.nombre_piece} search={true} name="language" placeholder="Exemple de selecteur"/>
                                     </select>
                                 </div>
                             </div>
