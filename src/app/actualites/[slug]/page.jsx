@@ -17,22 +17,21 @@ export default function Page({params}) {
     const {
         data,
         error
-    } = useSWR(`https://api-montlucon.netcomdev2.com/wp-json/wp/v2/posts?slug=${params.slug}`, fetcher)
+    } = useSWR(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/actualite/${params.slug}`, fetcher)
 
     if (error) return <PostNotFound/>
     if (!data) return <></>
 
 
-    const post = data[0];
+    const {titre, image, contenu, chapo, date} = data[0];
 
 
     return <main>
-        <h1>TO DO </h1>
-        <h1>{post.title.rendered}</h1>
-        <Image height={100} width={100} alt={""}  src={""}/>
-        <time>{post.date}</time>
-        <div className="chapo" dangerouslySetInnerHTML={{__html: post.excerpt.rendered}}></div>
-        <div className="wysiwyg" dangerouslySetInnerHTML={{__html: post.content.rendered}}></div>
+        <h1>{titre}</h1>
+        <Image height={100} width={100} alt={titre}  src={image}/>
+        <time>{date}</time>
+        <div className="chapo" dangerouslySetInnerHTML={{__html: chapo}}></div>
+        <div className="wysiwyg" dangerouslySetInnerHTML={{__html: contenu}}></div>
         <Link className={'btn'} href={"/actualites"}>Retour</Link>
     </main>
 }

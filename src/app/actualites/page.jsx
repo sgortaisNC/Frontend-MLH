@@ -14,7 +14,7 @@ export default function Page() {
     if (!data) return <></>
 
 
-    const nbPerPage = 5;
+    const nbPerPage = 12;
     const pageMax = Math.ceil(data.posts.length / nbPerPage);
     const minNumber = Math.max(0, page - 2);
     const maxNumber = Math.min(pageMax, page + 3);
