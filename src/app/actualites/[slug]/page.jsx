@@ -31,7 +31,7 @@ export default function Page({params}) {
         <h1>{post.title.rendered}</h1>
         <Image height={100} width={100} alt={""}  src={""}/>
         <time>{post.date}</time>
-        <div className="chapo" dangerouslySetInnerHTML={{_html: post.excerpt.rendered}}></div>
+        <div className="chapo" dangerouslySetInnerHTML={{__html: post.excerpt.rendered}}></div>
         <div className="wysiwyg" dangerouslySetInnerHTML={{__html: post.content.rendered}}></div>
         <Link className={'btn'} href={"/actualites"}>Retour</Link>
     </main>

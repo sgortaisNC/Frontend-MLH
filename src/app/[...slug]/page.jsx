@@ -18,6 +18,7 @@ export default function Page({params}) {
 
     return <div>
         {page.title.rendered}
+        <div className="wysiwyg" dangerouslySetInnerHTML={{ __html: page.excerpt.rendered }}></div>
         <div className="wysiwyg" dangerouslySetInnerHTML={{ __html: page.content.rendered }}></div>
 
     </div>
