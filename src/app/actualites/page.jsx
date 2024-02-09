@@ -14,10 +14,11 @@ export default function Page() {
     if (!data) return <></>
 
 
-    const nbPerPage = 12;
+    const nbPerPage = 3;
     const pageMax = Math.ceil(data.posts.length / nbPerPage);
     const minNumber = Math.max(0, page - 2);
     const maxNumber = Math.min(pageMax, page + 3);
+
     const posts = data.posts.slice(page * nbPerPage, page * nbPerPage + nbPerPage);
 
 
@@ -38,12 +39,11 @@ export default function Page() {
                         <button key={i}
                                 className={'btn ' + (i === page ? 'btn--outline' : '')}
                                 onClick={() => setPage(i)}>{i + 1}</button>
-                    </>)}
+                    </>
+                )}
             {page < pageMax - 1 ? <button className={'btn'}
                                           onClick={() => setPage(page + 1)}>Suivant</button> : null}
 
         </div>}
-
-
     </main>;
 }

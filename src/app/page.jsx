@@ -7,17 +7,11 @@ import TeaserActu from "@/components/Teaseractu/TeaserActu";
 import Chiffre from "@/components/Chiffre/Chiffre";
 import useSWR from "swr";
 import PostNotFound from "@/app/not-found";
-import SelectSearch from "react-select-search";
-import 'react-select-search/style.css'
+import Select from "react-select";
 
 const fetcher = url => fetch(url).then(r => r.json())
 
 export default function Home() {
-
-    const searchLogement = (e) => {
-        e.preventDefault()
-        alert('"aze"')
-    };
 
     const {data, error} = useSWR("https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/homepage", fetcher)
     if (error) return <PostNotFound/>
@@ -66,7 +60,7 @@ export default function Home() {
                     <div id="map">
                         <Image src="/img/dummies/map.webp" width={1096} height={773} alt=""/>
                     </div>
-                    <form onSubmit={searchLogement}>
+                    <form action={"/bien_louer"} method={"GET"}>
                         <h2>Trouvez facilement le logement <strong>qui vous correspond</strong></h2>
                         <div className="fields">
                             <div className="field">
@@ -74,7 +68,11 @@ export default function Home() {
                                     <label htmlFor="commune">Commune</label>
                                 </div>
                                 <div className="field__input">
-                                    <SelectSearch options={data.filtres.villes} search={true} name="language" placeholder="Exemple de selecteur"/>
+                                    <Select options={data.filtres.villes}
+                                            name={"ville"}
+                                            isClearable={true}
+                                            isSearchable={true}
+                                            placeholder="Sélectionnez une ville"/>
                                 </div>
                             </div>
                             <div className="field">
@@ -94,7 +92,10 @@ export default function Home() {
                                     <label htmlFor="commune">Appartement / Maison</label>
                                 </div>
                                 <div className="field__input">
-                                    <SelectSearch options={data.filtres.types} search={true} name="language" placeholder="Exemple de selecteur"/>
+                                    <Select options={data.filtres.types}
+                                            search={true}
+                                            name="type"
+                                            placeholder="Type de logement"/>
                                 </div>
                             </div>
                             <div className="field">
@@ -102,9 +103,11 @@ export default function Home() {
                                     <label htmlFor="commune">Nombre de pièces</label>
                                 </div>
                                 <div className="field__input">
-                                    <select name="" id="commune">
-                                        <SelectSearch options={data.filtres.nombre_piece} search={true} name="language" placeholder="Exemple de selecteur"/>
-                                    </select>
+                                    <Select options={data.filtres.nombre_piece}
+                                            isSearchable={true}
+                                            isClearable={true}
+                                            name="nombre"
+                                            placeholder="Exemple de selecteur"/>
                                 </div>
                             </div>
                             <div className="field">
@@ -149,7 +152,8 @@ export default function Home() {
                         <Image src={"/img/svg/infographieHome.svg"} alt={''} width={200} height={347}></Image>
                     </div>
                     <div className="keys__grid">
-                        {data.chiffres.map(chiffre => <Chiffre key={(Math.random() * 500).toFixed(0)} chiffre={chiffre}/>)}
+                        {data.chiffres.map(chiffre => <Chiffre key={(Math.random() * 500).toFixed(0)}
+                                                               chiffre={chiffre}/>)}
                     </div>
                 </div>
             </section>
