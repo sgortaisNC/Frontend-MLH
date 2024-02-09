@@ -27,10 +27,10 @@ export default function Page() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [biens, setBiens] = useState([]);
 
-    const [ville, setVille] = useState(searchParams.get('ville') ?? '');
-    const [nombre, setNombre] = useState(searchParams.get('nombre') ?? '');
-    const [type, setType] = useState(searchParams.get('type') ?? '');
-    const [rayon, setRayon] = useState(searchParams.get('rayon') ?? '');
+    const [ville, setVille] = useState( '');
+    const [nombre, setNombre] = useState('');
+    const [type, setType] = useState('');
+    const [rayon, setRayon] = useState('');
 
     const [defaultFiltres, setDefaultFiltres] = useState(null);
 
