@@ -5,6 +5,7 @@ import useSWR from "swr";
 import Image from "next/image";
 import './page.scss';
 import ForminatorField from "@/components/ForminatorField/ForminatorField";
+import Titre from "@/components/Titre/Titre";
 
 
 const fetcher = url => fetch(url).then(r => r.json())
@@ -34,11 +35,9 @@ export default function Page({params}) {
         return false;
     }
 
-
     return <div>
-        <h1>{titre}</h1>
+        <Titre titre={titre} chapo={chapo}/>
         <Image src={image} alt={titre} height={100} width={100}/>
-        <div className="chapo" dangerouslySetInnerHTML={{__html: chapo}}></div>
         <div className="wysiwyg" dangerouslySetInnerHTML={{__html: contenu}}></div>
 
         {formulaire && formID ?

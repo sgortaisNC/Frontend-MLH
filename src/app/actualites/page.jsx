@@ -3,6 +3,7 @@ import useSWR from "swr";
 import PostNotFound from "@/app/not-found";
 import TeaserActu from "@/components/Teaseractu/TeaserActu";
 import {useState} from "react";
+import Titre from "@/components/Titre/Titre";
 
 const fetcher = url => fetch(url).then(r => r.json())
 
@@ -23,8 +24,7 @@ export default function Page() {
 
 
     return <main>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        <h1>Nos actualités</h1>
+        <Titre titre={'Nos actualités'}/>
 
         {posts.map(post => <TeaserActu key={post.id} actu={post}/>)}
 

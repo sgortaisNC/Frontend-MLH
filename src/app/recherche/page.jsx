@@ -1,7 +1,9 @@
+import Titre from "@/components/Titre/Titre";
+
 export default function Page(){
     return (
         <>
-            <h1>Votre recherche</h1>
+            <Titre titre={'Votre recherche'} />
         </>
     )
 }

@@ -1,10 +1,12 @@
+import Titre from "@/components/Titre/Titre";
+
 export default function Page(){
 
     const title = "Liste des offres d'emploi"
 
     return (
         <>
-            <h1>{title}</h1>
+            <Titre titre={title} />
             <div>[FILTRES]</div>
             <div>[CANDIDATURE SPONTANÉE]</div>
             <div>[LISTE]</div>

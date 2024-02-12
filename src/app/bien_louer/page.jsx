@@ -4,6 +4,7 @@ import Select from "react-select";
 import TeaserLogement from "@/components/TeaserLogement/TeaserLogement";
 import {useEffect, useState} from "react";
 import { useSearchParams } from 'next/navigation'
+import Titre from "@/components/Titre/Titre";
 
 
 
@@ -13,6 +14,7 @@ export default function Page() {
         e.preventDefault();
         const form = e.target;
         const data = new FormData(form);
+        setPage(0);
         setVille(data.get('ville'));
         setNombre(data.get('nombre'));
         setType(data.get('type'));
@@ -66,9 +68,7 @@ export default function Page() {
 
     return <div>
 
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
-        <h1>Biens à louer</h1>
+        <Titre titre={'Biens à louer'} />
         <div>
             <h2>Filtres</h2>
             <form onSubmit={handleForm}>
