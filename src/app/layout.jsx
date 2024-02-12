@@ -1,4 +1,5 @@
 import { League_Spartan } from "next/font/google";
+import "../assets/css/gutenberg.css"
 import "../assets/css/styles.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";

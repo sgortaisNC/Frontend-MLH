@@ -1,7 +1,6 @@
 'use client';
 import './Share.scss'
 
-import {usePathname} from "next/navigation";
 import {useEffect, useState} from "react";
 
 export default function Share() {
