@@ -1,0 +1,26 @@
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 120px 0;
+    gap:10px;
+}
+
+.page-number{
+    display: flex;
+    width: 40px;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-radius: 40px;
+    background: white;
+    transition: 0.25s all;
+    &.current-page{
+        background: var(--bleu);
+        color: white;
+    }
+}
+
+.page-arrow{
+    margin-inline: 20px;
+}

@@ -28,6 +28,8 @@
       justify-items: center;
     }
     gap: 25px;
+    row-gap: 70px;
+
   }
 }
 
@@ -35,8 +37,12 @@
   position: relative;
   max-width: 463px;
 
+  &:hover {
+  }
+
   figure {
     img {
+      border-radius: var(--radius) var(--radius) 0 0;
       margin-bottom: -4px;
     }
   }
@@ -72,19 +78,4 @@
       overflow: hidden;
     }
   }
-
-  .tag {
-    position: absolute;
-    left: 0;
-    bottom: 116px;
-  }
-}
-
-.tag {
-  padding: 12px 20px;
-  color: #FFFFFF;
-  background: var(--vert);
-  border-top-right-radius: 16px;
-  font-size: 20px;
-  font-weight: 600;
 }

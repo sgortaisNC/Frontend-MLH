@@ -2,7 +2,7 @@ import "./Ariane.scss";
 import Link from "next/link";
 
 export default function Ariane() {
-    return <section className={'ariane'}>
+    return <section id={'ariane'} className={'ariane'}>
         <div className="container">
             <ul className="ariane__content">
                 <li><Link href="/">
