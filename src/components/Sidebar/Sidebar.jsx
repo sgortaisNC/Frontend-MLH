@@ -5,7 +5,7 @@ export default function Sidebar({documents, liens}) {
             {documents.length > 0 && <div className={"sidebar-block"}>
                 <h3>Documents</h3>
                 <ul>
-                    {documents.map((doc, i) => <li key={i}><a href={doc.lien}>
+                    {documents.map((doc, i) => <li key={i}><a target={'_blank'} href={doc.lien}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20.101" height="25.449"
                              viewBox="0 0 20.101 25.449">
                             <g transform="translate(-259.629 -672.64)">
@@ -35,7 +35,7 @@ export default function Sidebar({documents, liens}) {
             {liens.length > 0 && <div className={"sidebar-block"}>
                 <h3>Liens utiles</h3>
                 <ul>
-                    {liens.map((lien, i) => <li key={i}><a href={lien.url}>
+                    {liens.map((lien, i) => <li key={i}><a target={'_blank'} href={lien.url}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="29.963" height="30.823"
                              viewBox="0 0 29.963 30.823">
                             <g transform="translate(20.608) rotate(43)">
