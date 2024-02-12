@@ -23,6 +23,12 @@ body {
   width: min(calc(100vw - 24px), 1457px);
   margin: 0 auto;
 
+  &--inner{
+    display: grid;
+    grid-template-columns: 275px 1fr;
+    grid-column-gap: 22px;
+  }
+
   &--flex {
     display: flex;
     justify-content: space-between;

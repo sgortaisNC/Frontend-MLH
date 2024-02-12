@@ -29,9 +29,11 @@ export default function Page({params}) {
 
     return <main>
         <Titre titre={titre} chapo={chapo} />
-        <Image height={100} width={100} alt={titre}  src={image}/>
+        <div className="container">
+        <Image height={1161} width={503} alt={titre}  src={image}/>
         <time>{date}</time>
         <div className="wysiwyg" dangerouslySetInnerHTML={{__html: contenu}}></div>
         <Link className={'btn'} href={"/actualites"}>Retour</Link>
+        </div>
     </main>
 }

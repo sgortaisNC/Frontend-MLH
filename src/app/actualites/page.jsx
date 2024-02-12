@@ -56,7 +56,6 @@ export default function Page() {
                               transform="translate(-5.063 38.813)" fill="#4b7388"/>
                     </svg>
                 </button> : null}
-
             </div>}
         </div>
     </main>;
