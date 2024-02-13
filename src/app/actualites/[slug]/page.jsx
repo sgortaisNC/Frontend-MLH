@@ -28,12 +28,14 @@ export default function Page({params}) {
 
 
     return <main>
-        <Titre titre={titre} chapo={chapo} />
+        <Titre titre={titre} chapo={chapo}/>
         <div className="container">
-        <Image height={1161} width={503} alt={titre}  src={image}/>
-        <time>{date}</time>
-        <div className="wysiwyg" dangerouslySetInnerHTML={{__html: contenu}}></div>
-        <Link className={'btn'} href={"/actualites"}>Retour</Link>
+            <div className="text-center">
+                <Image height={503} width={1161} alt={titre} src={image}/>
+            </div>
+            <time>{date}</time>
+            <div className="wysiwyg" dangerouslySetInnerHTML={{__html: contenu}}></div>
+            <Link className={'btn'} href={"/actualites"}>Retour</Link>
         </div>
     </main>
 }

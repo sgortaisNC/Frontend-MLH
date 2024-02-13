@@ -38,10 +38,15 @@ export default function Page({params}) {
 
     return <div>
         <Titre titre={titre} chapo={chapo}/>
-        <div className={(documents && documents.length > 0) || (liens && liens.length > 0) ? "container container--inner" : "container"}>
-            {(documents && documents.length > 0) || (liens && liens.length > 0)  ? <Sidebar documents={documents} liens={liens}/> : null}
+        <div
+            className={(documents && documents.length > 0) || (liens && liens.length > 0) ? "container container--inner" : "container"}>
+            {(documents && documents.length > 0) || (liens && liens.length > 0) ?
+                <Sidebar documents={documents} liens={liens}/> : null
+            }
             <div className="content">
-                <Image src={image} alt={titre} height={1161} width={503}/>
+                <div className="text-center">
+                    <Image src={image} alt={titre} height={503} width={1161}/>
+                </div>
                 <div className="wysiwyg" dangerouslySetInnerHTML={{__html: contenu}}></div>
                 {formulaire && formID ?
                     <form onSubmit={handleSubmit}>
@@ -53,6 +58,5 @@ export default function Page({params}) {
                 }
             </div>
         </div>
-
     </div>
 }
