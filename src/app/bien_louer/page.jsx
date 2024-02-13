@@ -3,12 +3,14 @@
 import Select from "react-select";
 import TeaserLogement from "@/components/TeaserLogement/TeaserLogement";
 import {useEffect, useState} from "react";
-import { useSearchParams } from 'next/navigation'
 import Titre from "@/components/Titre/Titre";
 
 
 
 export default function Page() {
+
+
+
     function handleForm(e) {
 
         e.preventDefault();

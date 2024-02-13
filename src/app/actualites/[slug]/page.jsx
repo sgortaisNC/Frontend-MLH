@@ -27,7 +27,7 @@ export default function Page({params}) {
     const {titre, image, contenu, chapo, date} = data[0];
 
 
-    return <main>
+    return <main style={{marginBottom: '50px'}}>
         <Titre titre={titre} chapo={chapo}/>
         <div className="container">
             <div className="text-center">

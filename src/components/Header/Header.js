@@ -4,10 +4,20 @@ import Link from "next/link";
 import SousMenu from '@/components/SousMenu/SousMenu';
 import useSWR from "swr";
 import PostNotFound from "@/app/not-found";
+import {useState} from "react";
 
 const fetcher = url => fetch(url).then(r => r.json())
 
 export default function Header() {
+
+    const [search, setSearch] = useState(false);
+
+    function openMenu() {
+        setSearch(!search);
+        setTimeout(() => {
+            document.getElementById('search').focus()
+        },150)
+    }
 
     const {data, error} = useSWR("https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/header", fetcher)
     if (error) return  <PostNotFound/>
@@ -94,9 +104,11 @@ export default function Header() {
                             })}
                         </ul>
                     </nav>
-                    <div className="header__search">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="23.628" height="23.628"
-                             viewBox="0 0 23.628 23.628">
+                    <div className={`header__search `+ (search ? 'active' : '')}>
+                        <svg
+                            onClick={openMenu}
+                            xmlns="http://www.w3.org/2000/svg" width="23.628" height="23.628"
+                            viewBox="0 0 23.628 23.628">
                             <g id="Groupe_2632" data-name="Groupe 2632" transform="translate(-1465.941 -156.941)">
                                 <circle id="Ellipse_184" data-name="Ellipse 184" cx="8.626" cy="8.626" r="8.626"
                                         transform="translate(1466.941 157.941)" fill="none" stroke="#fff"
@@ -107,8 +119,10 @@ export default function Header() {
                             </g>
                         </svg>
 
-                        <form action="">
-                            <input type="text" title="Effectuez une recherche par mot-clé"/>
+                        <form action="/recherche/" method={'GET'}>
+                            <input id="search" name="motcle" type="text" title="Effectuez une recherche par mot-clé"
+                                   onBlur={() => {setTimeout(() => {setSearch(false)},150)}}
+                            />
                             <button type="submit" className="btn btn--xs">Recherche</button>
                         </form>
                     </div>
