@@ -57,7 +57,7 @@ export default function Page() {
     }, [isLoaded]);
 
 
-    if (!filtres === []) return <></>
+    if (filtres === []) return <></>
 
     const nbPerPage = 1;
     const pageMax = Math.ceil(biens.length / nbPerPage);
