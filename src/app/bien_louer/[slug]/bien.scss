@@ -1,0 +1,40 @@
+.infos {
+  background: #DCF3F8;
+  padding: 60px 100px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 61px;
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 31px;
+    padding: 30px;
+  }
+  margin-top: -21px;
+
+  .info {
+    display: grid;
+    text-align: center;
+    justify-items: center;
+    position: relative;
+    gap: 5px;
+
+    svg {
+      margin-bottom: 25px;
+      height: 50px;
+
+    }
+
+    &:not(:last-child)::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: -30px;
+      content: '';
+      width: 1px;
+      background: #D4DADD;
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+  }
+}
