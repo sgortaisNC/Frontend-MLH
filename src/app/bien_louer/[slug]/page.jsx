@@ -3,6 +3,7 @@
 import useSWR from "swr";
 import Titre from "@/components/Titre/Titre";
 import Link from "next/link";
+import './bienLouer.scss';
 import {MapComponent} from "@/components/Map/MapComponent";
 
 const fetcher = url => fetch(url).then(r => r.json())
