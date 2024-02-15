@@ -7,13 +7,13 @@ import 'leaflet/dist/leaflet.css';
 import Titre from "@/components/Titre/Titre";
 import Link from "next/link";
 import {marker} from "@/Utils/Utils";
+import {MapComponent} from "@/components/Map/MapComponent";
 
 const fetcher = url => fetch(url).then(r => r.json())
 
 export default function Page({params}) {
 
     const lastSlug = params.slug
-
     const {
         data,
     } = useSWR(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/bien-louer/${lastSlug}`, fetcher)
@@ -162,18 +162,10 @@ export default function Page({params}) {
 
 
                 <h2>Situation</h2>
-                <MapContainer style={{height: '640px', width: '100%'}}
-                              center={[bien.markers.latitude, bien.markers.longitude]} zoom={10}
-                              scrollWheelZoom={false}>
-                    <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    <Marker icon={marker} position={[bien.markers.latitude, bien.markers.longitude]}></Marker>
-                </MapContainer>
+                <MapComponent biens={data}/>
 
                 <div style={{margin: '50px 0 110px 0'}}>
-                <Link href={"/bien_louer"} className={"btn btn--outline"}>Retour</Link>
+                    <Link href={"/bien_louer"} className={"btn btn--outline"}>Retour</Link>
                 </div>
 
             </div>

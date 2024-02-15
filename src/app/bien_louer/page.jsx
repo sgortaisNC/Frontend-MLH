@@ -5,14 +5,10 @@ import TeaserLogement from "@/components/TeaserLogement/TeaserLogement";
 import {useEffect, useState} from "react";
 import Titre from "@/components/Titre/Titre";
 import './listeBiens.scss';
-
-import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
-import 'leaflet/dist/leaflet.css';
-import Link from "next/link";
+import {MapComponent} from "@/components/Map/MapComponent";
 
 
 export default function Page() {
-
 
     function handleForm(e) {
 
@@ -164,26 +160,7 @@ export default function Page() {
                     </button> : null}
                 </div>}
             </> : <>
-
-                <MapContainer style={{marginTop: '50px', height: '640px', width: '100%'}}
-                              zoom={8}
-                              center={[46.34194422876846, 2.601073765954095]}
-                              scrollWheelZoom={false}>
-                    <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    {biens.map((bien) => <Marker icon={L.icon({iconUrl: "marker-icon.png", iconSize: [51, 81]})}
-                                                 key={bien.id}
-                                                 position={[bien.latitude, bien.longitude]}>
-                        <Popup>
-                            <h3>{bien.titre}</h3>
-                            <div className="link">
-                                <Link href={bien.lien}>Voir l’annonce</Link>
-                            </div>
-                        </Popup>
-                    </Marker>)}
-                </MapContainer>
+                <MapComponent biens={biens} popup={true}/>
             </>}
         </div>
     </div>
