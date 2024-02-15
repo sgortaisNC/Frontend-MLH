@@ -1,12 +1,8 @@
 "use client";
 
 import useSWR from "swr";
-import {MapContainer, Marker, TileLayer} from "react-leaflet";
-import './bien.scss'
-import 'leaflet/dist/leaflet.css';
 import Titre from "@/components/Titre/Titre";
 import Link from "next/link";
-import {marker} from "@/Utils/Utils";
 import {MapComponent} from "@/components/Map/MapComponent";
 
 const fetcher = url => fetch(url).then(r => r.json())
@@ -162,7 +158,7 @@ export default function Page({params}) {
 
 
                 <h2>Situation</h2>
-                <MapComponent biens={data}/>
+                <MapComponent biens={[bien]} popup={false}/>
 
                 <div style={{margin: '50px 0 110px 0'}}>
                     <Link href={"/bien_louer"} className={"btn btn--outline"}>Retour</Link>
