@@ -8,7 +8,7 @@ export default function SousMenu(props) {
                 return (
                     <li key={index}>
                         <Link href={link.url}>{link.title}</Link>
-                        {link.niveau3 && link.niveau3.length > 1 && <ul><SousMenu links={link.niveau3}/> </ul>}
+                        {link.niveau3 && link.niveau3.length > 0 && <ul><SousMenu links={link.niveau3}/> </ul>}
                     </li>
                 )
             })}

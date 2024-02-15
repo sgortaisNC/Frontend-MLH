@@ -86,7 +86,7 @@ export default function Header() {
                                 height={data.logo ? data.logo.sizes['nc_header-height'] : 121}/>
                         </Link>
                     </div>
-                    <div className="burger">
+                    <div className="burger" onClick={() => document.querySelector('.header nav').classList.toggle('open')}>
                         <div className="picto">
                             <span></span>
                             <span></span>
@@ -94,12 +94,16 @@ export default function Header() {
                         </div>
                         <div>Menu</div>
                     </div>
-                    <nav>
+                    <nav onClick={(e) => {
+                        if (e.target.tagName === 'NAV' && document.querySelector('.header nav').classList.contains('open')) {
+                            document.querySelector('.header nav').classList.remove('open');
+                        }
+                    }}>
                         <ul>
                             {data.menu && data.menu.map((item, index) => {
                                 return <li key={index}>
                                     <Link href={item.url}>{item.title}</Link>
-                                    {item.niveau2 !== [] ? <ul><SousMenu links={item.niveau2} /></ul> : ''}
+                                    {item.niveau2.length > 0 ? <ul className={"sous-menu"}><SousMenu links={item.niveau2} /></ul> : ''}
                                 </li>
                             })}
                         </ul>
