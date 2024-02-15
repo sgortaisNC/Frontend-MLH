@@ -1,12 +1,12 @@
 "use client";
 
 import useSWR from "swr";
-import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
+import {MapContainer, Marker, TileLayer} from "react-leaflet";
 import './bien.scss'
 import 'leaflet/dist/leaflet.css';
 import Titre from "@/components/Titre/Titre";
 import Link from "next/link";
-
+import {marker} from "@/Utils/Utils";
 
 const fetcher = url => fetch(url).then(r => r.json())
 
@@ -16,7 +16,6 @@ export default function Page({params}) {
 
     const {
         data,
-        error
     } = useSWR(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/bien-louer/${lastSlug}`, fetcher)
 
     if (!data) return <></>
@@ -116,18 +115,18 @@ export default function Page({params}) {
                         <svg xmlns="http://www.w3.org/2000/svg" width="44.561" height="51.829"
                              viewBox="0 0 44.561 51.829">
                             <path d="M31.339,20.972A13.523,13.523,0,1,1,17.817,7.45,13.522,13.522,0,0,1,31.339,20.972"
-                                  transform="translate(4.568 7.915)" fill="none" stroke="#04add1" stroke-width="2.5"/>
+                                  transform="translate(4.568 7.915)" fill="none" stroke="#04add1" strokeWidth="2.5"/>
                             <rect width="42.061" height="49.329" rx="1.8"
-                                  transform="translate(1.25 1.25)" fill="none" stroke="#04add1" stroke-linecap="round"
-                                  stroke-linejoin="round" stroke-width="2.5"/>
+                                  transform="translate(1.25 1.25)" fill="none" stroke="#04add1" strokeLinecap="round"
+                                  strokeLinejoin="round" strokeWidth="2.5"/>
                             <path d="M7.815,11.3H10.6V22.432l2.067,2.226"
                                   transform="translate(8.304 11.997)" fill="none" stroke="#04add1"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round" stroke-width="2.5"/>
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round" strokeWidth="2.5"/>
                             <path d="M11.125,11.3h2.784V22.432l2.067,2.226"
                                   transform="translate(11.814 11.997)" fill="none" stroke="#04add1"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round" stroke-width="2.5"/>
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round" strokeWidth="2.5"/>
                             <path d="M8.158,5.709a2.1,2.1,0,1,1-2.1-2.1,2.1,2.1,0,0,1,2.1,2.1"
                                   transform="translate(4.215 3.841)" fill="#04add1"/>
                             <path d="M12.013,5.709a2.1,2.1,0,1,1-2.1-2.1,2.1,2.1,0,0,1,2.1,2.1"
@@ -170,7 +169,7 @@ export default function Page({params}) {
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <Marker position={[bien.markers.latitude, bien.markers.longitude]}></Marker>
+                    <Marker icon={marker} position={[bien.markers.latitude, bien.markers.longitude]}></Marker>
                 </MapContainer>
 
                 <div style={{margin: '50px 0 110px 0'}}>
