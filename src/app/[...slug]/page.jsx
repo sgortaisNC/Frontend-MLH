@@ -13,6 +13,7 @@ const fetcher = url => fetch(url).then(r => r.json())
 
 export default function Page({params}) {
 
+
     const lastSlug = params.slug[params.slug.length - 1]
 
     const {data, error} = useSWR(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/page/${lastSlug}`, fetcher)

@@ -4,6 +4,7 @@ import Titre from "@/components/Titre/Titre";
 import useSWR from "swr";
 import Link from "next/link";
 import PostNotFound from "@/app/not-found";
+import './offre.scss';
 
 const fetcher = url => fetch(url).then(r => r.json());
 
