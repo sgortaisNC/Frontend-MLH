@@ -33,6 +33,7 @@ export default function Page({params}) {
             <div className="text-center">
                 <Image height={503} width={1161} alt={titre} src={image}/>
             </div>
+            <hr/>
             <time>{date}</time>
             <div className="wysiwyg" dangerouslySetInnerHTML={{__html: contenu}}></div>
             <Link className={'btn'} href={"/actualites"}>Retour</Link>

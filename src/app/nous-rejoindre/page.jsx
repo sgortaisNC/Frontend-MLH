@@ -15,7 +15,7 @@ export default function Page() {
     if (!data) return <></>
 
 
-    const nbPerPage = 1;
+    const nbPerPage = 12;
     const pageMax = Math.ceil(data.emplois.length / nbPerPage);
     const minNumber = Math.max(0, page - 2);
     const maxNumber = Math.min(pageMax, page + 3);
@@ -24,7 +24,7 @@ export default function Page() {
 
 
     return <main>
-        <Titre titre={'Nos actualités'}/>
+        <Titre titre={`Nos offres d'emplois`}/>
 
         <div className="container">
             <div id="result" className="actualites__grid" style={{marginBottom: "50px"}}>

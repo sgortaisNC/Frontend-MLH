@@ -20,7 +20,7 @@ export default function Ariane() {
                     </svg>
                     Accueil
                 </Link></li>
-                <li><span>Ariane</span></li>
+                <li><span>Ariane [DONNEES A ENVOYER]</span></li>
             </ul>
         </div>
     </section>
