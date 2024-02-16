@@ -4,6 +4,7 @@ import PostNotFound from "@/app/not-found";
 import OffreTeaser from "@/components/OffreTeaser/OffreTeaser";
 import {useState} from "react";
 import Titre from "@/components/Titre/Titre";
+import Link from "next/link";
 
 const fetcher = url => fetch(url).then(r => r.json())
 
@@ -24,9 +25,10 @@ export default function Page() {
 
 
     return <main>
-        <Titre titre={`Nos offres d'emplois`}/>
+        <Titre titre={`Liste des offres d'emploi`}/>
 
         <div className="container">
+            <Link href={"/montlucon-habitat/nous-rejoindre/candidature-spontanee"} className="btn btn--xs btn--outline">aze</Link>
             <div id="result" className="actualites__grid" style={{marginBottom: "50px"}}>
                 {posts.map(post => <OffreTeaser key={post.id} offre={post}/>)}
             </div>

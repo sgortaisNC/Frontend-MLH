@@ -1,7 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 export default function TeaserLogement({bien}) {
 
-    return <a href={bien.lien} className="bien-teaser">
+    return <Link href={bien.lien} className="bien-teaser">
         <h3>{bien.titre}</h3>
         <div className="card">
             <figure>
@@ -114,6 +115,6 @@ export default function TeaserLogement({bien}) {
 
             </div>
         </div>
-    </a>
+    </Link>
 
 }
