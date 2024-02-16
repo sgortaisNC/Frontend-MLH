@@ -11,7 +11,7 @@ export default function TeaserActu({actu}) {
                     <Image src={image} width={469} height={362} alt={titre}/>
                     <figcaption>
                         <time dateTime={date}><b>{jour}</b>{mois}</time>
-                        <h3>{titre}</h3>
+                        <h3 dangerouslySetInnerHTML={{__html: titre}}></h3>
                     </figcaption>
                 </figure>
             </article>

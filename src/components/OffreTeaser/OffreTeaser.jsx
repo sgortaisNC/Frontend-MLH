@@ -3,7 +3,7 @@ import './OffreTeaser.scss';
 export default function OffreTeaser({offre}) {
     return <a href={offre.lien} className="offre-teaser">
         <div className='offre__header'>
-            <div className="offre__title">{offre.titre}</div>
+            <div className="offre__title" dangerouslySetInnerHTML={{__html: offre.titre}}></div>
             <div className='offre__ref'>
                 <b>Référence</b> #{offre.reference}
             </div>

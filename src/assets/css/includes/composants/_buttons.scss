@@ -12,7 +12,7 @@ input[type="checkbox"], input[type="radio"]{
   accent-color: var(--rouge);
 }
 
-.btn{
+.btn, .wp-element-button{
   background: var(--pourpre);
   border: 2px solid var(--pourpre);
   color: #FFFFFF;

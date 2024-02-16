@@ -124,7 +124,7 @@ export default function Header() {
                         </svg>
 
                         <form action="/recherche/" method={'GET'}>
-                            <input id="search" name="motcle" type="text" title="Effectuez une recherche par mot-clé"
+                            <input id="search" name="motcle" required={true} type="text" title="Effectuez une recherche par mot-clé"
                                    onBlur={() => {setTimeout(() => {setSearch(false)},150)}}
                             />
                             <button type="submit" className="btn btn--xs">Recherche</button>
