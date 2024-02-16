@@ -5,6 +5,7 @@ import Titre from "@/components/Titre/Titre";
 import Link from "next/link";
 import './bien.scss';
 import {MapComponent} from "@/components/Map/MapComponent";
+import {EmblaCarousel} from "@/components/EmblaCarousel/EmblaCarousel";
 
 const fetcher = url => fetch(url).then(r => r.json())
 
@@ -19,11 +20,16 @@ export default function Page({params}) {
 
     const bien = data[0];
 
+    const OPTIONS = {}
+    const SLIDE_COUNT = 10
+    const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+
     return (
         <>
             <Titre titre={bien.titre}/>
             <div className="container">
                 <h3>Carousel</h3>
+                <EmblaCarousel slides={SLIDES} options={OPTIONS} />
                 [MANQUE LES IMAGES SECONDAIRES]
 
                 <h2>Informations principales</h2>
