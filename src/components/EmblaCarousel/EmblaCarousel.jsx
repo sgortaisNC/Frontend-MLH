@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useCallback} from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import {Thumb} from './EmblaCarouselThumbsButton'
-import imageByIndex from './imageByIndex'
 import './embla.scss';
 
 export const EmblaCarousel = (props) => {
@@ -47,11 +46,11 @@ export const EmblaCarousel = (props) => {
         <div className="embla">
             <div className="embla__viewport" ref={emblaMainRef}>
                 <div className="embla__container">
-                    {slides.map((index) => (
+                    {slides.map((url, index) => (
                         <div className="embla__slide" key={index}>
                             <img
                                 className="embla__slide__img"
-                                src={imageByIndex(index)}
+                                src={url}
                                 alt="Your alt text"
                             />
                         </div>
@@ -69,12 +68,12 @@ export const EmblaCarousel = (props) => {
                 <div className="embla-thumbs">
                     <div className="embla-thumbs__viewport" ref={emblaThumbsRef}>
                         <div className="embla-thumbs__container">
-                            {slides.map((index) => (
+                            {slides.map((url, index) => (
                                 <Thumb
                                     onClick={() => onThumbClick(index)}
                                     selected={index === selectedIndex}
                                     index={index}
-                                    imgSrc={imageByIndex(index)}
+                                    imgSrc={url}
                                     key={index}
                                 />
                             ))}
