@@ -7,7 +7,7 @@ export default function Titre({titre, chapo}) {
     return <>
         <section className={'titre'}>
             <div className="container">
-                <h1>{titre}</h1>
+                <h1 dangerouslySetInnerHTML={{__html: titre}}></h1>
                 {chapo && <div className="chapo" dangerouslySetInnerHTML={{__html: chapo}}></div>}
                 <Share/>
             </div>
