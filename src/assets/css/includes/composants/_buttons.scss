@@ -50,6 +50,16 @@ input[type="checkbox"], input[type="radio"]{
     border-width: 1px;
     line-height: 1;
   }
+
+  &--green{
+    background: transparent;
+    border-color: var(--vert);
+    color: var(--vert);
+    &:hover{
+      background: #F6FAEA;
+      color: var(--vert);
+    }
+  }
 }
 
 .type{
@@ -64,4 +74,9 @@ input[type="checkbox"], input[type="radio"]{
   letter-spacing: 0.05em;
 
   transition: var(--transition);
+}
+
+.spontanee{
+  text-align: right;
+  margin-bottom: 50px;
 }

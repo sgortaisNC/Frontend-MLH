@@ -1,10 +1,11 @@
 import './SearchResult.scss'
+import Link from "next/link";
 export default function SearchResult({data}){
     return <>
         <div className="search-result">
-            <h3>{data.post_title}</h3>
-            <p>{data.post_excerpt}</p>
-            <a href="#" className="btn btn--xs">[URL MANQUANTE]</a>
+            <h3>{data.titre}</h3>
+            <p dangerouslySetInnerHTML={{__html: data.resume}}></p>
+            <Link href={data.lien} className="btn btn--xs">Lire la suite</Link>
         </div>
     </>
 }

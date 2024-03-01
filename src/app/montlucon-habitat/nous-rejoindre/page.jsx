@@ -28,7 +28,28 @@ export default function Page() {
         <Titre titre={`Liste des offres d'emploi`}/>
 
         <div className="container">
-            <Link href={"/montlucon-habitat/nous-rejoindre/candidature-spontanee"} className="btn btn--xs btn--outline">aze</Link>
+            <div className="spontanee">
+            <Link href={"/montlucon-habitat/nous-rejoindre/candidature-spontanee"} className="btn btn--xs btn--green">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30.22" height="29.807" viewBox="0 0 30.22 29.807">
+                    <g transform="translate(-1329.608 -517.314)">
+                        <g transform="translate(1329.908 517.614)">
+                            <path d="M28.157,34.489h2.678a.53.53,0,1,0,0-1.059H28.157a.53.53,0,1,0,0,1.059Z" transform="translate(-15.148 -18.069)" fill="#a7c830" stroke="#a7c830" stroke-width="0.6"/>
+                            <path d="M36.738,33.959a.529.529,0,0,0,.529.529h7.687a.529.529,0,1,0,0-1.059H37.267A.529.529,0,0,0,36.738,33.959Z" transform="translate(-19.434 -18.069)" fill="#a7c830" stroke="#a7c830" stroke-width="0.6"/>
+                            <path d="M28.157,41.15H40.482a.53.53,0,1,0,0-1.059H28.157a.53.53,0,1,0,0,1.059Z" transform="translate(-15.148 -21.203)" fill="#a7c830" stroke="#a7c830" stroke-width="0.6"/>
+                            <path d="M31.784,46.752H28.157a.53.53,0,1,0,0,1.059h3.627a.53.53,0,1,0,0-1.059Z" transform="translate(-15.148 -24.338)" fill="#a7c830" stroke="#a7c830" stroke-width="0.6"/>
+                            <path d="M42.925,46.752H38.683a.53.53,0,1,0,0,1.059h4.242a.53.53,0,1,0,0-1.059Z" transform="translate(-20.101 -24.338)" fill="#a7c830" stroke="#a7c830" stroke-width="0.6"/>
+                            <path d="M32.387,19.541a5.269,5.269,0,1,0,3.38-9.31A5.29,5.29,0,0,0,32.387,19.541Zm.907-.637v-.65a2.487,2.487,0,0,1,4.945,0v.65A4.225,4.225,0,0,1,33.294,18.9Zm2.472-3.932A1.033,1.033,0,1,1,36.8,13.939a1.033,1.033,0,0,1-1.033,1.033Zm0-3.682a4.232,4.232,0,0,1,3.5,6.551,3.306,3.306,0,0,0-1.939-2.523,2.092,2.092,0,1,0-3.123,0,3.3,3.3,0,0,0-1.938,2.524,4.232,4.232,0,0,1,3.5-6.55Z" transform="translate(-16.502 -7.153)" fill="#a7c830" stroke="#a7c830" stroke-width="0.6"/>
+                            <g transform="translate(0 0)">
+                                <path d="M32.1,4.418H14.538A1.574,1.574,0,0,0,12.966,5.99V22.526a5.781,5.781,0,1,0,.014,9.664,1.569,1.569,0,0,0,1.558,1.436H28.315a1.581,1.581,0,0,0,1.123-.465l3.781-3.839a1.577,1.577,0,0,0,.457-1.146V5.99A1.574,1.574,0,0,0,32.1,4.418ZM5.086,27.362a4.722,4.722,0,1,1,4.722,4.722,4.728,4.728,0,0,1-4.722-4.722Zm8.94,4.691V31.3a5.812,5.812,0,0,0,0-7.883V5.99a.514.514,0,0,1,.513-.513H32.1a.514.514,0,0,1,.513.513V27.645H29.36a1.574,1.574,0,0,0-1.572,1.572v3.35H14.538a.514.514,0,0,1-.513-.513Zm14.821.2V29.216a.514.514,0,0,1,.513-.513h2.981Z" transform="translate(-4.057 -4.418)" fill="#a7c830" stroke="#a7c830" stroke-width="0.6"/>
+                                <path d="M6.9,25.835,8.826,27.7l3.239-3.246" transform="translate(-3.896 -2.984)" fill="none" stroke="#a7c830" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+
+                Candidature spontanée
+            </Link>
+            </div>
             <div id="result" className="actualites__grid" style={{marginBottom: "50px"}}>
                 {posts.map(post => <OffreTeaser key={post.id} offre={post}/>)}
             </div>

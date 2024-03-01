@@ -1,6 +1,9 @@
 import './OffreTeaser.scss';
 
 export default function OffreTeaser({offre}) {
+
+
+
     return <a href={offre.lien} className="offre-teaser">
         <div className='offre__header'>
             <div className="offre__title" dangerouslySetInnerHTML={{__html: offre.titre}}></div>
