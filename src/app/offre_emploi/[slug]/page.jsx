@@ -21,9 +21,14 @@ export default function Page({params}) {
 
     const offre = data[0];
 
+    const ariane = [
+        {label: "Liste des offres d'emploi", url: '/montlucon-habitat/nous-rejoindre'},
+        {label: offre.titre, url: ''}
+    ]
+
     return (
         <>
-            <Titre titre={offre.titre} chapo={offre.chapo}/>
+            <Titre titre={offre.titre} chapo={offre.chapo} ariane={ariane}/>
 
             <div className="container" style={{marginBottom: "50px"}}>
                 <div className="infos">
@@ -88,7 +93,7 @@ export default function Page({params}) {
                     }
                 </div>
 
-                <div className="text-center" style={{marginBottom:50, marginTop:50}}>
+                <div className="text-center" style={{marginBottom: 50, marginTop: 50}}>
                     <a href={offre.postuler} className={'btn btn--outline'}>Postuler à cette offre</a>
                 </div>
                 {offre.description && <>

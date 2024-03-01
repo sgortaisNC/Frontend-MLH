@@ -24,7 +24,7 @@ export default function Page() {
 
 
     return <main>
-        <Titre titre={'Nos actualités'}/>
+        <Titre titre={'Nos actualités'} ariane={[{label: "Nos actualités", url:""}]}/>
 
         <div className="container">
             <div id="result" className="actualites__grid" style={{marginBottom: "50px"}}>

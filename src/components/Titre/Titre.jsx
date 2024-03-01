@@ -3,7 +3,8 @@ import Share from "@/components/Share/Share";
 import Ariane from "@/components/Ariane/Ariane";
 
 
-export default function Titre({titre, chapo}) {
+export default function Titre({titre, chapo, ariane = []}){
+
     return <>
         <section className={'titre'}>
             <div className="container">
@@ -12,7 +13,7 @@ export default function Titre({titre, chapo}) {
                 <Share/>
             </div>
         </section>
-        <Ariane />
+        <Ariane ariane={ariane}/>
     </>
 
 }

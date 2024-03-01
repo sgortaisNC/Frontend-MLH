@@ -79,7 +79,7 @@ export default function Page() {
 
     return <div>
 
-        <Titre titre={'Biens à louer'}/>
+        <Titre titre={'Biens à louer'} ariane={[{label: 'Biens à louer', url:''}]}/>
         <div className="container" style={{marginBottom: '50px'}}>
 
             <button type={'button'} onClick={() => setVueListe(false)}>

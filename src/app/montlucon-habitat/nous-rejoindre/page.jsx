@@ -25,7 +25,7 @@ export default function Page() {
 
 
     return <main>
-        <Titre titre={`Liste des offres d'emploi`}/>
+    <Titre titre={`Liste des offres d'emploi`} ariane={[{label: "Liste des offres d'emploi", url:''}]}/>
 
         <div className="container">
             <div className="spontanee">

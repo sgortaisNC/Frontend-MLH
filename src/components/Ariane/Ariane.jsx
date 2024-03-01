@@ -1,7 +1,8 @@
 import "./Ariane.scss";
 import Link from "next/link";
 
-export default function Ariane() {
+export default function Ariane({ariane}) {
+
     return <section id={'ariane'} className={'ariane'}>
         <div className="container">
             <ul className="ariane__content">
@@ -20,7 +21,11 @@ export default function Ariane() {
                     </svg>
                     Accueil
                 </Link></li>
-                <li><span>Ariane [DONNEES A ENVOYER]</span></li>
+                {ariane.map((item, index) => {
+                    return <li key={index}>
+                        {item.url !== '' ? <Link href={item.url} dangerouslySetInnerHTML={{__html: item.label}}></Link> : <span dangerouslySetInnerHTML={{__html: item.label}}></span>}
+                    </li>
+                })}
             </ul>
         </div>
     </section>

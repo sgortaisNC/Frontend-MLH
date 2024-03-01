@@ -36,7 +36,7 @@ export default function Page() {
 
     return (
         <>
-            <Titre titre={`Votre recherche pour "${recherche.s}"`}/>
+            <Titre titre={`Votre recherche pour "${recherche.s}"`} ariane={[{label: "Votre recherche", url: ''}]}/>
             <div className="container">
                 <h2>{recherche.results.length} résultat{recherche.results.length > 1 ? "s" : null}</h2>
 

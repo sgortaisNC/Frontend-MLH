@@ -25,12 +25,22 @@ export default function Page({params}) {
     if (error) return <PostNotFound/>
     if (!data) return <></>
 
+    const ariane = [
+        {
+            label: 'Nos actualités',
+            url: '/actualites'
+        },{
+            label: data[0].titre,
+            url: ''
+        }
+    ]
+
 
     const {titre, image, contenu, chapo, date} = data[0];
 
 
     return <main style={{marginBottom: '50px'}}>
-        <Titre titre={titre} chapo={chapo}/>
+        <Titre titre={titre} chapo={chapo} ariane={ariane}/>
         <div className="container">
             <div className="text-center">
                 <Image height={503} width={1161} alt={titre} src={image}/>

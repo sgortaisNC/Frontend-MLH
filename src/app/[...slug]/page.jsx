@@ -21,7 +21,7 @@ export default function Page({params}) {
     if (!data) return <></>
     if (data.length === 0) return <PostNotFound/>
 
-    const {titre, chapo, image, contenu, formulaire, formID, documents, liens} = data[0];
+    const {titre, chapo, image, contenu, formulaire, formID, documents, liens, ariane} = data[0];
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -38,7 +38,7 @@ export default function Page({params}) {
     }
 
     return <div>
-        <Titre titre={titre} chapo={chapo}/>
+        <Titre titre={titre} chapo={chapo} ariane={ariane}/>
         <div
             className={(documents && documents.length > 0) || (liens && liens.length > 0) ? "container container--inner" : "container"}>
             {(documents && documents.length > 0) || (liens && liens.length > 0) ?

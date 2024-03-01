@@ -71,9 +71,14 @@ export default function Page({params}) {
     }
 
 
+    const ariane = [
+        {label: 'Biens à louer', url:'/bien_louer'},
+        {label: bien.titre, url:''},
+    ]
+
     return (
         <>
-            <Titre titre={bien.titre}/>
+            <Titre titre={bien.titre} ariane={ariane}/>
             <div className="container">
                 <EmblaCarousel slides={SLIDES} options={OPTIONS}/>
 
