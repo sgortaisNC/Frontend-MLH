@@ -164,7 +164,7 @@ export default function Page() {
 
             <div id="result" className="actualites__grid" style={{marginBottom: "50px"}}>
                 {posts.length > 0 ? posts.map(post => <OffreTeaser key={post.id} offre={post}/>) :
-                    <h2>Aucune offres n&apos;est disponible pour le moment.</h2>
+                    <h2>Aucune offre n&apos;est disponible pour le moment.</h2>
                 }
             </div>
 
