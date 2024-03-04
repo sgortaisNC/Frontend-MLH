@@ -168,7 +168,7 @@ export default function Page() {
                 }
             </div>
 
-            {data.emplois.length > nbPerPage && <div className={'pagination'}>
+            {offres.length > nbPerPage && <div className={'pagination'}>
 
                 {page > 0 ? <button className={'page-arrow'} onClick={() => {
                     setPage(page - 1);
