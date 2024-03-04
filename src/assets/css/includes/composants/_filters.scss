@@ -1,4 +1,5 @@
-.filtres{
+.filtres {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,25 +8,41 @@
   background: var(--bgFiltres);
   gap: 50px;
   margin-bottom: 75px;
-  > *{
+
+  input {
+    accent-color: var(--pourpre);
+  }
+
+  .range {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  input[type=range] {
+    padding: 0;
+    width: 100%;
+  }
+
+  > * {
     flex: 1;
   }
 
-  label{
+  label:not(.checkLab) {
     font-weight: 600;
     margin-bottom: 7px;
     display: block;
     font-size: 18px;
   }
 
-  .action{
+  .action {
     align-self: flex-end;
     align-items: center;
     display: flex;
     gap: 30px;
   }
 
-  .reset{
+  .reset {
     font-weight: 500;
     font-size: 18px;
     line-height: 29px;
@@ -37,26 +54,29 @@
 
   }
 
-  @media screen and (max-width: 1000px){
+  @media screen and (max-width: 1000px) {
     flex-direction: column;
     padding: 50px 20px;
-    > *{
+    > * {
       width: 80%;
     }
-    .action{
+    .action {
       align-self: center;
     }
   }
 
   @media screen and (max-width: 500px) {
-    .action{
-        flex-direction: column;
-        gap: 20px;
+    > * {
+      width: 95%;
+    }
+    .action {
+      flex-direction: column;
+      gap: 20px;
     }
   }
 }
 
-.mySelect{
+.mySelect {
   background: white;
   border-radius: 100px;
   width: 100%;
@@ -64,30 +84,97 @@
   padding-left: 22px;
   padding-right: 22px;
   border: 1px solid var(--bordureSelect);
-  &__menu-list{
+
+  &__menu-list {
     background: white;
     margin-left: -22px;
     margin-top: 5px;
     border: 1px solid var(--bordureSelect);
 
   }
-  &__indicators{
+
+  &__indicators {
     position: relative;
     left: 15px;
   }
-  &__option{
+
+  &__option {
     padding: 12px 22px 10px 22px;
     font-size: 16px;
     font-weight: 600;
     color: var(--fontColor);
-    &:hover{
+
+    &:hover {
       background: var(--lightGrey);
     }
   }
 
 }
 
+.vues {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  z-index: 3;
+  width: auto;
 
-.selecteur{
+  button {
+    border-radius: var(--radius);
+    display: inline-flex;
+    gap: 5px;
+    background: var(--vert);
+    padding: 15px 15px 11px 15px;
+    color: white;
 
+    svg {
+      position: relative;
+      top: -2px;
+    }
+
+    transition: var(--transition);
+
+    &:hover, &.active {
+      background: var(--fontColor);
+    }
+  }
+}
+
+.gridBiens {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+
+
+  @media screen and (max-width: 1000px) {
+    padding: 0 20px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 25px;
+  }
+}
+
+.bottomAction {
+  margin-top: 40px;
+  padding-top: 25px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  border-top: 1px solid #C4CCD0;
+}
+
+.checkboxes {
+  label {
+    margin-right: 40px;
+    display: inline-flex;
+    align-items: center;
+
+    input {
+      width: 18px;
+      margin-right: 5px;
+      position: relative;
+      top: -2px;
+    }
+  }
 }
