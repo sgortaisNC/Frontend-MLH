@@ -1,0 +1,93 @@
+.filtres{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -20px;
+  padding: 50px;
+  background: var(--bgFiltres);
+  gap: 50px;
+  margin-bottom: 75px;
+  > *{
+    flex: 1;
+  }
+
+  label{
+    font-weight: 600;
+    margin-bottom: 7px;
+    display: block;
+    font-size: 18px;
+  }
+
+  .action{
+    align-self: flex-end;
+    align-items: center;
+    display: flex;
+    gap: 30px;
+  }
+
+  .reset{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 29px;
+    gap: 10px;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    color: #4b7388;
+
+  }
+
+  @media screen and (max-width: 1000px){
+    flex-direction: column;
+    padding: 50px 20px;
+    > *{
+      width: 80%;
+    }
+    .action{
+      align-self: center;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .action{
+        flex-direction: column;
+        gap: 20px;
+    }
+  }
+}
+
+.mySelect{
+  background: white;
+  border-radius: 100px;
+  width: 100%;
+
+  padding-left: 22px;
+  padding-right: 22px;
+  border: 1px solid var(--bordureSelect);
+  &__menu-list{
+    background: white;
+    margin-left: -22px;
+    margin-top: 5px;
+    border: 1px solid var(--bordureSelect);
+
+  }
+  &__indicators{
+    position: relative;
+    left: 15px;
+  }
+  &__option{
+    padding: 12px 22px 10px 22px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--fontColor);
+    &:hover{
+      background: var(--lightGrey);
+    }
+  }
+
+}
+
+
+.selecteur{
+
+}
