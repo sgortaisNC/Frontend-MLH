@@ -1,3 +1,18 @@
+input {
+  accent-color: var(--pourpre);
+}
+
+.range {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type=range] {
+  padding: 0;
+  width: 100%;
+}
+
 .filtres {
   position: relative;
   display: flex;
@@ -8,22 +23,6 @@
   background: var(--bgFiltres);
   gap: 50px;
   margin-bottom: 75px;
-
-  input {
-    accent-color: var(--pourpre);
-  }
-
-  .range {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  input[type=range] {
-    padding: 0;
-    width: 100%;
-  }
-
   > * {
     flex: 1;
   }

@@ -31,7 +31,7 @@
       grid-column: 2/4;
       grid-row: 1;
       background: white;
-      padding: 90px calc((100vw - 1457px) / 2) 85px 108px;
+      padding: 50px calc((100vw - 1457px) / 2) 35px 108px;
       @include laptop {
         padding: 30px 15px 30px 15px;
         grid-column: 1/-1;
@@ -64,23 +64,25 @@
         grid-template-rows: repeat(3, 63px) 57px;
         @include phone{
             grid-template-columns: 1fr;
-            grid-template-rows: repeat(5, 63px) 57px;
+            grid-template-rows: repeat(6, 63px) 57px;
         }
-        gap: 24px;
+        gap: 40px 55px;
         background: var(--lightBleu);
         border-radius: 0 var(--radius) var(--radius) var(--radius);
         padding: 35px;
 
-        label {
+        label:not(.checkLab) {
           font-weight: 600;
           font-size: 20px;
+          display: block;
+          margin-bottom: 5px;
         }
       }
 
       .ctas {
         grid-row: 4;
         @include phone{
-            grid-row: 6;
+            grid-row: 7;
         }
         grid-column: 1/-1;
         justify-self: end;

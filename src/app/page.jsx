@@ -8,10 +8,16 @@ import Chiffre from "@/components/Chiffre/Chiffre";
 import useSWR from "swr";
 import PostNotFound from "@/app/not-found";
 import Select from "react-select";
+import {useState} from "react";
 
 const fetcher = url => fetch(url).then(r => r.json())
 
 export default function Home() {
+
+    const [type, setType] = useState('');
+    const [rayon, setRayon] = useState(50);
+    const [surface, setSurface] = useState(250);
+    const [loyer, setLoyer] = useState(1500);
 
     const {data, error} = useSWR("https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/homepage", fetcher)
     if (error) return <PostNotFound/>
@@ -68,34 +74,66 @@ export default function Home() {
                                     <label htmlFor="commune">Commune</label>
                                 </div>
                                 <div className="field__input">
-                                    <Select options={data.filtres.villes}
-                                            name={"ville"}
-                                            isClearable={true}
-                                            isSearchable={true}
-                                            placeholder="Sélectionnez une ville"/>
+                                    <Select
+                                        className={"mySelect"}
+                                        classNamePrefix={"mySelect"}
+                                        unstyled={true}
+                                        options={data.filtres.villes}
+                                        name={"ville"}
+                                        isClearable={true}
+                                        isSearchable={true}
+                                        placeholder="Sélectionnez une ville"/>
                                 </div>
                             </div>
                             <div className="field">
                                 <div className="field__label">
-                                    <label htmlFor="commune">Rayon</label>
+                                    <label htmlFor="commune">Rayon : {rayon}km</label>
                                 </div>
                                 <div className="field__input">
-                                    <select name="" id="commune">
-                                        <option value="">Option 1</option>
-                                        <option value="">Option 2</option>
-                                        <option value="">Option 3</option>
-                                    </select>
+                                    <div className="range">
+                                        <span>
+                                            0km
+                                        </span>
+                                        <input name={'rayon'} type="range" min="0" max="50"
+                                               value={rayon}
+                                               onChange={(e) => {
+                                                   setRayon(e.target.value)
+                                               }}
+                                        />
+                                        <span>
+                                            50km
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                             <div className="field">
                                 <div className="field__label">
-                                    <label htmlFor="commune">Appartement / Maison</label>
+                                    <label htmlFor="commune">Type de bien</label>
                                 </div>
                                 <div className="field__input">
-                                    <Select options={data.filtres.types}
-                                            search={true}
-                                            name="type"
-                                            placeholder="Type de logement"/>
+                                    <div className="checkboxes">
+                                        <label className={'checkLab'}>
+                                            <input
+                                                type="checkbox"
+                                                name={"type"}
+                                                value={'7'}
+                                                onChange={(e) => {
+                                                    setType(e.target.value)
+                                                }}
+                                                {...type === '7' ? {checked: true} : {checked: false}}
+                                            /> Appartement
+                                        </label>
+                                        <label className={'checkLab'}>
+                                            <input type="checkbox"
+                                                   name={"type"}
+                                                   onChange={(e) => {
+                                                       setType(e.target.value)
+                                                   }}
+                                                   value={'8'}
+                                                   {...type === '8' ? {checked: true} : {checked: false}}
+                                            /> Maison
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                             <div className="field">
@@ -103,23 +141,54 @@ export default function Home() {
                                     <label htmlFor="commune">Nombre de pièces</label>
                                 </div>
                                 <div className="field__input">
-                                    <Select options={data.filtres.nombre_piece}
-                                            isSearchable={true}
-                                            isClearable={true}
-                                            name="nombre"
-                                            placeholder="Exemple de selecteur"/>
+                                    <Select
+                                        className={"mySelect"}
+                                        classNamePrefix={"mySelect"}
+                                        unstyled={true}
+                                        options={data.filtres.nombre_piece}
+                                        isSearchable={true}
+                                        isClearable={true}
+                                        name="nombre"
+                                        placeholder="Exemple de selecteur"/>
                                 </div>
                             </div>
                             <div className="field">
                                 <div className="field__label">
-                                    <label htmlFor="commune">Loyer</label>
+                                    <label htmlFor="commune">Surface : {surface}m²</label>
                                 </div>
                                 <div className="field__input">
-                                    <select name="" id="commune">
-                                        <option value="">Option 1</option>
-                                        <option value="">Option 2</option>
-                                        <option value="">Option 3</option>
-                                    </select>
+                                    <div className="range">
+                                        <span>10m²</span>
+                                        <input name="surface"
+                                               type="range"
+                                               min={10}
+                                               max={250}
+                                               step={10}
+                                               value={surface}
+                                               onChange={(e) => {
+                                                   setSurface(e.target.value)
+                                               }}
+                                        />
+                                        <span>250m²</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="field">
+                                <div className="field__label">
+                                    <label htmlFor="commune">Loyer : {loyer}€/mois</label>
+                                </div>
+                                <div className="field__input">
+                                    <div className="range">
+                                        <span>200€</span>
+                                        <input name={'loyer'}
+                                               type="range"
+                                               min={200}
+                                               max={1500}
+                                               step={25}
+                                               onChange={(e) => setLoyer(e.target.value)}
+                                               value={loyer}/>
+                                        <span>1500€</span>
+                                    </div>
                                 </div>
                             </div>
                             <div className="ctas">

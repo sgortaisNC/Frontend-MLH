@@ -20,7 +20,6 @@ export default function Page() {
         setNombre(data.get('nombre'));
         setType(data.get('type'));
         setIsLoaded(false);
-        console.log('test')
         return false;
     }
 
@@ -35,33 +34,35 @@ export default function Page() {
     const [surface, setSurface] = useState(250);
     const [type, setType] = useState('');
     const [rayon, setRayon] = useState(50);
-    const [loyer, setLoyer] = useState(1000);
+    const [loyer, setLoyer] = useState(1500);
 
     const [vueListe, setVueListe] = useState(true);
 
-    const [defaultFiltres, setDefaultFiltres] = useState(null);
+    const [isReady, setIsReady] = useState(false);
 
 
     useEffect(() => {
-        console.log('useEffect');
+
+        if (!isReady) {
+            const url = new URL(window.location.href);
+            if (url.searchParams !== undefined) {
+                setVille(url.searchParams.get('ville') || '');
+                setNombre(url.searchParams.get('nombre') || '');
+                setSurface(url.searchParams.get('surface') || 250);
+                setType(url.searchParams.get('type') || '');
+                setRayon(url.searchParams.get('rayon') || 50);
+                setLoyer(url.searchParams.get('loyer') || 1500);
+            }
+        }
+
         fetch(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/biens-louer?loyer=${loyer}&ville=${ville}&rayon=${rayon}&type=${type}&surface=${surface}&nombre=${nombre}`).then(r => {
             return r.json();
         }).then(r => {
             setBiens(r.louer);
             setFiltres(r.filtres);
-            console.log(r.filtres)
-            setDefaultFiltres({
-                nombre: nombre === "" ? null : {
-                    "value": nombre,
-                    "label": r.filtres.nombre_piece.find(f => f.value === parseInt(nombre)).label
-                },
-                ville: ville === "" ? null : {
-                    "value": ville,
-                    "label": r.filtres.villes.find(f => f.value === parseInt(ville)).label
-                },
-            })
 
-            setIsLoaded(true)
+            setIsLoaded(true);
+            setIsReady(true);
         });
     }, [isLoaded]);
 
@@ -69,8 +70,9 @@ export default function Page() {
         window.location.reload()
     }
 
+    if (!isReady) return <></>
 
-    if (filtres === []) return <></>
+
 
     const nbPerPage = 12;
     const pageMax = Math.ceil(biens.length / nbPerPage);
@@ -78,9 +80,6 @@ export default function Page() {
     const maxNumber = Math.min(pageMax, page + 3);
 
     const louer = biens.slice(page * nbPerPage, page * nbPerPage + nbPerPage);
-
-    if (!defaultFiltres) return <></>
-
     return <div>
 
         <Titre titre={'Biens à louer'} ariane={[{label: 'Biens à louer', url: ''}]}/>
@@ -116,7 +115,10 @@ export default function Page() {
                                 className={'mySelect'}
                                 unstyled={true}
                                 classNamePrefix={"mySelect"}
-                                name="ville" defaultValue={defaultFiltres.ville} options={filtres.villes}
+                                name="ville"
+
+                                defaultValue={filtres.villes.find(v => v.value === parseInt(ville)) || null}
+                                options={filtres.villes}
                                 isClearable={true}
                                 isSearchable={true}
                                 placeholder="Sélectionner"/>
@@ -171,7 +173,9 @@ export default function Page() {
                                 className={'mySelect'}
                                 unstyled={true}
                                 classNamePrefix={"mySelect"}
-                                name="nombre" defaultValue={defaultFiltres.nombre} options={filtres.nombre_piece}
+                                name="nombre"
+                                defaultValue={filtres.nombre_piece.find(v => v.value === parseInt(nombre)) || null}
+                                options={filtres.nombre_piece}
                                 isClearable={true} isSearchable={true}
                                 placeholder="Choisissez un filtre"/>
                         </div>
@@ -194,16 +198,17 @@ export default function Page() {
                         <div className="form-group">
                             <label htmlFor="">Loyer : {loyer}€/mois</label>
                             <div className="range">
-                                <span>50€</span>
+                                <span>200€</span>
                                 <input
                                     type="range"
-                                    name={"Loyer"}
-                                    step={50}
-                                    max={1000}
+                                    name={"loyer"}
+                                    step={25}
+                                    min={200}
+                                    max={1500}
                                     value={loyer}
                                     onChange={(e) => setLoyer(e.target.value)}
                                 />
-                                <span>1000€</span>
+                                <span>1500€</span>
                             </div>
 
                         </div>
