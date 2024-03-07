@@ -21,7 +21,7 @@ export default function Map({ biens, popup = false }) {
                 {popup && <Popup>
                     <h3>{bien.titre}</h3>
                     <div className="link">
-                        <Link href={bien.lien}>Voir l’annonce [slug manquant]</Link>
+                        <Link href={bien.lien}>Voir l’annonce</Link>
                     </div>
                 </Popup>}
             </Marker>)}
