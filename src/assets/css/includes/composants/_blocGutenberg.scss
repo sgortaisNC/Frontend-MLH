@@ -61,26 +61,6 @@
   background: #04add1;
 }
 
-
-/*
-.exergue{
-
-}
-
-.exergue__content{
-    background: linear-gradient(213deg, #dcf3f8 0%, #dcf3f8 -10%, #f6faea 100%);
-    position: relative;
-    padding: 66px 80px 104px 110px;
-}
-
-.exergue__content svg{
-    position: absolute;
-    top: 44px;
-    left: -16px;
-    z-index: 2;
-}
-*/
-
 .exergue {
   display: flex;
   position: relative;
@@ -123,8 +103,12 @@
   position: absolute;
   opacity: 0.6;
   top: 0;
-  right: calc(100% - 228px);
+  left: calc(100% - 228px);
   z-index: 0;
+}
+.exergue--image svg {
+  left: unset;
+  right: calc(100% - 228px);
 }
 
 .exergue__content {
@@ -136,8 +120,8 @@
 }
 
 .exergue__content h3 {
-  font-family: "League Spartan";
   font-weight: 300;
+  color: var(--fontColor);
   font-size: 25px;
   line-height: 32px;
 }
@@ -187,8 +171,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 20px;
   position: relative;
+  padding: 40px 20px 0;
 
   font-weight: 500;
   font-size: 25px;
@@ -209,7 +193,6 @@
 
 .chiffre b {
   display: block;
-  font-weight: normal;
   font-size: 55px;
   letter-spacing: 0.02em;
   line-height: 39px;
@@ -245,7 +228,7 @@
     content: '';
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: -2px;
     height: 75px;
     background: white;
     z-index: 2;

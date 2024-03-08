@@ -22,7 +22,6 @@ export default function Page({params}) {
     if (data.length === 0) return <PostNotFound/>
 
     const {titre, chapo, image, contenu, formulaire, formID, documents, liens, ariane} = data[0];
-
     function handleSubmit(e) {
         e.preventDefault();
         const form = e.target;
