@@ -15,7 +15,7 @@ const LoginPage = () => {
 
     useEffect(() => {
         if (isLoaded && token) redirect('/espace-prive');
-        setToken(window.sessionStorage.getItem('token'));
+        setToken(window.localStorage.getItem('token'));
         setIsLoaded(true);
     }, [isLoaded]);
 
@@ -36,7 +36,7 @@ const LoginPage = () => {
                 if (!r.token) {
                     throw new Error('Failed to authenticate');
                 } else {
-                    window.sessionStorage.setItem('token', r.token);
+                    window.localStorage.setItem('token', r.token);
                     setToken(r.token);
                     window.location.reload();
                 }

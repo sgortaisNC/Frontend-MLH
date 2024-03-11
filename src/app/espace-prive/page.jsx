@@ -11,7 +11,7 @@ function Dashboard() {
 
     useEffect(() => {
         if (isLoaded && !token) redirect('/connexion');
-        setToken(window.sessionStorage.getItem('token'));
+        setToken(window.localStorage.getItem('token'));
         setIsLoaded(true);
     }, [isLoaded]);
 
@@ -23,7 +23,7 @@ function Dashboard() {
             <div className="container">
 
                 <button className={"btn"} onClick={() => {
-                    window.sessionStorage.clear();
+                    window.localStorage.clear();
                     setToken(null);
                     window.location.reload();
                 }}>Se déconnecter
