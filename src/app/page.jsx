@@ -9,6 +9,7 @@ import useSWR from "swr";
 import PostNotFound from "@/app/not-found";
 import Select from "react-select";
 import {useState} from "react";
+import {MapComponent} from "@/components/Map/MapComponent";
 
 const fetcher = url => fetch(url).then(r => r.json())
 
@@ -63,10 +64,10 @@ export default function Home() {
             </div>
             <section className="module-search">
                 <div className="module-search__grid">
-                    <div id="map">
-                        <Image src="/img/dummies/map.webp" width={1096} height={773} alt=""/>
+                    <div id="map" style={{zIndex: 0}}>
+                        <MapComponent biens={data.biensMap} popup={true}/>
                     </div>
-                    <form action={"/bien_louer"} method={"GET"}>
+                    <form action={"/bien_louer"} method={"GET"} style={{zIndex: 1}}>
                         <h2>Trouvez facilement le logement <strong>qui vous correspond</strong></h2>
                         <div className="fields">
                             <div className="field">
@@ -221,8 +222,7 @@ export default function Home() {
                         <Image src={"/img/svg/infographieHome.svg"} alt={''} width={200} height={347}></Image>
                     </div>
                     <div className="keys__grid">
-                        {data.chiffres.map(chiffre => <Chiffre key={(Math.random() * 500).toFixed(0)}
-                                                               chiffre={chiffre}/>)}
+                        {data.chiffres.map((chiffre,index) => <Chiffre key={index} chiffre={chiffre} />)}
                     </div>
                 </div>
             </section>
