@@ -1,29 +1,56 @@
-input{
-    height: 55px;
-    border-radius: 55px;
-    padding-left: 25px;
-    padding-right: 75px;
-    border: 1px solid var(--bordure);
+input {
+  height: 55px;
+  border-radius: 55px;
+  padding-left: 25px;
+  padding-right: 75px;
+  border: 1px solid var(--bordure);
 }
 
-.input-grouped{
-    position: relative;
-    button{
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 100%;
-        right: 0;
-        aspect-ratio: 1;
-        background: var(--pourpre);
-    
+.input-grouped {
+  position: relative;
+
+  button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    right: 0;
+    aspect-ratio: 1;
+    background: var(--pourpre);
+
+  }
+}
+
+::placeholder {
+  font-family: "League Spartan", sans-serif;
+  color: var(--fontColor);
+}
+
+.formConnect {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  margin-bottom: 30px;
+
+  form {
+    display: grid;
+    gap: 20px;
+    place-items: center;
+    label{
+      display: block;
+      font-weight: bold;
     }
+  }
 }
 
-::placeholder{
-    font-family: "League Spartan", sans-serif;
-    color: var(--fontColor);
+.to-right{
+  display: flex;
+    justify-content: flex-end;
+    gap: 20px;
 }

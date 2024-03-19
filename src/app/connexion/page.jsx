@@ -14,11 +14,10 @@ const LoginPage = () => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        if (isLoaded && token) redirect('/espace-prive');
+        if (isLoaded && token) redirect('/montlucon-habitat/espace-administrateur');
         setToken(window.localStorage.getItem('token'));
         setIsLoaded(true);
     }, [isLoaded]);
-
 
 
     const handleSubmit = async (e) => {
@@ -41,32 +40,32 @@ const LoginPage = () => {
                     window.location.reload();
                 }
             });
-
-
             // Redirect or perform further actions upon successful login
             // For demonstration purposes, we're not handling this here
         } catch (error) {
             setToken(null);
-            setError('Le couple identifiant/mot de passe est incorrect. Veuillez réessayer.');
+            setError('Le couple email/mot de passe est incorrect. Veuillez réessayer.');
         }
     };
 
     return (
         <div>
-            <Titre titre={'Titre'}></Titre>
+            <Titre titre={'Connectez-vous à l\'espace administrateur'}></Titre>
             <div className="container">
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label>Email:</label>
-                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                    </div>
-                    <div>
-                        <label>Password:</label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                    </div>
-                    <button type="submit" className={'btn btn--xs'}>Login</button>
-                </form>
-                {error && <p style={{color: 'red'}}>{error}</p>}
+                <div className="formConnect">
+                    <form onSubmit={handleSubmit}>
+                        <div>
+                            <label>Email:</label>
+                            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                        </div>
+                        <div>
+                            <label>Mot de passe:</label>
+                            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                        </div>
+                        <button type="submit" className={'btn btn--xs'}>Se connecter</button>
+                    </form>
+                    {error && <p style={{color: 'red'}}>{error}</p>}
+                </div>
             </div>
         </div>
     );
