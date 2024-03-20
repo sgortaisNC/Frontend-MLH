@@ -2363,4 +2363,42 @@ input[type=range] {
   line-height: 25px;
   text-align: left;
   color: #04add1;
+}
+
+@media print {
+  header, footer, #ariane, .next-to, .bien_sdb__cNFpo, .btn--outline, .situation {
+    display: none;
+  }
+  body .titre {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    min-height: 0;
+    margin-bottom: 15px;
+  }
+  body .titre h1 {
+    font-size: 32px;
+  }
+  body .embla__slide__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 24/9;
+  }
+  body .infos {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+  }
+  body .embla {
+    padding: 0;
+  }
+  body .bien_flexB__Xqx6T {
+    margin-top: 30px;
+  }
+  body .bien_flex__ptBtD {
+    page-break-before: always;
+    padding-top: 50px;
+    flex-wrap: wrap;
+  }
+  body .bien_flex__ptBtD > :last-child {
+    width: 100%;
+  }
 }/*# sourceMappingURL=styles.css.map */
