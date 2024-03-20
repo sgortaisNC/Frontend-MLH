@@ -26,7 +26,14 @@ export default function ForminatorField({wrapper}) {
                             field.type === "captcha" ?
                                 null
                                 :
-                                <input type={field.type} name={field.element_id} placeholder={field.placeholder} required={field.required === "1"}/>
+                                <input 
+                                    type={field.type} 
+                                    name={field.element_id}
+                                    placeholder={field.placeholder} 
+                                    required={field.required === "1"}
+                                    readOnly={field.prefill ? true : false}
+                                    value={field.prefill ? 'Référence : ' + (new URLSearchParams(document.location.search).get(field.prefill)) : ''}
+                                />
             }
         </div>
     </div>

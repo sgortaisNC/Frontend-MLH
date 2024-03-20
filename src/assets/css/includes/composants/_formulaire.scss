@@ -6,6 +6,10 @@ input:not([type=file]) {
   border: 1px solid var(--bordure);
   font-family: "League Spartan", sans-serif;
   font-size: 16px;
+  &[readonly]{
+    background: var(--bgFiltres);
+    cursor: no-drop;
+  }
 }
 
 input::file-selector-button{
