@@ -1,9 +1,32 @@
-input {
+input:not([type=file]) {
   height: 55px;
   border-radius: 55px;
   padding-left: 25px;
   padding-right: 75px;
   border: 1px solid var(--bordure);
+  font-family: "League Spartan", sans-serif;
+  font-size: 16px;
+}
+
+input::file-selector-button{
+  border: 2px solid var(--fontColor);
+  border-radius: 50px;
+  background: white;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  color: var(--fontColor);
+}
+textarea{
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid var(--bordure);
+  font-family: "League Spartan", sans-serif;
+  font-size: 16px;
+}
+
+.form-label{
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .input-grouped {
@@ -53,4 +76,69 @@ input {
   display: flex;
     justify-content: flex-end;
     gap: 20px;
+}
+
+.innerForm{
+  input[type=checkbox]{
+    width: 25px;
+  }
+
+  input[type=name],
+  input[type=text],
+  input[type=email],
+  input[type=phone],
+  textarea {
+    width: 100%;
+  }
+  .form-group{
+    margin-bottom: 30px;
+  }
+  label{
+    margin-bottom: 10px;
+    display: block;
+    &.inlined{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      a{
+        text-decoration: underline;
+      }
+    }
+  }
+  margin-bottom: 50px;
+}
+
+.required{
+  color: var(--pourpre);
+}
+
+.form190{ // nous contacter
+  display: grid;
+  place-items: start;
+  grid-template-columns: repeat(2,1fr);
+  gap:25px;
+  .form-group{
+    width: 100%;
+  }
+  > :nth-child(6),
+  > :nth-child(7),
+  > :nth-child(8),
+  > :nth-child(9){
+    grid-column: 1 / -1;
+  }
+}
+
+
+.form180,.form185{
+  display: grid;
+  place-items: start;
+  grid-template-columns: repeat(2,1fr);
+  gap:25px;
+  .form-group{
+    width: 100%;
+  }
+  > :nth-child(6),
+  > :nth-child(7){
+    grid-column: 1 / -1;
+  }
 }

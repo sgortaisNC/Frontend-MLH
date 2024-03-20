@@ -1,0 +1,63 @@
+.offre-teaser {
+  transition: background-color 0.5s;
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(0, 109, 132, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+.offre-teaser:hover {
+  background: var(--lightBleu);
+}
+.offre-teaser ul {
+  margin-bottom: 30px;
+}
+.offre-teaser li {
+  min-height: 60px;
+  border-bottom: 1px solid rgba(0, 109, 132, 0.3);
+  display: flex;
+  align-items: center;
+  padding: 10px 25px;
+  gap: 14px;
+}
+.offre-teaser li svg {
+  margin-top: -3px;
+}
+
+.offre__header {
+  border-radius: 8px;
+  padding: 20px 25px;
+  background: linear-gradient(60deg, rgba(220, 243, 248, 0) 0%, #dcf3f8 100%);
+}
+.offre__title {
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 58px;
+}
+.offre__link {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  text-align: right;
+  color: #ac3053;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.offre__link svg {
+  margin-left: 10px;
+  position: relative;
+  top: -4px;
+}
+.offre__ref {
+  font-weight: bold;
+}
+.offre__ref b {
+  color: var(--vert);
+  font-weight: 500;
+  font-size: 16px;
+}/*# sourceMappingURL=OffreTeaser.css.map */

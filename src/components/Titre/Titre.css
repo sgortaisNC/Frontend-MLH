@@ -1,0 +1,48 @@
+.titre {
+  min-height: 414px;
+  padding-top: 260px;
+  padding-bottom: 90px;
+  display: grid;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(80deg, rgba(220, 243, 248, 0) 0%, #dcf3f8 100%) no-repeat right center;
+  background-size: 50% 100%;
+}
+@media screen and (max-width: 768px) {
+  .titre {
+    background: rgba(220, 243, 248, 0.5019607843);
+    background-size: 100%;
+    min-height: 350px;
+    padding-bottom: 50px;
+  }
+}
+.titre h1 {
+  font-size: 65px;
+  line-height: 77px;
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+@media screen and (max-width: 768px) {
+  .titre h1 {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+.titre .chapo {
+  font-size: 24px;
+  line-height: 31px;
+  max-width: min(100%, 1160px);
+}
+.titre::before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 504px;
+  height: 411px;
+  background: url("/img/autres/fleur_titre.svg") no-repeat;
+  z-index: -1;
+}
+.titre .container {
+  position: relative;
+}/*# sourceMappingURL=Titre.css.map */

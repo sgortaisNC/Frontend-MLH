@@ -4,21 +4,21 @@ export default function ForminatorField({wrapper}) {
 
     return <div className={'form-group'}>
         <label className={'form-label'}>
-            {field.field_label}
+            {field.field_label}{field.required && <span className="required">*</span>}
         </label>
         <div className={'form-input'}>
             {field.type === 'consent' ?
-                <label><input type={'checkbox'} name={field.element_id}/> <span
+                <label className="inlined"><input type={'checkbox'} name={field.element_id} required={field.required === "1"}/> <span
                     dangerouslySetInnerHTML={{__html: field.consent_description}}></span></label>
                 :
                 field.type === 'textarea' ?
-                    <textarea name={field.element_id} placeholder={field.placeholder}></textarea>
+                    <textarea name={field.element_id} placeholder={field.placeholder} required={field.required === "1"}></textarea>
                     :
                     field.type === "upload" ?
-                        <input type={'file'} name={field.element_id}/>
+                        <input type={'file'} name={field.element_id} required={field.required === "1"}/>
                         :
                         field.type === "select" ?
-                            <select name={field.element_id}>
+                            <select name={field.element_id} required={field.required === "1"}>
                                 {field.options.map(option => <option key={option.value}
                                                                      value={option.value}>{option.label}</option>)}
                             </select>
@@ -26,7 +26,7 @@ export default function ForminatorField({wrapper}) {
                             field.type === "captcha" ?
                                 null
                                 :
-                                <input type={field.type} name={field.element_id} placeholder={field.placeholder}/>
+                                <input type={field.type} name={field.element_id} placeholder={field.placeholder} required={field.required === "1"}/>
             }
         </div>
     </div>

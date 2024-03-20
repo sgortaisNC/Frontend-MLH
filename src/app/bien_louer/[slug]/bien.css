@@ -1,0 +1,40 @@
+.infos {
+  background: #DCF3F8;
+  padding: 60px 100px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 61px;
+  margin-top: -21px;
+}
+@media screen and (max-width: 1000px) {
+  .infos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 31px;
+    padding: 30px;
+  }
+}
+.infos .info {
+  display: grid;
+  text-align: center;
+  justify-items: center;
+  position: relative;
+  gap: 5px;
+}
+.infos .info svg {
+  margin-bottom: 25px;
+  height: 50px;
+}
+.infos .info:not(:last-child)::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -30px;
+  content: "";
+  width: 1px;
+  background: #D4DADD;
+}
+@media screen and (max-width: 1000px) {
+  .infos .info:not(:last-child)::after {
+    display: none;
+  }
+}/*# sourceMappingURL=bien.css.map */

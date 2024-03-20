@@ -1,0 +1,12 @@
+.date {
+  display: inline-flex;
+  background: var(--lightBleu);
+  margin-top: 20px;
+  border-radius: var(--radius);
+  gap: 20px;
+  align-items: center;
+  padding: 15px;
+}
+.date b {
+  margin-bottom: -5px;
+}/*# sourceMappingURL=singleActu.css.map */

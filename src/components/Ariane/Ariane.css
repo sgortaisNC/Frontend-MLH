@@ -1,0 +1,42 @@
+.ariane {
+  margin-top: 27px;
+  margin-bottom: 60px;
+}
+.ariane ul {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+.ariane ul li {
+  position: relative;
+}
+.ariane ul li:not(:last-child)::after {
+  position: absolute;
+  right: -15px;
+  top: 45%;
+  transform: translateY(-50%);
+  content: "";
+  width: 6px;
+  height: 10px;
+  background: url("/img/autres/chevron_ariane.svg") no-repeat;
+}
+.ariane ul li a {
+  text-decoration: underline;
+  font-weight: 500;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 22px;
+  text-align: left;
+}
+.ariane ul li a svg {
+  position: relative;
+  top: -2px;
+}
+.ariane span {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ac3053;
+}/*# sourceMappingURL=Ariane.css.map */

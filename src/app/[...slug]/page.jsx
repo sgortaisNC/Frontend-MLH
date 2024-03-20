@@ -49,7 +49,7 @@ export default function Page({params}) {
                 </div>
                 <div className="wysiwyg" dangerouslySetInnerHTML={{__html: contenu}}></div>
                 {formulaire && formID ?
-                    <form onSubmit={handleSubmit}>
+                    <form className={"innerForm form"+formID} onSubmit={handleSubmit}>
                         <input type="hidden" name="form_id" value={formID}/>
                         {formulaire.map((wrapper) => <ForminatorField key={wrapper.wrapper_id} wrapper={wrapper}/>)}
                         <button type={'submit'} className={'btn'}>Envoyer</button>

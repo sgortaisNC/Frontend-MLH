@@ -1,0 +1,136 @@
+.flex {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 55px;
+  gap: 40px;
+  justify-content: space-between;
+}
+.flex > * {
+  flex: 1;
+}
+@media screen and (max-width: 1000px) {
+  .flex {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.dpe {
+  display: grid;
+  position: relative;
+  gap: 8px;
+  padding-left: 130px;
+}
+.dpe b {
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 26px;
+}
+
+.cursor {
+  position: absolute;
+  display: grid;
+  gap: 6px;
+  left: 0;
+  text-align: right;
+}
+.cursor b {
+  font-weight: bold;
+  font-size: 27px;
+  line-height: 27px;
+  text-align: right;
+  color: #4b7388;
+  position: relative;
+}
+.cursor b::after {
+  content: "";
+  position: absolute;
+  width: 10%;
+  top: -2px;
+  bottom: -2px;
+  border: 1px solid #95A3AB;
+  border-right: none;
+  left: calc(100% + 11px);
+}
+
+.loyer {
+  border: 9px solid rgba(167, 200, 48, 0.25);
+  padding: 16px 16px 40px;
+  border-radius: var(--radius);
+}
+.loyer h2 {
+  font-weight: 600;
+  font-size: 39px;
+  background: white;
+  margin-top: -10px;
+  margin-bottom: 30px;
+  position: relative;
+  top: -20px;
+  padding: 0 10px;
+  line-height: 20px;
+  display: inline-block;
+}
+.loyer h2::after {
+  display: none;
+}
+.loyer strong {
+  font-weight: bold;
+  font-size: 47px;
+  line-height: 11px;
+  text-align: left;
+  color: #04add1;
+}
+
+.sep {
+  width: 1px;
+  height: 17px;
+  display: inline-block;
+  background: var(--vert);
+  margin-left: 12px;
+  margin-right: 12px;
+  position: relative;
+  top: 3px;
+}
+
+.flexB {
+  display: flex;
+  gap: 150px;
+  margin-top: 100px;
+  margin-bottom: 80px;
+}
+@media screen and (max-width: 1000px) {
+  .flexB {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+  }
+}
+
+.sdb {
+  flex: none;
+}
+
+.btn {
+  display: flex;
+  width: 300px;
+  gap: 20px;
+  padding-bottom: 23px;
+  align-items: center;
+  border-bottom: 2px solid var(--vert);
+  margin-bottom: 25px;
+  font-size: 25px;
+  line-height: 26px;
+}
+.btn svg {
+  flex: none;
+  width: 38px;
+}
+.btn span {
+  flex: 1;
+}
+
+.rouge {
+  border-bottom-color: #AC3053;
+}/*# sourceMappingURL=bien.module.css.map */

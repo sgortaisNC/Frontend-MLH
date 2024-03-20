@@ -1,0 +1,14 @@
+.biens_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 23px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+@media screen and (max-width: 1400px) {
+  .biens_grid {
+    place-items: center;
+    grid-template-columns: 1fr;
+  }
+}/*# sourceMappingURL=listeBiens.css.map */
