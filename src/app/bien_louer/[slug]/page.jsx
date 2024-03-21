@@ -109,7 +109,6 @@ export default async function Page({params}) {
         topGES = 230
     }
 
-
     const ariane = [
         {label: 'Biens à louer', url:'/bien_louer'},
         {label: bien.titre, url:''},
