@@ -1,7 +1,14 @@
+"use client";
+
+import { useSearchParams } from 'next/navigation'
+
 export default function ForminatorField({wrapper}) {
 
     const field = wrapper.fields[0];
 
+    const searchParams = useSearchParams();
+
+    const reference = field.prefill ? searchParams.get(field.prefill) : null;
     return <div className={'form-group'}>
         <label className={'form-label'}>
             {field.field_label}{field.required && <span className="required">*</span>}
@@ -31,8 +38,8 @@ export default function ForminatorField({wrapper}) {
                                     name={field.element_id}
                                     placeholder={field.placeholder} 
                                     required={field.required === "1"}
-                                    readOnly={field.prefill ? true : false}
-                                    value={field.prefill ? 'Référence : ' + (new URLSearchParams(document.location.search).get(field.prefill)) : ''}
+                                    readOnly={field.prefill && reference ? true : false}
+                                    defaultValue={field.prefill && reference ? 'Référence : ' + reference : ''}
                                 />
             }
         </div>

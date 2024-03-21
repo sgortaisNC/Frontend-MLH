@@ -1,40 +1,51 @@
-"use client";
-
 import PostNotFound from "@/app/not-found"
-import useSWR from "swr";
 import Image from "next/image";
 import './page.scss';
 import ForminatorField from "@/components/ForminatorField/ForminatorField";
 import Titre from "@/components/Titre/Titre";
 import Sidebar from "@/components/Sidebar/Sidebar";
+import {CustomForm} from "@/components/CustomForm/CustomForm";
 
 
-const fetcher = url => fetch(url).then(r => r.json())
+function strip(html)
+{
+    return html.replace(/<[^>]+>/ig,"").replace(/\s+/g, ' ').trim().substring(0, 160)
+}
+async function getData($slug) {
+    const res = await fetch(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/page/${$slug}`)
 
-export default function Page({params}) {
+    if (!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
 
+    return res.json()
+}
+
+export async function generateMetadata({ params, searchParams }, parent) {
+    // read route params
+    const lastSlug = params.slug[params.slug.length - 1]
+    const data = (await getData(lastSlug))[0];
+
+    let metas = {
+        title: data.titre,
+    }
+
+    if (data.chapo || data.contenu) {
+        metas.description = data.chapo ?? strip(data.contenu)
+    }
+
+    return metas
+}
+
+export default async function Page({params}) {
 
     const lastSlug = params.slug[params.slug.length - 1]
-
-    const {data, error} = useSWR(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/page/${lastSlug}`, fetcher)
-    if (error) return <PostNotFound/>
-    if (!data) return <></>
-    if (data.length === 0) return <PostNotFound/>
+    const data = await getData(lastSlug)
+    if (!data || data.length === 0) {
+        return <PostNotFound/>
+    }
 
     const {titre, chapo, image, contenu, formulaire, formID, documents, liens, ariane} = data[0];
-    function handleSubmit(e) {
-        e.preventDefault();
-        const form = e.target;
-        const data = new FormData(form);
-        fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/submit-form', {
-            method: 'POST',
-            body: data
-        }).then(r => r.json()).then(r => {
-            console.log(r);
-        });
-
-        return false;
-    }
 
     return <div>
         <Titre titre={titre} chapo={chapo} ariane={ariane}/>
@@ -49,11 +60,11 @@ export default function Page({params}) {
                 </div>
                 <div className="wysiwyg" dangerouslySetInnerHTML={{__html: contenu}}></div>
                 {formulaire && formID ?
-                    <form className={"innerForm form"+formID} onSubmit={handleSubmit}>
+                    <CustomForm formId={formID}>
                         <input type="hidden" name="form_id" value={formID}/>
                         {formulaire.map((wrapper) => <ForminatorField key={wrapper.wrapper_id} wrapper={wrapper}/>)}
                         <button type={'submit'} className={'btn'}>Envoyer</button>
-                    </form>
+                    </CustomForm>
                     : null
                 }
             </div>
