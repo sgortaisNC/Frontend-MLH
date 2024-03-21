@@ -1,9 +1,6 @@
-"use client";
-
 import '@wordpress/block-library/build-style/common.css';
 import '@wordpress/block-library/build-style/style.css';
 import '@wordpress/block-library/build-style/theme.css';
-import useSWR from "swr";
 import PostNotFound from "@/app/not-found";
 import Image from 'next/image'
 import Link from "next/link";
@@ -12,18 +9,57 @@ import Titre from "@/components/Titre/Titre";
 import "./singleActu.scss"
 
 
-const fetcher = url => fetch(url).then(r => r.json())
+function strip(html)
+{
+    return html.replace(/<[^>]+>/ig,"").replace(/\s+/g, ' ').trim().substring(0, 160)
+}
+async function getData(slug) {
+    const res = await fetch(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/actualite/${slug}`)
+
+    if (!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
+
+    return res.json()
+}
+
+export async function generateMetadata({ params, searchParams }, parent) {
+    const lastSlug = params.slug;
+    const data = (await getData(lastSlug))[0];
+    let metas = {
+        title: data.titre,
+        openGraph: {
+            title: data.titre,
+            images: [
+                {
+                    url: data.image, // Must be an absolute URL
+                    width: 800,
+                    height: 600,
+                },
+            ],
+            locale: 'fr_FR',
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: data.titre,
+            images: [data.image], // Must be an absolute URL
+        },
+    }
+    if (data.chapo || data.contenu) {
+        metas.description = data.chapo ?? strip(data.contenu)
+        metas.openGraph.description = data.chapo ?? strip(data.contenu)
+        metas.twitter.description = data.chapo ?? strip(data.contenu)
+    }
+    return metas
+}
 
 
-export default function Page({params}) {
+export default async function Page({params}) {
 
-    const {
-        data,
-        error
-    } = useSWR(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/actualite/${params.slug}`, fetcher)
+   const data = await getData(params.slug)
 
-    if (error) return <PostNotFound/>
-    if (!data) return <></>
+    if (!data) return <PostNotFound/>
 
     const ariane = [
         {
