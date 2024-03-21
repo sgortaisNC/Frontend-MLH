@@ -1,0 +1,6 @@
+@media screen and (max-width: 1000px) {
+    .leaflet-container {
+        height: auto !important;
+        aspect-ratio: 16/9;
+    }
+}

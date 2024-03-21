@@ -1,9 +1,9 @@
 import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
 import Link from "next/link";
 import {marker} from "@/Utils/Utils";
 import MarkerClusterGroup from "react-leaflet-cluster";
+import './leafletSurcharge.css';
 
 export default function Map({biens, popup = false}) {
     const center = biens.length === 1 ? [biens[0].latitude ?? biens[0].markers.latitude, biens[0].longitude ?? biens[0].markers.longitude] : [46.34194422876846, 2.601073765954095];
