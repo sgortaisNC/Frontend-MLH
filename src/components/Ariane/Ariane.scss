@@ -1,6 +1,10 @@
 .ariane{
   margin-top: 27px;
   margin-bottom: 60px;
+  @media screen and (max-width: 1000px) {
+    height: 0;
+    overflow: hidden;
+  }
   ul {
     display: flex;
     gap: 25px;
