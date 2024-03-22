@@ -40,7 +40,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     return metas
 }
 async function getData() {
-    const res = await fetch("https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/homepage");
+    const res = await fetch("https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/homepage", {cache: "no-cache"});
 
     if (!res.ok) {
         throw new Error('Failed to fetch data')
