@@ -6,7 +6,7 @@ import Footer from "@/components/Footer/Footer";
 import {Fixed} from "@/components/Fixed/Fixed";
 
 const leagueSpartan = League_Spartan({subsets: ['latin']});
-
+export const revalidate = false;
 export const metadata = {
     title: {
         template: '%s | Montluçon Habitat',
