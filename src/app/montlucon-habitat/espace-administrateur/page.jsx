@@ -1,51 +1,72 @@
-"use client";
-
 import Titre from "@/components/Titre/Titre";
-import {redirect} from 'next/navigation'
-import {useEffect, useState} from "react";
-import useSWR from "swr";
 import PostNotFound from "@/app/not-found";
-import Image from "next/image";
-import ForminatorField from "@/components/ForminatorField/ForminatorField";
-const fetcher = url => fetch(url).then(r => r.json())
+import {DashboardComponent} from "@/components/DashboardComponent/DashboardComponent";
 
-function Dashboard() {
+function strip(html) {
+    return html.replace(/<[^>]+>/ig, "").replace(/\s+/g, ' ').trim().substring(0, 160)
+}
 
-    const [token, setToken] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
+async function getData($slug) {
+    const url = `https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/page/espace-administrateur`;
+    const res = await fetch(url)
+
+    if (!res.ok) {
+        throw new Error('Failed to fetch data from ' + url + ' - ' + res.statusText)
+    }
+
+    return res.json()
+}
+
+export async function generateMetadata({params, searchParams}, parent) {
     const lastSlug = 'espace-administrateur';
-    const {data, error} = useSWR(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/page/${lastSlug}`, fetcher)
+    const data = (await getData(lastSlug))[0];
+    if (!data) return {
+        title: "Page non trouvée",
+        description: 'Location de logement (appartement et maison) pas cher à Montluçon y compris pour les étudiants.'
+    };
+    let metas = {
+        title: data.titre,
+        openGraph: {
+            title: data.titre,
+            images: [
+                {
+                    url: data.image, // Must be an absolute URL
+                    width: 800,
+                    height: 600,
+                },
+            ],
+            locale: 'fr_FR',
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: data.titre,
+            images: [data.image], // Must be an absolute URL
+        },
+    }
+    if (data.chapo || data.contenu) {
+        metas.description = data.chapo ?? strip(data.contenu)
+        metas.openGraph.description = data.chapo ?? strip(data.contenu)
+        metas.twitter.description = data.chapo ?? strip(data.contenu)
+    }
+    return metas
+}
 
-    useEffect(() => {
-        if (isLoaded && !token) redirect('/connexion');
-        setToken(window.localStorage.getItem('token'));
-        setIsLoaded(true);
-    }, [isLoaded]);
+export default async function Dashboard() {
 
-    if (!token) return null;
-    if (error) return <PostNotFound/>
-    if (!data) return <></>
+    const lastSlug = 'espace-administrateur';
+    const data = await getData(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/page/${lastSlug}`);
+    
+    if (!data) return <PostNotFound/>
 
-    const {titre, chapo, image, contenu, formulaire, formID, documents, liens, ariane} = data[0];
+    const {titre, chapo, contenu, ariane} = data[0];
 
     return (
         <div>
             <Titre titre={titre} chapo={chapo} ariane={ariane} />
             <div className="container">
-                <div className="to-right">
-                    <button className={"btn btn--xs"} onClick={() => {
-                        window.localStorage.clear();
-                        setToken(null);
-                        window.location.reload();
-                    }}>Se déconnecter
-                    </button>
-                </div>
-                <div className="content">
-                    <div className="wysiwyg" dangerouslySetInnerHTML={{__html: contenu}}></div>
-                </div>
+                <DashboardComponent contenu={contenu}/>
             </div>
         </div>
     );
 }
-
-export default Dashboard;
