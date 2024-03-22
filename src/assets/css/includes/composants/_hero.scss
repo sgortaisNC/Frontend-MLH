@@ -5,6 +5,7 @@
   height: 717px;
   @include tablet{
     height: calc(100vh - 48px - 53px);
+    max-height: 717px;
   }
   margin-bottom: 50px;
 

@@ -55,7 +55,7 @@ export default async function Home() {
 
     if (!data) return <></>
     return (
-        <main>
+        <main className={"home"}>
             <section className="hero">
                 <Image priority={true} src={data.baseline.image} width={1920} height={717}
                        alt=""/> :
