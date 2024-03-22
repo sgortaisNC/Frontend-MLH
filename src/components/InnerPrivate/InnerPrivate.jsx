@@ -25,7 +25,6 @@ export const InnerPrivate = ({data}) => {
             method: 'POST',
             body: data
         }).then(r => r.json()).then(r => {
-            console.log(r);
         });
 
         return false;

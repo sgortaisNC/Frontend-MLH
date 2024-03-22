@@ -69,7 +69,7 @@ export default async function Page({params}) {
         bien.image,
     ]
 
-    bien.images.map((img) => img.url ? SLIDES.push(img.url) : console.log('no image'));
+    bien.images.map((img) => img.url ? SLIDES.push(img.url) : null);
 
     const consoDPE = bien.energie
     const emissionGES = bien.ges;

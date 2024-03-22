@@ -61,7 +61,6 @@ export default async function Page({params}) {
 
     if (!data) return <PostNotFound/>
 
-    console.log(data);
     const {titre, chapo, image, contenu, formulaire, formID, documents, liens, ariane} = data[0];
 
 

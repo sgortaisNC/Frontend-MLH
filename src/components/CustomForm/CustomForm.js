@@ -8,7 +8,6 @@ function handleSubmit(e) {
         method: 'POST',
         body: data
     }).then(r => r.json()).then(r => {
-        console.log(r);
     });
     return false;
 }

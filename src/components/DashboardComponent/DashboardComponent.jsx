@@ -15,8 +15,6 @@ export const DashboardComponent = ({contenu}) => {
 
     if (!token) return null;
 
-    console.log(contenu)
-
     return <>
         <div className="to-right">
             <button className={"btn btn--xs"} onClick={() => {
