@@ -3,6 +3,7 @@ import "../assets/css/gutenberg.css"
 import "../assets/css/styles.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import {Fixed} from "@/components/Fixed/Fixed";
 
 const leagueSpartan = League_Spartan({subsets: ['latin']});
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
           <Header />
           {children}
           <Footer />
+<Fixed />
       </body>
     </html>
   );

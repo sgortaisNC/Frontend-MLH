@@ -23,8 +23,8 @@ export default function Footer({datas}) {
                         />
                     </div>
                     <div className="footer__coordonnees">
-                        <p>
-                            {data.coordonnees} <br/>
+                        <p style={{marginBottom: 10}}>
+                            <span dangerouslySetInnerHTML={{__html: data.coordonnees}}></span> <br/>
                             Du lun. au ven. : 9H - 12H / 13H - 17H<br/>
                             <strong>04 70 05 21 72</strong>
                         </p>

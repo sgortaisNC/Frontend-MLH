@@ -38,6 +38,9 @@
   max-width: 463px;
 
   &:hover {
+    h3{
+      color: var(--pourpre);
+    }
   }
 
   figure {
@@ -55,7 +58,7 @@
     gap: 20px;
     background: white;
     border-radius: 0 0 var(--radius) var(--radius);
-    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 10px #A7C83035;
 
     time{
       color: var(--bleu);
@@ -76,6 +79,7 @@
       font-size: 26px;
       line-height: 32px;
       overflow: hidden;
+      transition: all 0.5s ease;
     }
   }
 }

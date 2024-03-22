@@ -1,6 +1,9 @@
 @use "../../global/mixins" as *;
 
 .keys {
+  img{
+    border-radius: 0;
+  }
   position: relative;
   padding-top: 30px;
   @include tablet{
