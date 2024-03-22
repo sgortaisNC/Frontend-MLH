@@ -1,6 +1,11 @@
 import Titre from "@/components/Titre/Titre";
 import Link from "next/link";
 
+export const metadata = {
+    title: "Page non trouvée",
+    description: 'Location de logement (appartement et maison) pas cher à Montluçon y compris pour les étudiants.'
+}
+
 export default function PostNotFound() {
     return <>
         <Titre titre={"Page non trouvée"}/>

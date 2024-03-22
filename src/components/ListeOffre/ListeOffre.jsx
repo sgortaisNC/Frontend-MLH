@@ -46,7 +46,6 @@ export const ListeOffre = ({data}) => {
 
     function triggerSearch() {
         setSearch(true);
-        console.log(search)
     }
 
     function reset() {

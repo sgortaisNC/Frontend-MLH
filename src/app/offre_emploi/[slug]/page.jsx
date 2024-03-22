@@ -21,6 +21,10 @@ async function getData($slug) {
 export async function generateMetadata({ params, searchParams }, parent) {
     const lastSlug = params.slug;
     const data = (await getData(lastSlug))[0];
+    if (!data) return {
+        title: "Page non trouvée",
+        description: 'Location de logement (appartement et maison) pas cher à Montluçon y compris pour les étudiants.'
+    };
     let metas = {
         title: data.titre,
         openGraph: {

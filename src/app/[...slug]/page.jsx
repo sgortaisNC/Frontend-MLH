@@ -7,10 +7,10 @@ import Sidebar from "@/components/Sidebar/Sidebar";
 import {CustomForm} from "@/components/CustomForm/CustomForm";
 
 
-function strip(html)
-{
-    return html.replace(/<[^>]+>/ig,"").replace(/\s+/g, ' ').trim().substring(0, 160)
+function strip(html) {
+    return html.replace(/<[^>]+>/ig, "").replace(/\s+/g, ' ').trim().substring(0, 160)
 }
+
 async function getData($slug) {
     const res = await fetch(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/page/${$slug}`)
 
@@ -21,9 +21,15 @@ async function getData($slug) {
     return res.json()
 }
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata({params, searchParams}, parent) {
     const lastSlug = params.slug[params.slug.length - 1]
     const data = (await getData(lastSlug))[0];
+
+    if (!data) return {
+        title: "Page non trouvée",
+        description: 'Location de logement (appartement et maison) pas cher à Montluçon y compris pour les étudiants.'
+    };
+
     let metas = {
         title: data.titre,
         openGraph: {
