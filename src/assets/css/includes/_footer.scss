@@ -1,14 +1,16 @@
 @use '../global/mixins' as *;
+
 .footer {
   background: var(--lightGrey);
-  a{
+
+  a {
     transition: var(--transition);
-    @include hover{
+    @include hover {
       color: var(--pourpre);
     }
   }
 
-  .btn--xs{
+  .btn--xs {
     border-width: 2px;
   }
 
@@ -16,7 +18,7 @@
     margin: 0;
   }
 
-  &__logo img{
+  &__logo img {
     border-radius: 0;
   }
 
@@ -24,20 +26,21 @@
     padding-top: 60px;
     padding-bottom: 60px;
     line-height: 26px;
-    .container{
-      @include laptop{
+
+    .container {
+      @include laptop {
         flex-flow: row wrap;
-        & > *{
+        & > * {
           flex: 1 1 30%;
         }
       }
-      @include phone{
+      @include phone {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        & > *{
+        & > * {
           flex: 1 1 100%;
         }
       }
@@ -51,11 +54,12 @@
     color: #95a3ab;
     text-transform: uppercase;
   }
-  &__coordonnees{
+
+  &__coordonnees {
     font-size: 17px;
   }
 
-  .btn--xs{
+  .btn--xs {
     border-width: 2px;
   }
 
@@ -99,7 +103,13 @@
   &__rs {
     flex: none;
     display: grid;
+    grid-template-rows: 22px 40px auto;
     gap: 10px;
+
+    .btn {
+      display: inline-flex;
+      width: max-content;
+    }
 
     ul {
       display: flex;
@@ -116,13 +126,13 @@
       }
     }
 
-    .input-grouped{
+    .input-grouped {
       width: min(421px, 75vw);
     }
 
     input {
       width: min(421px, 75vw);
-      @include phone{
+      @include phone {
         width: 100%;
       }
       max-width: 100%;
@@ -136,7 +146,7 @@
     align-items: center;
     text-align: center;
 
-    @include phone{
+    @include phone {
       padding-top: 25px;
       flex-direction: column;
       height: auto;
@@ -148,16 +158,18 @@
       display: flex;
       gap: 37px;
 
-      @include phone{
+      @include phone {
         flex-direction: column;
         height: auto;
       }
 
       li {
         position: relative;
-        a{
+
+        a {
           font-weight: 600;
         }
+
         &:not(:last-child) {
           &::after {
             content: '';
@@ -168,7 +180,7 @@
             width: 1px;
             height: 100%;
             background: #CBD2D6;
-            @include phone{
+            @include phone {
               display: none;
             }
           }
@@ -176,7 +188,8 @@
       }
     }
   }
-  input{
+
+  input {
     font-weight: 600;
   }
 }

@@ -42,6 +42,15 @@ body {
   grid-template-columns: 275px 1fr;
   grid-column-gap: 22px;
 }
+@media (max-width: 1000.01px) {
+  .container--inner {
+    grid-template-columns: 1fr;
+    grid-row-gap: 40px;
+  }
+  .container--inner .sidebar {
+    order: 2;
+  }
+}
 .container--flex {
   display: flex;
   justify-content: space-between;
@@ -114,6 +123,7 @@ h2::after {
 .header {
   position: relative;
   z-index: 1000;
+  background: #EFF1F3;
 }
 .header__top__grid {
   display: flex;
@@ -133,6 +143,7 @@ h2::after {
   display: flex;
   align-items: center;
   gap: 10px;
+  font-size: 18px;
 }
 .header__top__grid .left a svg {
   position: relative;
@@ -326,8 +337,9 @@ h2::after {
 .header__bottom nav > ul > li .sous-menu {
   margin-top: 5px;
   padding: 15px;
+  border-radius: 0 0 10px 10px;
   background: white;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
   transition: opacity 0.2s;
 }
 @media screen and (min-width: 1000px) {
@@ -335,11 +347,14 @@ h2::after {
     position: absolute;
     top: 100%;
     left: -45px;
-    right: -45px;
+    right: -85px;
     opacity: 0;
     margin-top: 0 !important;
     pointer-events: none;
   }
+}
+.header__bottom nav > ul > li .sous-menu > li:not(:first-child) {
+  margin-top: 15px;
 }
 .header__bottom nav > ul > li .sous-menu > li > a {
   color: var(--pourpre);
@@ -479,8 +494,7 @@ h2::after {
   inset: 0;
   z-index: 89000000;
   background: rgba(0, 0, 0, 0.5);
-  -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   display: grid;
   place-items: center;
   opacity: 1;
@@ -528,6 +542,9 @@ h2::after {
     color: var(--pourpre);
   }
 }
+.footer .btn--xs {
+  border-width: 2px;
+}
 .footer p {
   margin: 0;
 }
@@ -569,6 +586,9 @@ h2::after {
 .footer__coordonnees {
   font-size: 17px;
 }
+.footer .btn--xs {
+  border-width: 2px;
+}
 .footer__acces {
   flex: 1;
 }
@@ -589,7 +609,7 @@ h2::after {
   transition: var(--transition);
   color: #4b7388;
   position: relative;
-  left: -6px;
+  left: -1px;
   padding-left: 0;
 }
 .footer__acces a:hover {
@@ -602,14 +622,19 @@ h2::after {
 .footer__rs {
   flex: none;
   display: grid;
+  grid-template-rows: 22px 40px auto;
   gap: 10px;
+}
+.footer__rs .btn {
+  display: inline-flex;
+  width: max-content;
 }
 .footer__rs ul {
   display: flex;
   gap: 15px;
 }
 .footer__rs ul .rs {
-  border: 1px solid var(--vert);
+  border: 2px solid var(--vert);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -635,7 +660,7 @@ h2::after {
   display: flex;
   align-items: center;
   text-align: center;
-  border-top: 1px solid #CBD2D6;
+  border-top: 2px solid #CBD2D6;
 }
 @media (max-width: 500.01px) {
   .footer__bottom {
@@ -657,6 +682,9 @@ h2::after {
 .footer__bottom ul li {
   position: relative;
 }
+.footer__bottom ul li a {
+  font-weight: 600;
+}
 .footer__bottom ul li:not(:last-child)::after {
   content: "";
   position: absolute;
@@ -672,6 +700,9 @@ h2::after {
     display: none;
   }
 }
+.footer input {
+  font-weight: 600;
+}
 
 .fixed {
   position: fixed;
@@ -681,6 +712,10 @@ h2::after {
   opacity: 1;
   pointer-events: all;
   transition: opacity 0.3s ease-in-out;
+}
+.fixed.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 @media (max-width: 1000.01px) {
   .fixed {
@@ -726,6 +761,12 @@ h2::after {
     margin-bottom: 40px;
   }
 }
+.module-search input:not([type=file]) {
+  height: 40px;
+}
+.module-search .mySelect {
+  box-shadow: -4px 4px 4px rgba(4, 173, 209, 0.2);
+}
 .module-search__grid {
   display: grid;
   grid-template-columns: 1fr 150px 1fr;
@@ -753,7 +794,7 @@ h2::after {
   grid-row: 1;
   background: white;
   padding: 50px calc((100vw - 1457px) / 2) 35px 108px;
-  border-top-left-radius: var(--radius);
+  border-top-left-radius: 12px;
 }
 @media (max-width: 1400.01px) {
   .module-search__grid form {
@@ -810,6 +851,16 @@ h2::after {
   .module-search__grid form .ctas {
     grid-row: 7;
   }
+}
+
+@media screen and (max-width: 1000px) {
+  .bg-svg {
+    display: none;
+  }
+}
+
+.home h2 {
+  font-weight: 400;
 }
 
 .text-center {
@@ -912,11 +963,12 @@ h2::after {
 .hero {
   position: relative;
   height: 717px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 @media (max-width: 1000.01px) {
   .hero {
     height: calc(100vh - 48px - 53px);
+    max-height: 717px;
   }
 }
 .hero .container {
@@ -939,8 +991,7 @@ h2::after {
   left: 50%;
   width: 916px;
   z-index: -1;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   opacity: 0.67;
   aspect-ratio: 1;
   background-image: url("/img/autres/Fleur.png");
@@ -991,8 +1042,7 @@ h2::after {
   inset: 0;
   border-radius: 0;
   z-index: -1;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   height: 100%;
   width: 100%;
 }
@@ -1003,7 +1053,7 @@ h2::after {
   bottom: 0;
   right: 0;
   width: 60%;
-  background: linear-gradient(to left, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.6) 80%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(to left, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0.6) 80%, rgba(255, 255, 255, 0) 100%);
 }
 @media (max-width: 500.01px) {
   .hero::before {
@@ -1062,6 +1112,9 @@ h2::after {
   position: relative;
   max-width: 463px;
 }
+.actuTeaser:hover h3 {
+  color: var(--pourpre);
+}
 .actuTeaser figure img {
   border-radius: var(--radius) var(--radius) 0 0;
   margin-bottom: -4px;
@@ -1074,7 +1127,7 @@ h2::after {
   gap: 20px;
   background: white;
   border-radius: 0 0 var(--radius) var(--radius);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 10px rgba(167, 200, 48, 0.2078431373);
 }
 .actuTeaser figcaption time {
   color: var(--bleu);
@@ -1094,12 +1147,16 @@ h2::after {
   font-size: 26px;
   line-height: 32px;
   overflow: hidden;
+  transition: all 0.5s ease;
 }
 
 .keys {
   position: relative;
   padding-top: 30px;
   margin-bottom: 50px;
+}
+.keys img {
+  border-radius: 0;
 }
 @media (max-width: 1000.01px) {
   .keys {
@@ -1345,9 +1402,7 @@ select {
   padding-right: 30px;
   position: relative;
   transition: all 0.2s ease-in-out;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   white-space: nowrap;
 }
 
@@ -1597,6 +1652,7 @@ textarea {
   position: absolute;
   top: 0;
   bottom: 0;
+  width: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1604,11 +1660,6 @@ textarea {
   right: 0;
   aspect-ratio: 1;
   background: var(--pourpre);
-}
-
-::-moz-placeholder {
-  font-family: "League Spartan", sans-serif;
-  color: var(--fontColor);
 }
 
 ::placeholder {
@@ -2188,12 +2239,10 @@ input[type=range] {
 }
 
 .exergue--image figure img {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: 100%;
   height: 100%;
-  -o-object-position: center;
-     object-position: center;
+  object-position: center;
 }
 
 .exergue svg {
@@ -2326,17 +2375,14 @@ input[type=range] {
   height: 75px;
   background: white;
   z-index: 2;
-  -webkit-clip-path: polygon(296px 0, 296px 0, 100% 100%, 0 100%);
-          clip-path: polygon(296px 0, 296px 0, 100% 100%, 0 100%);
+  clip-path: polygon(296px 0, 296px 0, 100% 100%, 0 100%);
 }
 
 .temoignage figure img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: cover;
+  object-position: center;
 }
 
 .temoignage__content {
@@ -2365,40 +2411,4 @@ input[type=range] {
   color: #04add1;
 }
 
-@media print {
-  header, footer, #ariane, .next-to, .bien_sdb__cNFpo, .btn--outline, .situation {
-    display: none;
-  }
-  body .titre {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    min-height: 0;
-    margin-bottom: 15px;
-  }
-  body .titre h1 {
-    font-size: 32px;
-  }
-  body .embla__slide__img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 24/9;
-  }
-  body .infos {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 10px;
-  }
-  body .embla {
-    padding: 0;
-  }
-  body .bien_flexB__Xqx6T {
-    margin-top: 30px;
-  }
-  body .bien_flex__ptBtD {
-    page-break-before: always;
-    padding-top: 50px;
-    flex-wrap: wrap;
-  }
-  body .bien_flex__ptBtD > :last-child {
-    width: 100%;
-  }
-}/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=styles.css.map */

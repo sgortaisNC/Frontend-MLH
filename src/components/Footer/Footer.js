@@ -3,15 +3,45 @@
 import Image from 'next/image';
 import useSWR from "swr";
 import Link from "next/link";
+import {useState} from "react";
 
 const fetcher = url => fetch(url).then(r => r.json())
 export default function Footer({datas}) {
+
+    const [modal, setModal] = useState(false);
+
     const {data, error} = useSWR("https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/footer", fetcher)
     if (error) return <div>Failed to load</div>
     if (!data) return <></>
 
     return (
         <footer className="footer">
+            {modal && <div className="alerte">
+                <button onClick={() => {setModal(false)}}>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 384 512" width={20}>
+                        <path fill={'currentColor'}
+                              d="M338.1 413.4c3.1 3.1 8.2 3.1 11.3 0s3.1-8.2 0-11.3L203.3 256 349.4 109.9c3.1-3.1 3.1-8.2 0-11.3s-8.2-3.1-11.3 0L192 244.7 45.9 98.6c-3.1-3.1-8.2-3.1-11.3 0s-3.1 8.2 0 11.3L180.7 256 34.6 402.1c-3.1 3.1-3.1 8.2 0 11.3s8.2 3.1 11.3 0L192 267.3 338.1 413.4z"/>
+                    </svg>
+                </button>
+                <div className="alerte__inner">
+                    <div className="text-center">
+                        <div className="alerte__title">{"S'inscrire à la newsletter"}</div>
+                    </div>
+                    <div className="alerte__content">
+                        <iframe width="100%" height="450"
+                                src="https://571302cd.sibforms.com/serve/MUIFAKclRNV_SEuR4tQ7sLTFuiCjf96oRNzs5j6q5RgYWIZCHqwuhTcubCpZdevUVQ0G-cthiWajV-L7xRXk39F6hEDeN7jEVoi9KakeyPAfSwqrbVWKov5Of3rnaShXKF5Q2Hnk_ufkVZ6p_O7_-Y5xWoz_GNBzGeDNbZ3xnWkiOltBydRcEO07sQNwFl5I5bS_IBpexrFE0mlU"
+                                frameBorder="0" scrolling="auto" allowFullScreen
+                                style={{
+                                    display: "block",
+                                    marginLeft: "auto",
+                                    marginRight: "auto",
+                                    maxWidth: "100%"
+                                }}>
+                        </iframe>
+                    </div>
+                </div>
+            </div>}
             <div className="footer__top">
                 <div className="container container--flex">
                     <div className="footer__logo">
@@ -64,10 +94,16 @@ export default function Footer({datas}) {
                 <span className="footer__title">
                     Newsletter
                 </span>
-                        <iframe width="540" height="305"
-                                src="https://571302cd.sibforms.com/serve/MUIFAKclRNV_SEuR4tQ7sLTFuiCjf96oRNzs5j6q5RgYWIZCHqwuhTcubCpZdevUVQ0G-cthiWajV-L7xRXk39F6hEDeN7jEVoi9KakeyPAfSwqrbVWKov5Of3rnaShXKF5Q2Hnk_ufkVZ6p_O7_-Y5xWoz_GNBzGeDNbZ3xnWkiOltBydRcEO07sQNwFl5I5bS_IBpexrFE0mlU"
-                                frameBorder="0" scrolling="auto" allowFullScreen
-                                style={{display: "block",marginLeft: "auto", marginRight: "auto", maxWidth: "100%"}}></iframe>
+                        <button className={'btn btn--xs'} onClick={() => {
+                            setModal(true)
+                        }}>{"Je m'inscris"}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15.751" height="13.5"
+                                 viewBox="0 0 15.751 13.5">
+                                <path
+                                    d="M1.427-13.267,7.615-7.361a.844.844,0,0,1,.261.611.845.845,0,0,1-.261.611L1.427-.232A.845.845,0,0,1,.234-.261.843.843,0,0,1,.263-1.454L4.928-5.9H-7.031a.845.845,0,0,1-.844-.844.844.844,0,0,1,.844-.843H4.926L.261-12.043a.847.847,0,0,1-.028-1.195A.846.846,0,0,1,1.427-13.267Z"
+                                    transform="translate(7.875 13.5)" fill="currentColor"></path>
+                            </svg>
+                        </button>
 
                         <ul className="inline-list">
                             {data.social.x ?
