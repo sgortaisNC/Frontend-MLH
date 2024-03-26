@@ -871,6 +871,18 @@ h2::after {
   color: var(--vert);
 }
 
+.sitemap ul {
+  list-style: none;
+  border-left: 2px solid var(--vert);
+}
+.sitemap ul ::before {
+  display: none;
+}
+.sitemap li a:not([class]) {
+  color: var(--fontColor);
+  text-decoration: none;
+  font-size: 22px;
+}
 .wysiwyg {
   margin: 50px 0;
   line-height: 1.4;
