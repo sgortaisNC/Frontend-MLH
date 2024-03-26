@@ -4,6 +4,7 @@ import "../assets/css/styles.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import {Fixed} from "@/components/Fixed/Fixed";
+import Matomo from "@/Utils/Matomo";
 
 const leagueSpartan = League_Spartan({subsets: ['latin']});
 export const revalidate = false;
@@ -20,7 +21,8 @@ export default function RootLayout({ children }) {
           <Header />
           {children}
           <Footer />
-<Fixed />
+          <Fixed />
+          <Matomo />
       </body>
     </html>
   );

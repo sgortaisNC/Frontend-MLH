@@ -42,7 +42,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 async function getData() {
     const res = await fetch("https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/homepage", {
         next: {
-            revalidate: 1
+            revalidate: 0
         },
         });
 

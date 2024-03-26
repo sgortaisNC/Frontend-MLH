@@ -64,19 +64,10 @@ export default function Footer({datas}) {
                 <span className="footer__title">
                     Newsletter
                 </span>
-                        <form action="">
-                            <div className="input-grouped">
-                                <input type="email" title="Votre adresse email" placeholder="Votre adresse email"/>
-                                <button type="submit">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="19.252" height="16.5"
-                                         viewBox="0 0 19.252 16.5">
-                                        <path id="Tracé_15235" data-name="Tracé 15235"
-                                              d="M11.37-16.215,18.932-9a1.032,1.032,0,0,1,.32.747,1.033,1.033,0,0,1-.32.747L11.37-.284A1.033,1.033,0,0,1,9.911-.319a1.03,1.03,0,0,1,.035-1.458l5.7-5.44H1.032A1.032,1.032,0,0,1,0-8.249,1.032,1.032,0,0,1,1.032-9.28H15.645l-5.7-5.44a1.035,1.035,0,0,1-.035-1.46A1.035,1.035,0,0,1,11.37-16.215Z"
-                                              transform="translate(0 16.5)" fill="#fff"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </form>
+                        <iframe width="540" height="305"
+                                src="https://571302cd.sibforms.com/serve/MUIFAKclRNV_SEuR4tQ7sLTFuiCjf96oRNzs5j6q5RgYWIZCHqwuhTcubCpZdevUVQ0G-cthiWajV-L7xRXk39F6hEDeN7jEVoi9KakeyPAfSwqrbVWKov5Of3rnaShXKF5Q2Hnk_ufkVZ6p_O7_-Y5xWoz_GNBzGeDNbZ3xnWkiOltBydRcEO07sQNwFl5I5bS_IBpexrFE0mlU"
+                                frameBorder="0" scrolling="auto" allowFullScreen
+                                style={{display: "block",marginLeft: "auto", marginRight: "auto", maxWidth: "100%"}}></iframe>
 
                         <ul className="inline-list">
                             {data.social.x ?

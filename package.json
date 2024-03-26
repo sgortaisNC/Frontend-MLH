@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@socialgouv/matomo-next": "^1.8.1",
     "@wordpress/block-library": "^8.27.2",
     "embla-carousel-autoplay": "^8.0.0-rc22",
     "embla-carousel-react": "^8.0.0-rc22",
