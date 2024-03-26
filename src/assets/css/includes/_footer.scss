@@ -68,6 +68,14 @@
 
     ul {
       margin-top: 15px;
+      display: flex;
+      flex-flow: row wrap;
+      > li{
+        flex: 1 1 50%;
+        @media screen and (max-width: 1000px) {
+          flex: 1 1 100%;
+        }
+      }
 
       svg {
         width: 0;
