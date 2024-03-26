@@ -33,7 +33,7 @@
         width: 916px;
         z-index: -1;
         object-fit: contain;
-        opacity: 0.67;
+        opacity: 1;
         aspect-ratio: 1;
         background-image: url('/img/autres/Fleur.png');
       }
@@ -98,7 +98,7 @@
     bottom: 0;
     right: 0;
     width: 60%;
-    background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0.6) 80%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 40%, rgba(255, 255, 255, 0.6) 80%, rgba(255, 255, 255, 0) 100%);
     @include phone{
       width: 100%;
       background: rgba(255, 255, 255, 0.8);
