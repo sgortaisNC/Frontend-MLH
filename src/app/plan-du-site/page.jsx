@@ -11,10 +11,9 @@ async function getData() {
 
 export default async function Page() {
     const data = await getData();
-    console.log(data.menu);
     return (
         <div>
-            <Titre titre={"Plan du site"} chapo={data.menu.length}/>
+            <Titre titre={"Plan du site"} ariane={[{label: "Plan du site", url:""}]}/>
             <div className="container">
                 <div className="wysiwyg">
                     <h2>Menu principal</h2>
