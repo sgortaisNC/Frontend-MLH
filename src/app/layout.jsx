@@ -24,7 +24,6 @@ export default function RootLayout({children}) {
         <Header/>
         {children}
         <Footer/>
-        <Fixed/>
         <Matomo/>
         </body>
         </html>
