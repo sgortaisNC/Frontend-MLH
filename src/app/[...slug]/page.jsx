@@ -12,7 +12,11 @@ function strip(html) {
 }
 
 async function getData($slug) {
-    const res = await fetch(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/page/${$slug}`)
+    const res = await fetch(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/page/${$slug}`,{
+        next: {
+            revalidate: 1,
+        }
+    })
 
     if (!res.ok) {
         throw new Error('Failed to fetch data')
