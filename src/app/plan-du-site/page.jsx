@@ -1,5 +1,9 @@
 import Titre from "@/components/Titre/Titre";
 
+export const metadata = {
+    title: "Plan du site",
+    description: "Retrouvez sur cette page le plan du site de Montluçon Habitat"
+}
 async function getData() {
     const res = await fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/header');
     if (!res.ok) {
