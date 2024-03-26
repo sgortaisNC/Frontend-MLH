@@ -1,4 +1,4 @@
-import { League_Spartan } from "next/font/google";
+import {League_Spartan} from "next/font/google";
 import "../assets/css/gutenberg.css"
 import "../assets/css/styles.scss";
 import Header from "@/components/Header/Header";
@@ -14,16 +14,19 @@ export const metadata = {
     },
     description: 'Location de logement (appartement et maison) pas cher à Montluçon y compris pour les étudiants.'
 }
-export default function RootLayout({ children }) {
-  return (
-    <html lang="fr">
-      <body className={leagueSpartan.className}>
-          <Header />
-          {children}
-          <Footer />
-          <Fixed />
-          <Matomo />
-      </body>
-    </html>
-  );
+export default function RootLayout({children}) {
+    return (
+        <html lang="fr">
+        <head>
+            <link rel="stylesheet" href="/css/print.css" media={"print"}/>
+        </head>
+        <body className={leagueSpartan.className}>
+        <Header/>
+        {children}
+        <Footer/>
+        <Fixed/>
+        <Matomo/>
+        </body>
+        </html>
+    );
 }
