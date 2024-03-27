@@ -47,9 +47,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
         },
     }
     if (data.chapo || data.contenu) {
-        metas.description = data.chapo ?? strip(data.contenu)
-        metas.openGraph.description = data.chapo ?? strip(data.contenu)
-        metas.twitter.description = data.chapo ?? strip(data.contenu)
+        metas.description = data.chapo ?? strip(data.description)
+        metas.openGraph.description = data.chapo ?? strip(data.description)
+        metas.twitter.description = data.chapo ?? strip(data.description)
     }
     return metas
 }
