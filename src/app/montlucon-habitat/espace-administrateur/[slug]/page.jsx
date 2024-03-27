@@ -13,7 +13,9 @@ async function getData(slug) {
             next: {
                 revalidate: 1,
             }
-        })
+        });
+
+    console.log(res)
 
     if (!res.ok) {
         throw new Error('Failed to fetch data')
