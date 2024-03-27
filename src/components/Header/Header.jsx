@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SousMenu from '@/components/SousMenu/SousMenu';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 
 export default function Header({data}) {
@@ -31,12 +31,16 @@ export default function Header({data}) {
     }
 
     let alerte = false;
-    if (data.alerte.titre) {
-        const alerte = localStorage.getItem(data.alerte.date_debut + "-" + data.alerte.date_fin);
-        data.alerte.open = !alerte;
-    } else {
-        data.alerte.closed = false
-    }
+
+    useEffect(() => {
+        if (data.alerte.titre) {
+            const alerte = localStorage.getItem(data.alerte.date_debut + "-" + data.alerte.date_fin);
+            data.alerte.open = !alerte;
+        } else {
+            data.alerte.closed = false
+        }
+    }, []);
+
 
     return (<>
             {data.alerte.titre && data.alerte.open ? <div className="alerte">
