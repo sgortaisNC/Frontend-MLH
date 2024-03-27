@@ -112,3 +112,9 @@
   overflow-y: hidden;
   border-spacing: 0;
 }
+
+.wp-block-gallery{
+  display: flex;
+  gap:20px;
+  flex-flow: row wrap;
+}

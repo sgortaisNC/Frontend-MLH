@@ -2046,6 +2046,12 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
   border-spacing: 0;
 }
 
+.wp-block-gallery {
+  display: flex;
+  gap: 20px;
+  flex-flow: row wrap;
+}
+
 .hero {
   position: relative;
   height: 717px;

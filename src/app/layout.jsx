@@ -8,7 +8,7 @@ import Matomo from "@/Utils/Matomo";
 import Script from "next/script";
 
 const leagueSpartan = League_Spartan({subsets: ['latin']});
-export const revalidate = false;
+export const revalidate = 1;
 export const metadata = {
     title: {
         template: '%s | Montluçon Habitat',
