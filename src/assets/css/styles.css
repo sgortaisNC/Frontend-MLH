@@ -2817,34 +2817,34 @@ textarea {
   color: var(--pourpre);
 }
 
-.form190 {
+.form-190 {
   display: grid;
   place-items: start;
   grid-template-columns: repeat(2, 1fr);
   gap: 25px;
 }
-.form190 .form-group {
+.form-190 .form-group {
   width: 100%;
 }
-.form190 > :nth-child(6),
-.form190 > :nth-child(7),
-.form190 > :nth-child(8),
-.form190 > :nth-child(9) {
+.form-190 > :nth-child(6),
+.form-190 > :nth-child(7),
+.form-190 > :nth-child(8),
+.form-190 > :nth-child(9) {
   grid-column: 1/-1;
 }
 
-.form180, .form185 {
+.form-180, .form-185 {
   display: grid;
   place-items: start;
   grid-template-columns: repeat(2, 1fr);
   gap: 25px;
 }
-.form180 .form-group, .form185 .form-group {
+.form-180 .form-group, .form-185 .form-group {
   width: 100%;
 }
-.form180 > :nth-child(6),
-.form180 > :nth-child(7), .form185 > :nth-child(6),
-.form185 > :nth-child(7) {
+.form-180 > :nth-child(6),
+.form-180 > :nth-child(7), .form-185 > :nth-child(6),
+.form-185 > :nth-child(7) {
   grid-column: 1/-1;
 }
 

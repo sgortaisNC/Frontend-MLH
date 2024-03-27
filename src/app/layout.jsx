@@ -3,7 +3,6 @@ import "../assets/css/gutenberg.css"
 import "../assets/css/styles.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import {Fixed} from "@/components/Fixed/Fixed";
 import Matomo from "@/Utils/Matomo";
 import Script from "next/script";
 
