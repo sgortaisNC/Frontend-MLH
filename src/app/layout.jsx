@@ -9,6 +9,7 @@ import Script from "next/script";
 const leagueSpartan = League_Spartan({subsets: ['latin']});
 export const revalidate = 1;
 export const metadata = {
+    metadataBase: new URL('https://montlucon.netcomdev2.com'),
     title: {
         template: '%s | Montluçon Habitat',
     },
@@ -16,10 +17,14 @@ export const metadata = {
 }
 
 async function getDatas() {
-    const header = await fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/header');
+    const header = await fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/header',
+        {next: {revalidate: 1}}
+    );
     const headerJSON = await header.json();
 
-    const footer = await fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/footer');
+    const footer = await fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/footer',
+        {next: {revalidate: 1}}
+    );
     const footerJSON = await footer.json();
 
     return {header: headerJSON, footer: footerJSON};
