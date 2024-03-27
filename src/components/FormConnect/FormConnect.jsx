@@ -12,7 +12,7 @@ export const FormConnect = () => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        if (isLoaded && token) redirect('/montlucon-habitat/espace-administrateur');
+        if (isLoaded && token) redirect('/espace-administrateur');
         setToken(window.localStorage.getItem('token'));
         setIsLoaded(true);
     }, [isLoaded]);
