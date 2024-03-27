@@ -46,7 +46,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
             images: [data.image], // Must be an absolute URL
         },
     }
-    if (data.chapo || data.contenu) {
+    if (data.chapo || data.description) {
         metas.description = data.chapo ?? strip(data.description)
         metas.openGraph.description = data.chapo ?? strip(data.description)
         metas.twitter.description = data.chapo ?? strip(data.description)
