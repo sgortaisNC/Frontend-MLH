@@ -27,6 +27,7 @@ export const HomeForm = ({data}) => {
                             <div className="field__input">
                                 <Select
                                     className={"mySelect"}
+                                    instanceId={'wsad123wqwe'}
                                     classNamePrefix={"mySelect"}
                                     unstyled={true}
                                     options={data.filtres.villes}
@@ -94,6 +95,7 @@ export const HomeForm = ({data}) => {
                             <div className="field__input">
                                 <Select
                                     className={"mySelect"}
+                                    instanceId={'azeazeazeaez'}
                                     classNamePrefix={"mySelect"}
                                     unstyled={true}
                                     options={data.filtres.nombre_piece}
