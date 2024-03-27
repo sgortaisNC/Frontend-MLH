@@ -8,7 +8,7 @@ function strip(html) {
 
 async function getData($slug) {
     const url = `https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/page/espace-administrateur`;
-    const res = await fetch(url)
+    const res = await fetch(url,{next: {revalidate: 1}});
 
     if (!res.ok) {
         throw new Error('Failed to fetch data from ' + url + ' - ' + res.statusText)
