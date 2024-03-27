@@ -2,13 +2,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import SousMenu from '@/components/SousMenu/SousMenu';
-import useSWR from "swr";
-import PostNotFound from "@/app/not-found";
 import {useState} from "react";
 
-const fetcher = url => fetch(url).then(r => r.json())
 
-export default function Header() {
+export default function Header({data}) {
 
     const [search, setSearch] = useState(false);
 
@@ -32,10 +29,6 @@ export default function Header() {
             }, 500);
         }
     }
-
-    const {data, error} = useSWR("https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/header", fetcher)
-    if (error) return <PostNotFound/>
-    if (!data) return <></>
 
     let alerte = false;
     if (data.alerte.titre) {

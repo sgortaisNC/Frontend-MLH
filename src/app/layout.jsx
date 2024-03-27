@@ -14,7 +14,22 @@ export const metadata = {
     },
     description: 'Location de logement (appartement et maison) pas cher à Montluçon y compris pour les étudiants.'
 }
-export default function RootLayout({children}) {
+
+async function getDatas() {
+    const header = await fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/header');
+    const headerJSON = await header.json();
+
+    const footer = await fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/footer');
+    const footerJSON = await footer.json();
+
+    return {header: headerJSON, footer: footerJSON};
+
+}
+
+export default async function RootLayout({children}) {
+
+    const {header, footer} = await getDatas();
+
     return (
         <html lang="fr">
         <head>
@@ -22,9 +37,9 @@ export default function RootLayout({children}) {
             <link rel="stylesheet" href="/css/print.css" media={"print"}/>
         </head>
         <body className={leagueSpartan.className}>
-        <Header/>
+        <Header data={header}/>
         {children}
-        <Footer/>
+        <Footer data={footer}/>
         <Matomo/>
         </body>
         </html>

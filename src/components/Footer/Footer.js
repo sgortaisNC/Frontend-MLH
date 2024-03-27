@@ -1,19 +1,11 @@
 "use client";
 
 import Image from 'next/image';
-import useSWR from "swr";
 import Link from "next/link";
 import {useState} from "react";
 
-const fetcher = url => fetch(url).then(r => r.json())
-export default function Footer({datas}) {
-
+export default function Footer({data}) {
     const [modal, setModal] = useState(false);
-
-    const {data, error} = useSWR("https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/footer", fetcher)
-    if (error) return <div>Failed to load</div>
-    if (!data) return <></>
-
     return (
         <footer className="footer">
             {modal && <div className="alerte">
