@@ -5,6 +5,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import {Fixed} from "@/components/Fixed/Fixed";
 import Matomo from "@/Utils/Matomo";
+import Script from "next/script";
 
 const leagueSpartan = League_Spartan({subsets: ['latin']});
 export const revalidate = false;
@@ -18,6 +19,7 @@ export default function RootLayout({children}) {
     return (
         <html lang="fr">
         <head>
+            <Script src="https://tarteaucitron.io/load.js?domain=monlucon.netcomdev2.com&uuid=3c168a9d97f5c0995db99e0cb855768137ff4403" />
             <link rel="stylesheet" href="/css/print.css" media={"print"}/>
         </head>
         <body className={leagueSpartan.className}>
