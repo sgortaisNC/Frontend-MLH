@@ -1426,6 +1426,11 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
     pointer-events: none;
   }
 }
+@media (max-width: 1000.01px) {
+  .header__bottom nav > ul > li .sous-menu {
+    box-shadow: none;
+  }
+}
 .header__bottom nav > ul > li .sous-menu > li:not(:first-child) {
   margin-top: 15px;
 }
@@ -1873,7 +1878,7 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
 }
 @media (max-width: 1000.01px) {
   .module-search {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 }
 .module-search input:not([type=file], [type=checkbox], [type=radio]), .module-search select {
@@ -2115,6 +2120,11 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
     overflow: hidden;
   }
 }
+@media (max-width: 500.01px) {
+  .hero {
+    max-height: 120px;
+  }
+}
 .hero .container {
   display: flex;
   align-items: center;
@@ -2182,17 +2192,7 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
 }
 @media (max-width: 500.01px) {
   .hero .container h1 {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-  .hero .container h1 .first-line {
-    font-size: 28px;
-  }
-  .hero .container h1 .second-line {
-    font-size: 55px;
-  }
-  .hero .container h1 .third-line {
-    font-size: 46px;
+    display: none;
   }
 }
 .hero img {
@@ -2203,6 +2203,11 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
   object-fit: cover;
   height: 100%;
   width: 100%;
+}
+@media (max-width: 500.01px) {
+  .hero img {
+    display: none;
+  }
 }
 .hero::before {
   position: absolute;
@@ -2216,6 +2221,7 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
 @media (max-width: 500.01px) {
   .hero::before {
     width: 100%;
+    background: #EFF1F3;
   }
 }
 .hero::after {
@@ -2248,6 +2254,7 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
 }
 @media (max-width: 1000.01px) {
   .actualites h2 {
+    margin-top: 0;
     padding-left: 0;
     text-align: center;
   }
@@ -2785,6 +2792,18 @@ input:not([type=file])[readonly] {
   cursor: no-drop;
 }
 
+.checkboxes {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+input[type=checkbox] {
+  height: 20px;
+  width: 20px;
+  padding-right: 0;
+}
+
 input::file-selector-button {
   border: 2px solid var(--fontColor);
   border-radius: 50px;
@@ -3006,6 +3025,7 @@ textarea {
 @media (max-width: 1000.01px) {
   .biens {
     grid-template-columns: 1fr;
+    padding-bottom: 30px;
   }
 }
 .biens h2 {

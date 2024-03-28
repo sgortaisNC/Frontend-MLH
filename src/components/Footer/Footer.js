@@ -48,6 +48,8 @@ export default function Footer({data}) {
                         <p style={{marginBottom: 10}}>
                             <span dangerouslySetInnerHTML={{__html: data.coordonnees}}></span> <br/>
                             <strong>04 70 05 21 72</strong>
+                            <br/>
+                            Du lundi au vendredi - 9h - 12h / 13h - 17h
                         </p>
                         <a target={'_blank'}
                            href={"https://www.google.com/maps/search/?api=1&query=" + data.coordonneesMaps}

@@ -8,12 +8,19 @@
   background: linear-gradient(80deg, rgba(220, 243, 248, 0) 0%, #dcf3f8 100%) no-repeat right center;
   background-size: 50% 100%;
 }
+@media screen and (max-width: 1000px) {
+  .titre {
+    min-height: 310px;
+    padding-top: 180px;
+    padding-bottom: 0px;
+  }
+}
 @media screen and (max-width: 768px) {
   .titre {
     background: rgba(220, 243, 248, 0.5019607843);
     background-size: 100%;
-    min-height: 350px;
-    padding-bottom: 50px;
+    min-height: 250px;
+    padding-bottom: 25px;
   }
 }
 .titre h1 {
@@ -45,4 +52,6 @@
 }
 .titre .container {
   position: relative;
-}/*# sourceMappingURL=Titre.css.map */
+}
+
+/*# sourceMappingURL=Titre.css.map */

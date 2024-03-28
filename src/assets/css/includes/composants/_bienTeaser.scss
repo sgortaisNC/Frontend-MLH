@@ -18,6 +18,7 @@
   justify-items: center;
   @include tablet {
     grid-template-columns: 1fr;
+    padding-bottom: 30px;
   }
   grid-column-gap: 20px;
   grid-row-gap: 20px;

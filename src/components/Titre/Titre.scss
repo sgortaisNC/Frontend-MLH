@@ -2,6 +2,11 @@
   min-height: 414px;
   padding-top: 260px;
   padding-bottom: 90px;
+  @media screen and (max-width: 1000px) {
+    min-height: 310px;
+    padding-top: 180px;
+    padding-bottom: 0px;
+  }
   display: grid;
   align-items: center;
   position: relative;
@@ -10,8 +15,8 @@
   @media screen and (max-width: 768px) {
     background:  #dcf3f880;
     background-size: 100%;
-    min-height: 350px;
-    padding-bottom: 50px;
+    min-height: 250px;
+    padding-bottom: 25px;
   }
 
 

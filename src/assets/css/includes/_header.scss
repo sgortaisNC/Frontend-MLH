@@ -246,6 +246,9 @@
             border-radius: 0 0 10px 10px;
             background: white;
             box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            @include tablet{
+              box-shadow: none;
+            }
             transition: opacity 0.2s;
 
             > li {
