@@ -1184,6 +1184,10 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
   width: 330px;
 }
 
+.grecaptcha-badge {
+  display: none !important;
+}
+
 .header {
   position: relative;
   z-index: 1000;

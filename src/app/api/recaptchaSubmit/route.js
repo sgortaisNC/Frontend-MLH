@@ -1,7 +1,7 @@
 import {NextResponse} from "next/server";
 
 export async function POST(request, response) {
-    const secretKey = "6LfGlaYpAAAAANZgolnO1ix3OfJfAGMkbKBIe9mU";
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY || "";
 
     const postData = await request.json();
     const {gRecaptchaToken} = postData;

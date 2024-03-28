@@ -32,6 +32,8 @@ async function getDatas() {
 
 }
 
+const googleSiteKey = process.env.RECAPTCHA_SITE_KEY;
+
 export default async function RootLayout({children}) {
 
     const {header, footer} = await getDatas();
@@ -45,7 +47,7 @@ export default async function RootLayout({children}) {
         </head>
         <body className={leagueSpartan.className}>
         <Header data={header}/>
-        <GoogleCaptchaWrapper>
+        <GoogleCaptchaWrapper siteKey={googleSiteKey}>
             {children}
         </GoogleCaptchaWrapper>
         <Footer data={footer}/>
