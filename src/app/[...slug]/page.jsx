@@ -21,7 +21,7 @@ async function getData($slug) {
     })
 
     if (!res.ok) {
-        throw new Error('Failed to fetch data from ' + `https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/page/${$slug}`)
+        return false;
     }
 
     return res.json()
