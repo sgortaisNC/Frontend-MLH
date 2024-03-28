@@ -8,11 +8,13 @@
 @media screen and (max-width: 1000px) {
   .embla {
     height: auto;
+    padding: 0;
   }
 }
 @media screen and (min-width: 1000px) {
   .embla {
     display: flex;
+    justify-content: center;
   }
 }
 
@@ -49,6 +51,7 @@
 @media screen and (max-width: 1000px) {
   .embla__slide__img {
     height: auto;
+    aspect-ratio: 1.4;
   }
 }
 
@@ -75,8 +78,8 @@
     width: 40px;
     position: absolute;
     z-index: 9;
-    top: -25px;
-    left: 55px;
+    top: -55px;
+    left: 30px;
     rotate: -90deg;
   }
   .next-to .embla-thumbs {
