@@ -11,7 +11,9 @@ export default function Map({biens, popup = false}) {
         <MapContainer style={{marginTop: '50px', height: '740px', width: '100%'}}
                       zoom={11}
                       center={center}
-                      scrollWheelZoom={false}>
+                      scrollWheelZoom={false}
+                      dragging={false}
+        >
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
