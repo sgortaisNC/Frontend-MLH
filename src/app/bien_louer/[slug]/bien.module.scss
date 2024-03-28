@@ -10,9 +10,16 @@
   }
 
   @media screen and (max-width: 1000px) {
-    flex-direction: column;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
+    > :nth-child(1),
+    > :nth-child(2){
+      width: 50%;
+    }
+    > :nth-child(3){
+      width: 100%;
+    }
   }
 }
 

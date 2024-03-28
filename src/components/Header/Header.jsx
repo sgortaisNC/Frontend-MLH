@@ -63,7 +63,7 @@ export default function Header({data}) {
                     <div className="container">
                         <div className="header__top__grid">
                             <div className="left">
-                                <a href="">
+                                <a href="tel:0470052172">
                                     <Image
                                         src="/tel.svg" alt='' height={27} width={27}></Image>
                                     04 70 05 21 72
@@ -145,19 +145,21 @@ export default function Header({data}) {
                             </ul>
                         </nav>
                         <div className={`header__search ` + (search ? 'active' : '')}>
-                            <svg
-                                onClick={openMenu}
-                                xmlns="http://www.w3.org/2000/svg" width="23.628" height="23.628"
-                                viewBox="0 0 23.628 23.628">
-                                <g id="Groupe_2632" data-name="Groupe 2632" transform="translate(-1465.941 -156.941)">
-                                    <circle id="Ellipse_184" data-name="Ellipse 184" cx="8.626" cy="8.626" r="8.626"
-                                            transform="translate(1466.941 157.941)" fill="none" stroke="#fff"
-                                            strokeLinecap="round" strokeWidth="2"/>
-                                    <path id="Tracé_5049" data-name="Tracé 5049" d="M5.7,5.515-.251-.005"
-                                          transform="translate(1482.455 173.641)" fill="none" stroke="#fff"
-                                          strokeLinecap="round" strokeWidth="2"/>
-                                </g>
-                            </svg>
+                            <button className={"openSearch"} onClick={openMenu}>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg" width="23.628" height="23.628"
+                                    viewBox="0 0 23.628 23.628">
+                                    <g id="Groupe_2632" data-name="Groupe 2632"
+                                       transform="translate(-1465.941 -156.941)">
+                                        <circle id="Ellipse_184" data-name="Ellipse 184" cx="8.626" cy="8.626" r="8.626"
+                                                transform="translate(1466.941 157.941)" fill="none" stroke="#fff"
+                                                strokeLinecap="round" strokeWidth="2"/>
+                                        <path id="Tracé_5049" data-name="Tracé 5049" d="M5.7,5.515-.251-.005"
+                                              transform="translate(1482.455 173.641)" fill="none" stroke="#fff"
+                                              strokeLinecap="round" strokeWidth="2"/>
+                                    </g>
+                                </svg>
+                            </button>
 
                             <form action="/recherche/" method={'GET'}>
                                 <input id="search" name="motcle" required={true} type="text"

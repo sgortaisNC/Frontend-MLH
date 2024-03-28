@@ -7,37 +7,19 @@
 }
 
 .sitemap {
+  > li > a{
+    font-weight: bold;
+    color: var(--pourpre) !important;
+    margin-top: 15px;
+    display: block;
+    font-size: 26px !important;
+  }
   ul{
-    list-style: none;
-    border-left: 2px solid var(--vert);
-    ::before{
-      display: none;
-    }
+
   }
   li a:not([class]){
     color: var(--fontColor);
     text-decoration: none;
     font-size: 22px;
-  }
-  > li {
-    > a {
-
-    }
-
-    > ul {
-      > li {
-        > a {
-
-        }
-
-        > ul {
-          > li {
-            > a {
-
-            }
-          }
-        }
-      }
-    }
   }
 }

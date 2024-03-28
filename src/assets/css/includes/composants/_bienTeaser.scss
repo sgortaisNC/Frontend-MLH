@@ -72,6 +72,11 @@
       top: 17px;
     }
 
+    @media screen and (max-width: 500px) {
+      .type, .meta {
+        display: none;
+      }
+    }
     figure {
       position: relative;
 

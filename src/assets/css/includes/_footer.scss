@@ -113,6 +113,9 @@
     display: grid;
     grid-template-rows: 22px 40px auto;
     gap: 10px;
+    @media screen and (max-width: 500px) {
+      place-items: center;
+    }
 
     .btn {
       display: inline-flex;
@@ -160,7 +163,11 @@
       height: auto;
     }
 
-    border-top: 2px solid #CBD2D6;
+    @media screen and (max-width: 1000px) {
+      height:auto;
+      padding-top: 30px;
+    }
+      border-top: 2px solid #CBD2D6;
 
     ul {
       display: flex;

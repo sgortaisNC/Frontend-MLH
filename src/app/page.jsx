@@ -62,7 +62,7 @@ export default async function Home() {
         <main className={"home"}>
             <section className="hero">
                 <Image priority={true} src={data.baseline.image} width={1920} height={717}
-                       alt=""/> :
+                       alt=""/>
                 <div className="container">
                     <h1>
                         <span className="first-line">{data.baseline.ligne1}</span>
@@ -131,7 +131,7 @@ export default async function Home() {
                         Focus sur <br/>
                         <strong>Accompagner les territoires</strong>
                     </h2>
-                    <div className={"description__content"} dangerouslySetInnerHTML={{__html: data.focus.contenu}}>
+                    <div className={"description__content wysiwyg"} dangerouslySetInnerHTML={{__html: data.focus.contenu}}>
 
                     </div>
                 </div>

@@ -2,10 +2,24 @@
     box-shadow: 0 0 5px 1px currentColor;
     padding: 15px;
     margin-bottom: 30px;
+    position: relative;
+    h3{
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    p{
+        line-height: 1.4;
+        font-size: 18px;
+    }
     .btn{
         display: block;
         width: 200px;
         text-align: center;
         margin-left: auto;
+        &::before{
+            content: '';
+            position: absolute;
+            inset: 0;
+        }
     }
 }

@@ -50,7 +50,7 @@ input[type="submit"], button{
   &--green{
     background: transparent;
     border-color: var(--vert);
-    color: var(--vert);
+    color: var(--fontColor);
     &:hover{
       background: #F6FAEA;
       color: var(--vert);

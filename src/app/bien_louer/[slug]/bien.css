@@ -2,7 +2,7 @@
   background: #DCF3F8;
   padding: 60px 100px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(attr(data-), 1fr);
   gap: 61px;
   margin-top: -21px;
 }
@@ -37,4 +37,6 @@
   .infos .info:not(:last-child)::after {
     display: none;
   }
-}/*# sourceMappingURL=bien.css.map */
+}
+
+/*# sourceMappingURL=bien.css.map */

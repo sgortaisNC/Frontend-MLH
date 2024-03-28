@@ -1,25 +1,51 @@
 "use client";
 
 import {useState} from "react";
+import {useGoogleReCaptcha} from "react-google-recaptcha-v3";
+
 
 
 
 export const CustomForm = ({formId, children}) => {
     const [submit, setSubmit] = useState(false);
+    const {executeRecaptcha} = useGoogleReCaptcha();
     async function handleSubmit(e) {
         e.preventDefault();
-        const form = e.target;
-        const data = new FormData(form);
-        const r = await fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/submit-form', {
-            method: 'POST',
-            body: data
-        });
-        const entryID = await r.json();
-        if (parseInt(entryID) > 0) {
-            form.reset();
+
+        if (!executeRecaptcha) {
+            return;
         }
-        setSubmit(true)
-        return false;
+
+        const gRecaptchaToken = await executeRecaptcha('forminatorForm');
+
+        const response = await fetch('/api/recaptchaSubmit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json, text/plain, */*'
+            },
+            body: JSON.stringify({gRecaptchaToken: gRecaptchaToken})
+        });
+
+        let responseJson = await response.json();
+        if (responseJson.success === true){
+            const form = e.target;
+            const data = new FormData(form);
+            const r = await fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/submit-form', {
+                method: 'POST',
+                body: data
+            });
+            const entryID = await r.json();
+            if (parseInt(entryID) > 0) {
+                form.reset();
+            }
+            setSubmit(true)
+
+        }else{
+
+        }
+
+
 
     }
     return (

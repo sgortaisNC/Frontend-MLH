@@ -63,6 +63,9 @@
   align-items: center;
   gap: 33px;
   width: 260px;
+  @include laptop{
+    width: 230px;
+  }
   @include tablet{
     width: 100%;
   }

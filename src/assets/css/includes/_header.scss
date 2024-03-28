@@ -50,7 +50,7 @@
         margin-top: -3px;
       }
 
-      @include tablet {
+      @include phone {
         span {
           display: none;
         }
@@ -249,6 +249,7 @@
               &:not(:first-child) {
                 margin-top: 15px;
               }
+
               > a {
                 color: var(--pourpre);
                 font-weight: bold;
@@ -309,7 +310,7 @@
           }
 
           &::before {
-            content: "Fermer";
+            content: "X";
             position: absolute;
             left: 100%;
             color: white;
@@ -317,17 +318,25 @@
             font-weight: bold;
             font-size: 20px;
             z-index: 2;
-            rotate: 90deg;
+            //rotate: 90deg;
+            text-align: center;
             width: 40px;
           }
         }
 
         > ul {
-          height: 100%;
+          max-height: 100%;
+          padding: 50px 0;
           overflow: auto;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
+          display: grid;
+          place-items: center;
+          &::-webkit-scrollbar {
+            width: 10px;
+          }
+          &::-webkit-scrollbar-thumb{
+            background: var(--pourpre);
+            border-radius: 10px;
+          }
 
           > li {
             max-width: 75%;
@@ -393,9 +402,9 @@
         }
       }
 
-      width: min(100%, 450px);
+      width: min(100%, 480px);
 
-      > svg {
+      > button {
         display: none;
       }
 
@@ -406,23 +415,24 @@
   }
 }
 
-.alerte{
+.alerte {
   position: fixed;
   inset: 0;
   z-index: 89000000;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
   display: grid;
   place-items: center;
-  &__inner{
+
+  &__inner {
     width: min(1100px, 90%);
     padding: 45px;
     background: white;
     border-radius: var(--radius);
-    box-shadow: 0px 0px 20px rgba(255,255,255,0.2);
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
   }
 
-  &__title{
+  &__title {
     font-weight: bold;
     font-size: 32px;
     display: inline-block;
@@ -431,7 +441,7 @@
     border-bottom: 2px solid;
   }
 
-  button{
+  button {
     background: white;
     position: absolute;
     right: 30px;
@@ -446,7 +456,25 @@
 
   opacity: 1;
   transition: opacity 0.25s ease;
-  &.fade{
+
+  &.fade {
     opacity: 0;
+  }
+}
+
+.openSearch {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: transparent;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .header__top__grid .left,
+  .header__top__grid .left a,
+  .header__top__grid .right ul a {
+    font-size: 14px;
   }
 }

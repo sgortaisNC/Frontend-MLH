@@ -2,6 +2,7 @@
   --slide-spacing: 1rem;
   --slide-size: 100%;
   --slide-height: 565px;
+  position: relative;
   @media screen and (max-width: 1000px) {
     height: auto;
   }
@@ -57,10 +58,24 @@
 }
 
 .next-to {
+  *{
+    -webkit-tap-highlight-color: transparent;
+  }
   position: relative;
   top: -15px;
   @media screen and (max-width: 1000px) {
-    display: none;
+    .embla-thumbs {
+      display: none;
+    }
+    width: 40px;
+    .embla__prev{
+      margin-bottom: 40px;
+    }
+    position: absolute;
+    z-index: 9;
+    top: -25px;
+    left: 55px;
+    rotate: -90deg;
   }
 }
 

@@ -45,7 +45,7 @@ body {
 }
 @media (max-width: 1000.01px) {
   .container--inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     grid-row-gap: 40px;
   }
   .container--inner .sidebar {
@@ -1235,7 +1235,7 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
 .header__top__grid .right svg {
   margin-top: -3px;
 }
-@media (max-width: 1000.01px) {
+@media (max-width: 500.01px) {
   .header__top__grid .right span {
     display: none;
   }
@@ -1478,7 +1478,7 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
     background: rgba(0, 0, 0, 0.6);
   }
   .header__bottom nav.open::before {
-    content: "Fermer";
+    content: "X";
     position: absolute;
     left: 100%;
     color: white;
@@ -1486,15 +1486,22 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
     font-weight: bold;
     font-size: 20px;
     z-index: 2;
-    rotate: 90deg;
+    text-align: center;
     width: 40px;
   }
   .header__bottom nav > ul {
-    height: 100%;
+    max-height: 100%;
+    padding: 50px 0;
     overflow: auto;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
+  }
+  .header__bottom nav > ul::-webkit-scrollbar {
+    width: 10px;
+  }
+  .header__bottom nav > ul::-webkit-scrollbar-thumb {
+    background: var(--pourpre);
+    border-radius: 10px;
   }
   .header__bottom nav > ul > li {
     max-width: 75%;
@@ -1536,7 +1543,7 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
   transition: var(--transition);
 }
 .header__search.active {
-  width: min(100%, 450px);
+  width: min(100%, 480px);
 }
 .header__search.active form {
   opacity: 1;
@@ -1550,7 +1557,7 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
     width: 200px;
   }
 }
-.header__search.active > svg {
+.header__search.active > button {
   display: none;
 }
 .header__search.active::before {
@@ -1599,6 +1606,20 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
   opacity: 0;
 }
 
+.openSearch::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+}
+
+@media screen and (max-width: 1100px) {
+  .header__top__grid .left,
+  .header__top__grid .left a,
+  .header__top__grid .right ul a {
+    font-size: 14px;
+  }
+}
 .footer {
   background: var(--lightGrey);
 }
@@ -1703,6 +1724,11 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
   grid-template-rows: 22px 40px auto;
   gap: 10px;
 }
+@media screen and (max-width: 500px) {
+  .footer__rs {
+    place-items: center;
+  }
+}
 .footer__rs .btn {
   display: inline-flex;
   width: max-content;
@@ -1745,6 +1771,12 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
     padding-top: 25px;
     flex-direction: column;
     height: auto;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .footer__bottom {
+    height: auto;
+    padding-top: 30px;
   }
 }
 .footer__bottom ul {
@@ -1839,8 +1871,17 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
     margin-bottom: 40px;
   }
 }
-.module-search input:not([type=file]) {
+.module-search input:not([type=file], [type=checkbox], [type=radio]), .module-search select {
   height: 40px;
+}
+.module-search .checkboxes {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+.module-search input[type=file], .module-search input[type=checkbox], .module-search input[type=radio] {
+  height: 20px;
+  padding-right: 0;
 }
 .module-search .mySelect {
   box-shadow: -4px 4px 4px rgba(4, 173, 209, 0.2);
@@ -1949,18 +1990,19 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
   color: var(--vert);
 }
 
-.sitemap ul {
-  list-style: none;
-  border-left: 2px solid var(--vert);
-}
-.sitemap ul ::before {
-  display: none;
+.sitemap > li > a {
+  font-weight: bold;
+  color: var(--pourpre) !important;
+  margin-top: 15px;
+  display: block;
+  font-size: 26px !important;
 }
 .sitemap li a:not([class]) {
   color: var(--fontColor);
   text-decoration: none;
   font-size: 22px;
 }
+
 .wysiwyg {
   margin: 50px 0;
   line-height: 1.4;
@@ -2123,11 +2165,15 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
   color: #a7c830;
 }
 @media (max-width: 500.01px) {
+  .hero .container h1 {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
   .hero .container h1 .first-line {
     font-size: 28px;
   }
   .hero .container h1 .second-line {
-    font-size: 60px;
+    font-size: 55px;
   }
   .hero .container h1 .third-line {
     font-size: 46px;
@@ -2313,6 +2359,11 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
   width: 260px;
   position: relative;
 }
+@media (max-width: 1400.01px) {
+  .key {
+    width: 230px;
+  }
+}
 @media (max-width: 1000.01px) {
   .key {
     width: 100%;
@@ -2451,7 +2502,7 @@ input[type=submit], button {
 .btn--green, .wp-element-button--green {
   background: transparent;
   border-color: var(--vert);
-  color: var(--vert);
+  color: var(--fontColor);
 }
 .btn--green:hover, .wp-element-button--green:hover {
   background: #F6FAEA;
@@ -2821,19 +2872,22 @@ textarea {
   color: var(--pourpre);
 }
 
-.form-190 {
+.form-190, .form-193 {
   display: grid;
   place-items: start;
   grid-template-columns: repeat(2, 1fr);
   gap: 25px;
 }
-.form-190 .form-group {
+.form-190 .form-group, .form-193 .form-group {
   width: 100%;
 }
 .form-190 > :nth-child(6),
 .form-190 > :nth-child(7),
 .form-190 > :nth-child(8),
-.form-190 > :nth-child(9) {
+.form-190 > :nth-child(9), .form-193 > :nth-child(6),
+.form-193 > :nth-child(7),
+.form-193 > :nth-child(8),
+.form-193 > :nth-child(9) {
   grid-column: 1/-1;
 }
 
@@ -2972,6 +3026,11 @@ textarea {
   position: absolute;
   right: 17px;
   top: 17px;
+}
+@media screen and (max-width: 500px) {
+  .bien-teaser .card .type, .bien-teaser .card .meta {
+    display: none;
+  }
 }
 .bien-teaser .card figure {
   position: relative;
@@ -3178,6 +3237,10 @@ input[type=range] {
   background: var(--lightGrey);
 }
 
+.filtres:has(.vues) {
+  padding-top: 80px;
+}
+
 .vues {
   position: absolute;
   top: 15px;
@@ -3203,6 +3266,11 @@ input[type=range] {
 }
 .vues button:hover, .vues button.active {
   background: var(--fontColor);
+}
+@media screen and (max-width: 1000px) {
+  .vues {
+    right: initial;
+  }
 }
 
 .gridBiens {
@@ -3293,9 +3361,26 @@ input[type=range] {
   text-overflow: ellipsis;
   transition: all 0.5s ease;
 }
+@media screen and (max-width: 768px) {
+  .accordeon button {
+    font-size: 18px;
+    line-height: 1.2;
+    display: flex;
+    padding: 15px;
+    align-items: center;
+  }
+  .accordeon button svg {
+    margin-top: -3px;
+  }
+}
 
 .accordeon svg {
   margin-right: 20px;
+}
+@media screen and (max-width: 768px) {
+  .accordeon svg {
+    margin-right: 10px;
+  }
 }
 
 .accordeon.active button {
@@ -3312,6 +3397,11 @@ input[type=range] {
   padding: 60px 80px;
   z-index: 2;
 }
+@media screen and (max-width: 500px) {
+  .exergue {
+    padding: 15px;
+  }
+}
 
 .exergue--image figure {
   position: absolute;
@@ -3321,6 +3411,11 @@ input[type=range] {
   bottom: 0;
   width: 50%;
   margin-bottom: 0;
+}
+@media screen and (max-width: 500px) {
+  .exergue--image figure {
+    display: none;
+  }
 }
 
 .exergue--image figure::after {
@@ -3379,6 +3474,11 @@ input[type=range] {
 .exergue--image .exergue__content {
   width: 50%;
 }
+@media screen and (max-width: 500px) {
+  .exergue--image .exergue__content {
+    width: 100%;
+  }
+}
 
 .exergue__btn {
   text-transform: uppercase;
@@ -3388,7 +3488,7 @@ input[type=range] {
   letter-spacing: 0.02em;
   text-align: right;
   border: 2px solid #ac3053;
-  padding: 8px 40px 10px;
+  padding: 10px 40px 8px;
   border-radius: 50px;
   display: inline-flex;
   align-items: center;
@@ -3454,6 +3554,11 @@ input[type=range] {
   align-items: self-end;
   position: relative;
 }
+@media screen and (max-width: 1000px) {
+  .temoignage {
+    flex-direction: column;
+  }
+}
 
 .temoignage figure {
   flex: none;
@@ -3461,6 +3566,11 @@ input[type=range] {
   height: 335px;
   margin-bottom: 0;
   display: block;
+}
+@media screen and (max-width: 1000px) {
+  .temoignage figure {
+    display: none;
+  }
 }
 .temoignage figure::after {
   position: absolute;
@@ -3491,6 +3601,11 @@ input[type=range] {
   line-height: 25px;
   color: #4b7388;
 }
+@media screen and (max-width: 1000px) {
+  .temoignage__content {
+    padding: 15px 15px 15px 80px;
+  }
+}
 
 .temoignage__content svg {
   position: absolute;
@@ -3505,6 +3620,14 @@ input[type=range] {
   line-height: 25px;
   text-align: left;
   color: #04add1;
+}
+
+.wp-block-columns {
+  gap: 20px;
+}
+
+.wysiwyg p {
+  margin-top: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */

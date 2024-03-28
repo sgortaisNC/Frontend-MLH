@@ -10,9 +10,16 @@
 }
 @media screen and (max-width: 1000px) {
   .flex {
-    flex-direction: column;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
+  }
+  .flex > :nth-child(1),
+  .flex > :nth-child(2) {
+    width: 50%;
+  }
+  .flex > :nth-child(3) {
+    width: 100%;
   }
 }
 
@@ -133,4 +140,6 @@
 
 .rouge {
   border-bottom-color: #AC3053;
-}/*# sourceMappingURL=bien.module.css.map */
+}
+
+/*# sourceMappingURL=bien.module.css.map */

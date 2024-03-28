@@ -59,6 +59,9 @@ export const ListeBiens = ({data}) => {
 
             setIsLoaded(true);
             setIsReady(true);
+            if (isLoaded) {
+                document.querySelector('.biens_grid')?.scrollIntoView();
+            }
         });
     }, [isLoaded]);
 

@@ -1,4 +1,4 @@
-.accordeon{
+.accordeon {
   margin-bottom: 15px;
   display: grid;
   grid-template-rows: 81px 0fr;
@@ -6,11 +6,13 @@
   max-height: 81px;
   transition: max-height 1s ease;
 }
-.accordeon.active{
+
+.accordeon.active {
   grid-template-rows: 81px 1fr;
   max-height: 1000px;
 }
-.accordeon .accordeon__title{
+
+.accordeon .accordeon__title {
   display: flex;
   align-items: center;
   height: 81px;
@@ -18,7 +20,7 @@
   overflow: hidden;
 }
 
-.accordeon__content{
+.accordeon__content {
   font-weight: 600;
   font-size: 20px;
   line-height: 25px;
@@ -30,7 +32,7 @@
   border-top: 17px solid white;
 }
 
-.accordeon button{
+.accordeon button {
   background: transparent;
   width: 100%;
   border: none;
@@ -49,14 +51,27 @@
   -webkit-line-clamp: 1;
   text-overflow: ellipsis;
   transition: all 0.5s ease;
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+    line-height: 1.2;
+    display: flex;
+    padding: 15px;
+    align-items: center;
+    svg {
+      margin-top: -3px;
+    }
+  }
 }
 
 
-.accordeon svg{
+.accordeon svg {
   margin-right: 20px;
+  @media screen and (max-width: 768px) {
+    margin-right: 10px;
+  }
 }
 
-.accordeon.active button{
+.accordeon.active button {
   color: white;
   background: #04add1;
 }
@@ -68,6 +83,9 @@
   overflow: hidden;
   border-radius: 10px;
   padding: 60px 80px;
+  @media screen and (max-width: 500px) {
+    padding: 15px;
+  }
   z-index: 2;
 }
 
@@ -79,6 +97,9 @@
   bottom: 0;
   width: 50%;
   margin-bottom: 0;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 }
 
 .exergue--image figure::after {
@@ -106,6 +127,7 @@
   left: calc(100% - 228px);
   z-index: 0;
 }
+
 .exergue--image svg {
   left: unset;
   right: calc(100% - 228px);
@@ -136,6 +158,9 @@
 
 .exergue--image .exergue__content {
   width: 50%;
+  @media screen and (max-width: 500px){
+    width: 100%;
+  }
 }
 
 .exergue__btn {
@@ -146,7 +171,7 @@
   letter-spacing: 0.02em;
   text-align: right;
   border: 2px solid #ac3053;
-  padding: 8px 40px 10px;
+  padding: 10px 40px 8px;
   border-radius: 50px;
   display: inline-flex;
   align-items: center;
@@ -154,13 +179,14 @@
   margin-top: 35px;
 }
 
-.exergue__btn:hover{
+.exergue__btn:hover {
   background: #ac3053;
   color: #fff;
 }
 
 .chiffres {
   display: flex;
+
   > * {
     flex: 1;
   }
@@ -210,20 +236,27 @@
 }
 
 
-.temoignage{
+.temoignage {
   display: flex;
   gap: 34px;
   align-items: self-end;
   position: relative;
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+  }
 }
 
-.temoignage figure{
+.temoignage figure {
   flex: none;
   width: 296px;
   height: 335px;
   margin-bottom: 0;
   display: block;
-  &::after{
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+
+  &::after {
     position: absolute;
     content: '';
     left: 0;
@@ -236,18 +269,21 @@
   }
 }
 
-.temoignage figure img{
+.temoignage figure img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
-.temoignage__content{
+.temoignage__content {
   flex: 1;
   background: linear-gradient(213deg, #dcf3f8 0%, #dcf3f8 -10%, #f6faea 100%);
   position: relative;
   padding: 66px 80px 104px 110px;
+  @media screen and (max-width: 1000px) {
+    padding: 15px 15px 15px 80px;
+  }
 
   font-weight: 500;
   font-size: 18px;
@@ -255,14 +291,14 @@
   color: #4b7388;
 }
 
-.temoignage__content svg{
+.temoignage__content svg {
   position: absolute;
   top: 44px;
   left: -16px;
   z-index: 2;
 }
 
-.temoignage__source{
+.temoignage__source {
   font-weight: bold;
   font-size: 21px;
   line-height: 25px;
@@ -270,3 +306,10 @@
   color: #04add1;
 }
 
+.wp-block-columns {
+  gap: 20px;
+}
+
+.wysiwyg p {
+  margin-top: 0;
+}

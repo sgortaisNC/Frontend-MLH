@@ -6,8 +6,17 @@
     margin-bottom: 40px;
   }
 
-  input:not([type=file]){
+  input:not([type=file], [type=checkbox], [type=radio]), select {
     height: 40px;
+  }
+  .checkboxes{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+  }
+  input[type=file], input[type=checkbox], input[type=radio] {
+    height: 20px;
+    padding-right: 0;
   }
 
   .mySelect{

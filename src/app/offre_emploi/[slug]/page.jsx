@@ -17,7 +17,14 @@ async function getData($slug) {
 
     return res.json()
 }
-
+function decodeHTMLEntities(text) {
+    return text.replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&#039;/g, "'")
+        .replace(/&rsquo;/g, "'");
+}
 export async function generateMetadata({ params, searchParams }, parent) {
     const lastSlug = params.slug;
     const data = (await getData(lastSlug))[0];
@@ -26,7 +33,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
         description: 'Location de logement (appartement et maison) pas cher à Montluçon y compris pour les étudiants.'
     };
     let metas = {
-        title: data.titre,
+        title: decodeHTMLEntities(data.titre),
         openGraph: {
             title: data.titre,
             images: [
@@ -62,16 +69,28 @@ export default async function Page({params}) {
     const offre = data[0];
 
     const ariane = [
-        {label: "Liste des offres d'emploi", url: '/montlucon-habitat/nous-rejoindre'},
+        {label: "Liste des offres d'emploi", url: '/nous-rejoindre'},
         {label: offre.titre, url: ''}
     ]
+
+    let count = 2;
+    if (offre.contrat) {
+        count++;
+    }
+    if (offre.metier) {
+        count++;
+    }
+    if (offre.pdf) {
+        count++;
+    }
+
 
     return (
         <>
             <Titre titre={offre.titre} chapo={offre.chapo} ariane={ariane}/>
 
             <div className="container" style={{marginBottom: "50px"}}>
-                <div className="infos">
+                <div className="infos" style={{gridTemplateColumns: `repeat(${count},1fr)`}}>
                     <div className="info">
                         <svg xmlns="http://www.w3.org/2000/svg" width="43.75" height="44.531"
                              viewBox="0 0 43.75 44.531">

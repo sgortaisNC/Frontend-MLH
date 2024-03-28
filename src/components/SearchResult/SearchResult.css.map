@@ -1,1 +1,1 @@
-{"version":3,"sources":["SearchResult.scss","SearchResult.css"],"names":[],"mappings":"AAAA;EACI,oCAAA;EACA,aAAA;EACA,mBAAA;ACCJ;ADAI;EACI,cAAA;EACA,YAAA;EACA,kBAAA;EACA,iBAAA;ACER","file":"SearchResult.css"}
+{"version":3,"sourceRoot":"","sources":["SearchResult.scss"],"names":[],"mappings":"AAAA;EACI;EACA;EACA;EACA;;AACA;EACI;EACA;;AAEJ;EACI;EACA;;AAEJ;EACI;EACA;EACA;EACA;;AACA;EACI;EACA;EACA","file":"SearchResult.css"}
