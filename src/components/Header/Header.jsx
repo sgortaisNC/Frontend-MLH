@@ -8,6 +8,7 @@ import {useEffect, useState} from "react";
 export default function Header({data}) {
 
     const [search, setSearch] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     function openMenu() {
         setSearch(!search);
@@ -39,7 +40,8 @@ export default function Header({data}) {
         } else {
             data.alerte.closed = false
         }
-    }, []);
+        setIsLoaded(true);
+    }, [isLoaded]);
 
 
     return (<>
