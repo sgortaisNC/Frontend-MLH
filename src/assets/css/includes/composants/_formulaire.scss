@@ -131,6 +131,12 @@ textarea{
   > :nth-child(9){
     grid-column: 1 / -1;
   }
+  
+  @media screen and (max-width: 500px) {
+    > * {
+        grid-column: 1 / -1;
+    }
+  }
 }
 
 
@@ -145,5 +151,10 @@ textarea{
   > :nth-child(6),
   > :nth-child(7){
     grid-column: 1 / -1;
+    @media screen and (max-width: 500px) {
+      > * {
+        grid-column: 1 / -1;
+      }
+    }
   }
 }

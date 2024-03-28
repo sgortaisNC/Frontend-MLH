@@ -2890,6 +2890,11 @@ textarea {
 .form-193 > :nth-child(9) {
   grid-column: 1/-1;
 }
+@media screen and (max-width: 500px) {
+  .form-190 > *, .form-193 > * {
+    grid-column: 1/-1;
+  }
+}
 
 .form-180, .form-185 {
   display: grid;
@@ -2904,6 +2909,13 @@ textarea {
 .form-180 > :nth-child(7), .form-185 > :nth-child(6),
 .form-185 > :nth-child(7) {
   grid-column: 1/-1;
+}
+@media screen and (max-width: 500px) {
+  .form-180 > :nth-child(6) > *,
+  .form-180 > :nth-child(7) > *, .form-185 > :nth-child(6) > *,
+  .form-185 > :nth-child(7) > * {
+    grid-column: 1/-1;
+  }
 }
 
 .sidebar-block ul {

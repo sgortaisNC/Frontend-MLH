@@ -5,6 +5,8 @@ import ForminatorField from "@/components/ForminatorField/ForminatorField";
 import Titre from "@/components/Titre/Titre";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import {CustomForm} from "@/components/CustomForm/CustomForm";
+import Link from "next/link";
+import ForminatorAnnuler from "@/components/ForminatorAnnuler/ForminatorAnnuler";
 
 
 function strip(html) {
@@ -12,7 +14,7 @@ function strip(html) {
 }
 
 async function getData($slug) {
-    const res = await fetch(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/page/${$slug}`,{
+    const res = await fetch(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/page/${$slug}`, {
         next: {
             revalidate: 1,
         }
@@ -88,7 +90,11 @@ export default async function Page({params}) {
                     <CustomForm formId={formID}>
                         <input type="hidden" name="form_id" value={formID}/>
                         {formulaire.map((wrapper) => <ForminatorField key={wrapper.wrapper_id} wrapper={wrapper}/>)}
-                        <button type={'submit'} className={'btn'}>Envoyer</button>
+                        <div className="actions">
+                            <button type={'submit'} className={'btn'}>Envoyer</button>
+                            &nbsp;
+                            <ForminatorAnnuler/>
+                        </div>
                     </CustomForm>
                     : null
                 }
