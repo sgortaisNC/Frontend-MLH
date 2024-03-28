@@ -1294,6 +1294,11 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
   z-index: 3;
   top: calc(100% + 65px);
 }
+@media (max-width: 500.01px) {
+  .header__bottom {
+    top: calc(100% + 25px);
+  }
+}
 .header__bottom .container {
   background: white;
   height: 106px;
@@ -2106,7 +2111,8 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
 @media (max-width: 1000.01px) {
   .hero {
     height: calc(100vh - 48px - 53px);
-    max-height: 717px;
+    max-height: 450px;
+    overflow: hidden;
   }
 }
 .hero .container {
@@ -2120,6 +2126,11 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
   position: relative;
   z-index: 1;
   text-align: right;
+}
+@media (max-width: 1000.01px) {
+  .hero .container h1 {
+    padding-top: 105px;
+  }
 }
 .hero .container h1::before {
   position: absolute;
@@ -2165,6 +2176,11 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
   color: #a7c830;
 }
 @media (max-width: 500.01px) {
+  .hero .container h1 .third-line {
+    color: var(--fontColor);
+  }
+}
+@media (max-width: 500.01px) {
   .hero .container h1 {
     padding-left: 12px;
     padding-right: 12px;
@@ -2200,7 +2216,6 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
 @media (max-width: 500.01px) {
   .hero::before {
     width: 100%;
-    background: rgba(255, 255, 255, 0.8);
   }
 }
 .hero::after {

@@ -5,7 +5,8 @@
   height: 717px;
   @include tablet{
     height: calc(100vh - 48px - 53px);
-    max-height: 717px;
+    max-height: 450px;
+    overflow: hidden;
   }
   margin-bottom: 20px;
 
@@ -17,6 +18,9 @@
 
     h1 {
       padding-top: 180px;
+      @include tablet{
+        padding-top: 105px;
+      }
       position: relative;
       z-index: 1;
       text-align: right;
@@ -64,6 +68,9 @@
         line-height: 79px;
         text-align: right;
         color: #a7c830;
+        @include phone{
+          color: var(--fontColor);
+        }
       }
 
       @include phone {
@@ -103,7 +110,6 @@
     background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 40%, rgba(255, 255, 255, 0.6) 80%, rgba(255, 255, 255, 0) 100%);
     @include phone{
       width: 100%;
-      background: rgba(255, 255, 255, 0.8);
     }
   }
 
