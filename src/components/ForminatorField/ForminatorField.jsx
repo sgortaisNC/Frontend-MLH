@@ -8,7 +8,8 @@ export default function ForminatorField({wrapper}) {
 
     const searchParams = useSearchParams();
 
-    const reference = field.prefill ? searchParams.get(field.prefill) : null;
+    const reference = field.prefill ? searchParams.get(field.prefill) ?? 'Candidature spontannée' : "";
+
     return <div className={'form-group'}>
         <label className={'form-label'}>
             {field.field_label}{field.required && <span className="required">*</span>}
@@ -39,7 +40,7 @@ export default function ForminatorField({wrapper}) {
                                     placeholder={field.placeholder} 
                                     required={field.required === "1"}
                                     readOnly={field.prefill && reference ? true : false}
-                                    defaultValue={field.prefill && reference ? 'Référence : ' + reference : ''}
+                                    defaultValue={field.prefill && reference ? reference === "Candidature spontannée" ? reference : 'Référence : ' + reference : ''}
                                 />
             }
         </div>

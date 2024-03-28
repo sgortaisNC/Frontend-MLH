@@ -82,9 +82,11 @@ export default async function Page({params}) {
                 <Sidebar documents={documents} liens={liens}/> : null
             }
             <div className="content">
-                <div className="text-center">
-                    <Image src={image} alt={titre} height={503} width={1161}/>
-                </div>
+                {image &&
+                    <div className="text-center">
+                        <Image src={image} alt={titre} height={503} width={1161}/>
+                    </div>
+                }
                 <div className="wysiwyg" dangerouslySetInnerHTML={{__html: contenu}}></div>
                 {formulaire && formID ?
                     <CustomForm formId={formID}>

@@ -9,10 +9,10 @@ import Titre from "@/components/Titre/Titre";
 import "./singleActu.scss"
 
 
-function strip(html)
-{
-    return html.replace(/<[^>]+>/ig,"").replace(/\s+/g, ' ').trim().substring(0, 160)
+function strip(html) {
+    return html.replace(/<[^>]+>/ig, "").replace(/\s+/g, ' ').trim().substring(0, 160)
 }
+
 async function getData(slug) {
     const res = await fetch(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/actualite/${slug}`, {cache: "no-cache"})
 
@@ -23,7 +23,7 @@ async function getData(slug) {
     return res.json()
 }
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata({params, searchParams}, parent) {
     const lastSlug = params.slug;
     const data = (await getData(lastSlug))[0];
     if (!data) return {
@@ -61,7 +61,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
 export default async function Page({params}) {
 
-   const data = await getData(params.slug)
+    const data = await getData(params.slug)
 
     if (!data) return <PostNotFound/>
 
@@ -69,7 +69,7 @@ export default async function Page({params}) {
         {
             label: 'Nos actualités',
             url: '/actualites'
-        },{
+        }, {
             label: data[0].titre,
             url: ''
         }
@@ -82,9 +82,11 @@ export default async function Page({params}) {
     return <main style={{marginBottom: '50px'}}>
         <Titre titre={titre} chapo={chapo} ariane={ariane}/>
         <div className="container">
-            <div className="text-center">
-                <Image height={503} width={1161} alt={titre} src={image}/>
-            </div>
+            {image &&
+                <div className="text-center">
+                    <Image height={503} width={1161} alt={titre} src={image}/>
+                </div>
+            }
             <div className="date">
                 <svg xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 448 512" width={20} fill={"var(--bleu)"}>

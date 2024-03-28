@@ -17,6 +17,7 @@ export const InnerPrivate = ({data}) => {
     }, [isLoaded]);
 
     const {titre, image, contenu, formulaire, formID, documents, liens} = data[0];
+
     function handleSubmit(e) {
         e.preventDefault();
         const form = e.target;
@@ -37,9 +38,11 @@ export const InnerPrivate = ({data}) => {
                 <Sidebar documents={documents} liens={liens}/> : null
             }
             <div className="content">
-                <div className="text-center">
-                    <Image src={image} alt={titre} height={503} width={1161}/>
-                </div>
+                {image &&
+                    <div className="text-center">
+                        <Image src={image} alt={titre} height={503} width={1161}/>
+                    </div>
+                }
                 <div className="wysiwyg" dangerouslySetInnerHTML={{__html: contenu}}></div>
                 {formulaire && formID ?
                     <form onSubmit={handleSubmit}>

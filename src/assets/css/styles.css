@@ -3642,4 +3642,8 @@ input[type=range] {
   margin-top: 0;
 }
 
+.wp-element-button {
+  padding: 16px 35px 13px;
+}
+
 /*# sourceMappingURL=styles.css.map */
