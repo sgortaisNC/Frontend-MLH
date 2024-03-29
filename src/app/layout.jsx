@@ -8,7 +8,7 @@ import Script from "next/script";
 import {GoogleCaptchaWrapper} from "@/app/GoogleCaptchaWrapper";
 
 const leagueSpartan = League_Spartan({subsets: ['latin']});
-export const revalidate = 1;
+export const revalidate = 0;
 export const metadata = {
     metadataBase: new URL('https://montlucon.netcomdev2.com'),
     title: {
@@ -19,12 +19,12 @@ export const metadata = {
 
 async function getDatas() {
     const header = await fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/header',
-        {next: {revalidate: 1}}
+        {next: {revalidate: 0}}
     );
     const headerJSON = await header.json();
 
     const footer = await fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/options/footer',
-        {next: {revalidate: 1}}
+        {next: {revalidate: 0}}
     );
     const footerJSON = await footer.json();
 
