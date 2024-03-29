@@ -18,7 +18,7 @@ async function getData(slug) {
     console.log(res)
 
     if (!res.ok) {
-        throw new Error('Failed to fetch data')
+        return false;
     }
 
     return res.json()

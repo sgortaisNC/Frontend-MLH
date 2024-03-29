@@ -17,7 +17,7 @@ async function getData(slug) {
     const res = await fetch(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/actualite/${slug}`, {cache: "no-cache"})
 
     if (!res.ok) {
-        throw new Error('Failed to fetch data')
+        return false;
     }
 
     return res.json()

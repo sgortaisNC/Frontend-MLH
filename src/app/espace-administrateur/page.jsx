@@ -11,7 +11,7 @@ async function getData($slug) {
     const res = await fetch(url,{next: {revalidate: 1}});
 
     if (!res.ok) {
-        throw new Error('Failed to fetch data from ' + url + ' - ' + res.statusText)
+        return false;
     }
 
     return res.json()
