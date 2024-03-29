@@ -147,7 +147,7 @@ export default function Header({data}) {
                             </ul>
                         </nav>
                         <div className={`header__search ` + (search ? 'active' : '')}>
-                            <button className={"openSearch"} onClick={openMenu}>
+                            <button aria-label={"Ouvrir le moteur de recherche"} className={"openSearch"} onClick={openMenu}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg" width="23.628" height="23.628"
                                     viewBox="0 0 23.628 23.628">

@@ -21,7 +21,7 @@ export default function Share() {
                 <ul>
 
                     <li>
-                        <a href={lienMail}>
+                        <a href={lienMail} title={'Partager par mail'}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" viewBox="0 0 20 15">
                                 <path id="Tracé_15269" data-name="Tracé 15269"
                                       d="M0-12.5A2.5,2.5,0,0,1,2.5-15h15A2.5,2.5,0,0,1,20-12.5v10A2.5,2.5,0,0,1,17.5,0H2.5A2.5,2.5,0,0,1,0-2.5Zm1.25,0v1.559l7.641,5.6a1.876,1.876,0,0,0,2.219,0l7.641-5.6V-12.5a1.249,1.249,0,0,0-1.25-1.25H2.465a1.272,1.272,0,0,0-1.25,1.25Zm0,3.109V-2.5A1.249,1.249,0,0,0,2.5-1.25h15A1.249,1.249,0,0,0,18.75-2.5V-9.391l-6.9,5.059a3.118,3.118,0,0,1-3.7,0Z"
@@ -29,7 +29,7 @@ export default function Share() {
                             </svg>
                         </a>
                     </li>
-                    <li><a target={"_blank"} href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}>
+                    <li><a title={'Partager sur Facebook'} target={"_blank"} href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="9.51" height="17.596" viewBox="0 0 9.51 17.596">
                             <path id="FB"
                                   d="M-405.47,41.288c0-2.33,0-4.661-.006-6.992,0-.145.038-.177.179-.176.8.007,1.6,0,2.4,0,.333,0,.454-.122.454-.456q0-1.34,0-2.68c0-.352-.123-.474-.475-.474q-1.211,0-2.422,0c-.09,0-.143,0-.142-.122.009-.6,0-1.2.01-1.8a1.152,1.152,0,0,1,.13-.545.887.887,0,0,1,.776-.425c.588-.055,1.179-.016,1.768-.025.341,0,.462-.122.462-.467q0-1.237,0-2.474c0-.338-.128-.463-.468-.464l-2.113,0a5.316,5.316,0,0,0-1.092.1,3.808,3.808,0,0,0-2.134,1.186,4.193,4.193,0,0,0-1.034,2.7c-.032.726-.015,1.454-.011,2.181,0,.132-.036.159-.162.158-.681-.007-1.363,0-2.044,0-.318,0-.45.129-.45.446q0,1.357,0,2.714c0,.328.126.449.462.449.67,0,1.34.006,2.01,0,.157,0,.185.043.185.19,0,2.325,0,4.65-.007,6.974a.514.514,0,0,0,.249.5h3.2A.479.479,0,0,0-405.47,41.288Z"
@@ -37,7 +37,7 @@ export default function Share() {
                         </svg>
                     </a></li>
                     <li>
-                        <a target={"_blank"} href={`https://twitter.com/intent/tweet?url=https://${url}&text=`}>
+                        <a title={'Partager sur X'} target={"_blank"} href={`https://twitter.com/intent/tweet?url=https://${url}&text=`}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="18.765" height="16.945"
                                  viewBox="0 0 18.765 16.945">
                                 <path id="X_logo_2023"
@@ -47,7 +47,7 @@ export default function Share() {
                         </a>
                     </li>
                     <li>
-                        <a target={"_blank"} href={`https://www.linkedin.com/shareArticle?mini=true&url=${url}`}>
+                        <a title={'Partager sur LinkedIn'} target={"_blank"} href={`https://www.linkedin.com/shareArticle?mini=true&url=${url}`}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16.881" height="17" viewBox="0 0 16.881 17">
                                 <g id="IN" transform="translate(0 0)">
                                     <path id="Tracé_4130" data-name="Tracé 4130"

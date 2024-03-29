@@ -100,7 +100,7 @@ export default function Footer({data}) {
 
                         <ul className="inline-list">
                             {data.social.x ?
-                                <li><a href={data.social.x} target='_blank' className="rs">
+                                <li><a title={'Accédez à notre compte X'} href={data.social.x} target='_blank' className="rs">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20.782" height="18.767"
                                          viewBox="0 0 20.782 18.767">
                                         <path
@@ -111,7 +111,7 @@ export default function Footer({data}) {
                                 : ''}
 
                             {data.social.linkedin ?
-                                <li><a href={data.social.linkedin} target='_blank' className="rs">
+                                <li><a title={'Accédez à notre compte LinkedIn'} href={data.social.linkedin} target='_blank' className="rs">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="17.675" height="17.799"
                                          viewBox="0 0 17.675 17.799">
                                         <path
@@ -129,7 +129,7 @@ export default function Footer({data}) {
                                 ''
                             }
                             {data.social.facebook ?
-                                <li><a href={data.social.facebook} target='_blank' className="rs">
+                                <li><a title={'Accédez à notre compte Facebook'} href={data.social.facebook} target='_blank' className="rs">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="10.981" height="20.318"
                                          viewBox="0 0 10.981 20.318">
                                         <path
@@ -141,7 +141,7 @@ export default function Footer({data}) {
                             }
                             {data.social.instagram ?
                                 <li>
-                                    <a href={data.social.instagram} target='_blank' className="rs">
+                                    <a title={'Accédez à notre compte Instagram'} href={data.social.instagram} target='_blank' className="rs">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="19.261" height="19.256"
                                              viewBox="0 0 19.261 19.256">
                                             <path
