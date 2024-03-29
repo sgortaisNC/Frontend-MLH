@@ -244,7 +244,7 @@ export const ListeBiens = ({data}) => {
 
                 {page > 0 ? <button className={'page-arrow'} onClick={() => {
                     setPage(page - 1);
-                    document.getElementById("ariane").scrollIntoView()
+                    document.querySelector(".biens_grid").scrollIntoView()
                 }}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18.561" height="37.036"
                          viewBox="0 0 18.561 37.036">
@@ -262,14 +262,14 @@ export const ListeBiens = ({data}) => {
                                     className={'page-number ' + (i === page ? 'current-page' : '')}
                                     onClick={() => {
                                         setPage(i);
-                                        document.getElementById("ariane").scrollIntoView()
+                                        document.querySelector(".biens_grid").scrollIntoView()
                                     }}>{i + 1}</button>
                         </>
                     )}
                 {page < pageMax - 1 ? <button className={'page-arrow'}
                                               onClick={() => {
                                                   setPage(page + 1);
-                                                  document.getElementById("ariane").scrollIntoView()
+                                                  document.querySelector(".biens_grid").scrollIntoView()
                                               }}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18.564" height="37.124"
                          viewBox="0 0 18.564 37.124">
