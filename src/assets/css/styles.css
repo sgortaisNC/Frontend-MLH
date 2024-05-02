@@ -2916,10 +2916,12 @@ textarea {
 .form-190 .form-group, .form-193 .form-group {
   width: 100%;
 }
-.form-190 > :nth-child(6),
+.form-190 > :nth-child(2),
+.form-190 > :nth-child(10),
 .form-190 > :nth-child(7),
 .form-190 > :nth-child(8),
-.form-190 > :nth-child(9), .form-193 > :nth-child(6),
+.form-190 > :nth-child(9), .form-193 > :nth-child(2),
+.form-193 > :nth-child(10),
 .form-193 > :nth-child(7),
 .form-193 > :nth-child(8),
 .form-193 > :nth-child(9) {
