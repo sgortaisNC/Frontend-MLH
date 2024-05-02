@@ -1184,7 +1184,7 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
   width: 330px;
 }
 
-.grecaptcha-badge {
+body:not(:has(.innerForm)) .grecaptcha-badge {
   opacity: 0 !important;
   pointer-events: none !important;
 }

@@ -1163,9 +1163,9 @@ body #tarteaucitronRoot div#tarteaucitronAlertBig:before {
   }
 }
 
-
-.grecaptcha-badge{
-  opacity: 0 !important;
-  pointer-events: none !important;
+body:not(:has(.innerForm)) {
+  .grecaptcha-badge {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
 }
-
