@@ -2942,14 +2942,22 @@ textarea {
 .form-180 .form-group, .form-185 .form-group {
   width: 100%;
 }
-.form-180 > :nth-child(6),
-.form-180 > :nth-child(7), .form-185 > :nth-child(6),
+.form-180 > :nth-child(2),
+.form-180 > :nth-child(8),
+.form-180 > :nth-child(11),
+.form-180 > :nth-child(7), .form-185 > :nth-child(2),
+.form-185 > :nth-child(8),
+.form-185 > :nth-child(11),
 .form-185 > :nth-child(7) {
   grid-column: 1/-1;
 }
 @media screen and (max-width: 500px) {
-  .form-180 > :nth-child(6) > *,
-  .form-180 > :nth-child(7) > *, .form-185 > :nth-child(6) > *,
+  .form-180 > :nth-child(2) > *,
+  .form-180 > :nth-child(8) > *,
+  .form-180 > :nth-child(11) > *,
+  .form-180 > :nth-child(7) > *, .form-185 > :nth-child(2) > *,
+  .form-185 > :nth-child(8) > *,
+  .form-185 > :nth-child(11) > *,
   .form-185 > :nth-child(7) > * {
     grid-column: 1/-1;
   }
