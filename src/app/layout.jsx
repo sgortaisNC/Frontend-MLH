@@ -42,6 +42,7 @@ export default async function RootLayout({children}) {
         <html lang="fr">
         <head>
             <Script
+                strategy={"beforeInteractive"}
                 src="https://tarteaucitron.io/load.js?domain=monlucon.netcomdev2.com&uuid=3c168a9d97f5c0995db99e0cb855768137ff4403"/>
             <link rel="stylesheet" href="/css/print.css" media={"print"}/>
         </head>
