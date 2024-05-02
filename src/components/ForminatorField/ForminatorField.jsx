@@ -3,7 +3,6 @@
 import {useSearchParams} from 'next/navigation'
 
 export default function ForminatorField({wrapper}) {
-    console.log(wrapper);
     const field = wrapper.fields[0];
 
     const searchParams = useSearchParams();
