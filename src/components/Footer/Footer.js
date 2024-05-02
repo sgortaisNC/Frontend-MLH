@@ -9,7 +9,9 @@ export default function Footer({data}) {
     return (
         <footer className="footer">
             {modal && <div className="alerte">
-                <button onClick={() => {setModal(false)}}>
+                <button onClick={() => {
+                    setModal(false)
+                }}>
                     <svg xmlns="http://www.w3.org/2000/svg"
                          viewBox="0 0 384 512" width={20}>
                         <path fill={'currentColor'}
@@ -22,7 +24,7 @@ export default function Footer({data}) {
                     </div>
                     <div className="alerte__content">
                         <iframe width="100%" height="450"
-                                src="https://571302cd.sibforms.com/serve/MUIFAKclRNV_SEuR4tQ7sLTFuiCjf96oRNzs5j6q5RgYWIZCHqwuhTcubCpZdevUVQ0G-cthiWajV-L7xRXk39F6hEDeN7jEVoi9KakeyPAfSwqrbVWKov5Of3rnaShXKF5Q2Hnk_ufkVZ6p_O7_-Y5xWoz_GNBzGeDNbZ3xnWkiOltBydRcEO07sQNwFl5I5bS_IBpexrFE0mlU"
+                                src="https://571302cd.sibforms.com/serve/MUIFAAJN3CY5wxRFq3ZJYE9_e_A8lLqES5xCcNQJyrtHJO7c89DaX-0Hu2s5QIrBRZX0jJf1_2D8B7OAC6shM2wd1rjurx5sdF9PVZUn_0Zb34xg7Gus7HUARe1wfghp7kazgYdqCIRP5GnEvaXqF79msh5cnjYMC9pCZsYeRdz_izVBcF3evyeFE2MHceavh9EX7EFTvlEu2Vl_"
                                 frameBorder="0" scrolling="auto" allowFullScreen
                                 style={{
                                     display: "block",
@@ -100,7 +102,8 @@ export default function Footer({data}) {
 
                         <ul className="inline-list">
                             {data.social.x ?
-                                <li><a title={'Accédez à notre compte X'} href={data.social.x} target='_blank' className="rs">
+                                <li><a title={'Accédez à notre compte X'} href={data.social.x} target='_blank'
+                                       className="rs">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20.782" height="18.767"
                                          viewBox="0 0 20.782 18.767">
                                         <path
@@ -111,7 +114,8 @@ export default function Footer({data}) {
                                 : ''}
 
                             {data.social.linkedin ?
-                                <li><a title={'Accédez à notre compte LinkedIn'} href={data.social.linkedin} target='_blank' className="rs">
+                                <li><a title={'Accédez à notre compte LinkedIn'} href={data.social.linkedin}
+                                       target='_blank' className="rs">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="17.675" height="17.799"
                                          viewBox="0 0 17.675 17.799">
                                         <path
@@ -129,7 +133,8 @@ export default function Footer({data}) {
                                 ''
                             }
                             {data.social.facebook ?
-                                <li><a title={'Accédez à notre compte Facebook'} href={data.social.facebook} target='_blank' className="rs">
+                                <li><a title={'Accédez à notre compte Facebook'} href={data.social.facebook}
+                                       target='_blank' className="rs">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="10.981" height="20.318"
                                          viewBox="0 0 10.981 20.318">
                                         <path
@@ -141,7 +146,8 @@ export default function Footer({data}) {
                             }
                             {data.social.instagram ?
                                 <li>
-                                    <a title={'Accédez à notre compte Instagram'} href={data.social.instagram} target='_blank' className="rs">
+                                    <a title={'Accédez à notre compte Instagram'} href={data.social.instagram}
+                                       target='_blank' className="rs">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="19.261" height="19.256"
                                              viewBox="0 0 19.261 19.256">
                                             <path
