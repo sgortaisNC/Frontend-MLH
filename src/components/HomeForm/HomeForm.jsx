@@ -136,7 +136,7 @@ export const HomeForm = ({data}) => {
                                     <input name={'loyer'}
                                            type="range"
                                            min={50}
-                                           max={1500}
+                                           max={1000}
                                            step={25}
                                            onChange={(e) => setLoyer(e.target.value)}
                                            value={loyer}/>
