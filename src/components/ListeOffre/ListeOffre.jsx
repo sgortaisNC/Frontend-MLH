@@ -97,7 +97,7 @@ export const ListeOffre = ({data}) => {
                 </Link>
             </div>
 
-            <h2><strong className="text-primary">Filtrer</strong> <strong>les offres par :</strong></h2>
+            {/*<h2><strong className="text-primary">Filtrer</strong> <strong>les offres par :</strong></h2>
             <div className="filtres">
                 <div className="selecteur">
                     <label htmlFor="">Type de contrat</label>
@@ -145,7 +145,7 @@ export const ListeOffre = ({data}) => {
                         Réinitialiser
                     </button>
                 </div>
-            </div>
+            </div>*/}
 
             <div id="result" className="actualites__grid" style={{marginBottom: "50px"}}>
                 {posts.length > 0 ? posts.map(post => <OffreTeaser key={post.id} offre={post}/>) :
