@@ -9,7 +9,7 @@ export const HomeForm = ({data}) => {
     const [type, setType] = useState('');
     const [rayon, setRayon] = useState(50);
     const [surface, setSurface] = useState(250);
-    const [loyer, setLoyer] = useState(1500);
+    const [loyer, setLoyer] = useState(1000);
 
     return (
         <section className="module-search">
@@ -132,15 +132,15 @@ export const HomeForm = ({data}) => {
                             </div>
                             <div className="field__input">
                                 <div className="range">
-                                    <span>200€</span>
+                                    <span>50</span>
                                     <input name={'loyer'}
                                            type="range"
-                                           min={200}
+                                           min={50}
                                            max={1500}
                                            step={25}
                                            onChange={(e) => setLoyer(e.target.value)}
                                            value={loyer}/>
-                                    <span>1500€</span>
+                                    <span>1000€</span>
                                 </div>
                             </div>
                         </div>

@@ -30,7 +30,7 @@ export const ListeBiens = ({data}) => {
     const [surface, setSurface] = useState(250);
     const [type, setType] = useState('');
     const [rayon, setRayon] = useState(50);
-    const [loyer, setLoyer] = useState(1500);
+    const [loyer, setLoyer] = useState(1000);
 
     const [vueListe, setVueListe] = useState(true);
 
@@ -193,17 +193,17 @@ export const ListeBiens = ({data}) => {
                     <div className="form-group">
                         <label htmlFor="">Loyer : {loyer}€/mois</label>
                         <div className="range">
-                            <span>200€</span>
+                            <span>50€</span>
                             <input
                                 type="range"
                                 name={"loyer"}
                                 step={25}
-                                min={200}
-                                max={1500}
+                                min={50}
+                                max={1000}
                                 value={loyer}
                                 onChange={(e) => setLoyer(e.target.value)}
                             />
-                            <span>1500€</span>
+                            <span>1000</span>
                         </div>
 
                     </div>
