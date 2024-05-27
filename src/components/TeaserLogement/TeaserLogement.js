@@ -36,7 +36,7 @@ export default function TeaserLogement({bien}) {
                                 fill="#fff"/>
                         </g>
                     </svg>
-                    <span>{bien.loyer_charges_comprises} € / mois (CC)</span>
+                    <span>{bien.loyer} € / mois (CC)</span>
                 </figcaption>
             </figure>
             <div className="tag type">
