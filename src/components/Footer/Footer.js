@@ -54,7 +54,7 @@ export default function Footer({data}) {
                             Du lundi au vendredi - 9h - 12h / 13h - 17h
                         </p>
                         <a target={'_blank'}
-                           href={"https://www.google.com/maps/search/?api=1&query=" + data.coordonneesMaps}
+                           href={"https://www.google.com/maps/place/Montlu%C3%A7on+Habitat/@46.346655,2.599454,17z/data=!3m1!4b1!4m6!3m5!1s0x47f0a7e8386d8ee3:0xe734630cc8711fea!8m2!3d46.346655!4d2.599454!16s%2Fg%2F1tf_mn2m?entry=ttu"}
                            className="btn btn--xs btn--outline">
                             <svg xmlns="http://www.w3.org/2000/svg" width="8.473" height="12.208"
                                  viewBox="0 0 8.473 12.208">
