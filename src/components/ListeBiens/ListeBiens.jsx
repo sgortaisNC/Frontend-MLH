@@ -29,7 +29,7 @@ export const ListeBiens = ({data}) => {
     const [nombre, setNombre] = useState('');
     const [surface, setSurface] = useState(250);
     const [type, setType] = useState('');
-    const [rayon, setRayon] = useState(50);
+    const [rayon, setRayon] = useState(0);
     const [loyer, setLoyer] = useState(1000);
 
     const [vueListe, setVueListe] = useState(true);
@@ -119,7 +119,7 @@ export const ListeBiens = ({data}) => {
                             placeholder="Sélectionner"/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="">Rayon : {rayon}km</label>
+                        <label htmlFor="">Autour de la commune : {rayon}km</label>
                         <div className="range">
                             <span>0km</span>
                             <input

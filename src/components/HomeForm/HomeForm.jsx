@@ -7,7 +7,7 @@ import {useState} from "react";
 export const HomeForm = ({data}) => {
 
     const [type, setType] = useState('');
-    const [rayon, setRayon] = useState(50);
+    const [rayon, setRayon] = useState(0);
     const [surface, setSurface] = useState(250);
     const [loyer, setLoyer] = useState(1000);
 
@@ -39,7 +39,7 @@ export const HomeForm = ({data}) => {
                         </div>
                         <div className="field">
                             <div className="field__label">
-                                <label htmlFor="commune">Rayon : {rayon}km</label>
+                                <label htmlFor="commune">Autour de la commune : {rayon}km</label>
                             </div>
                             <div className="field__input">
                                 <div className="range">
