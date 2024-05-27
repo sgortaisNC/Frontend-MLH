@@ -102,7 +102,7 @@ export const HomeForm = ({data}) => {
                                     isSearchable={true}
                                     isClearable={true}
                                     name="nombre"
-                                    placeholder="Exemple de selecteur"/>
+                                    placeholder="Sélectionner"/>
                             </div>
                         </div>
                         <div className="field">

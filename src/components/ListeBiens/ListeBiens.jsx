@@ -172,7 +172,7 @@ export const ListeBiens = ({data}) => {
                             defaultValue={filtres.nombre_piece.find(v => v.value === parseInt(nombre)) || null}
                             options={filtres.nombre_piece}
                             isClearable={true} isSearchable={true}
-                            placeholder="Choisissez un filtre"/>
+                            placeholder="Sélectionner"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="">Surface : {surface}m²</label>
