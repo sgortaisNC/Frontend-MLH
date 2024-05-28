@@ -302,7 +302,6 @@ export default async function Page({params}) {
                             <div className={css.cursor} style={{top: topDPE}}>
                                 <span>Consommation</span>
                                 <b>{consoDPE}</b>
-                                <span>KWh/m2 par an</span>
                             </div>
                         </>
                         }
@@ -367,7 +366,6 @@ export default async function Page({params}) {
                             <div className={css.cursor} style={{top: topGES}}>
                                 <span>Emission</span>
                                 <b>{textGES}</b>
-                                <span>Kg CO2 par an</span>
                             </div>
                         </>
                         }
