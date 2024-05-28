@@ -3,10 +3,10 @@
     display: none;
   }
   body .titre {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     min-height: 0;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
   body .titre h1 {
     font-size: 32px;
@@ -19,6 +19,8 @@
   body .infos {
     display: flex;
     padding: 10px;
+    gap:20px;
+    font-size: 12px;
   }
   body .info::after{
     display: none;
@@ -33,11 +35,19 @@
     margin-top: 30px;
   }
   body .bien_flex__ptBtD {
-    padding-top: 50px;
     flex-wrap: wrap;
   }
   body .bien_flex__ptBtD > :last-child {
     width: 100%;
+  }
+
+  body .bien_loyer__3hxOc{
+    padding: 0;
+    border: none;
+  }
+
+  body .bien_loyer__3hxOc h2{
+    display: none;
   }
 }
 
