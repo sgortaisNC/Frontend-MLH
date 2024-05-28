@@ -1829,7 +1829,7 @@ body:not(:has(.innerForm)) .grecaptcha-badge {
   position: fixed;
   bottom: 80px;
   right: 0;
-  z-index: 999;
+  z-index: 9999;
   opacity: 1;
   pointer-events: all;
   transition: opacity 0.3s ease-in-out;
@@ -1841,6 +1841,7 @@ body:not(:has(.innerForm)) .grecaptcha-badge {
 @media (max-width: 1000.01px) {
   .fixed {
     left: 0;
+    bottom: 0;
   }
   .fixed ul {
     display: flex;
