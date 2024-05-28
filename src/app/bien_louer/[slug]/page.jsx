@@ -363,7 +363,7 @@ export default async function Page({params}) {
 
                             <b>Forte émission de GES</b>
 
-                            <div className={css.cursor} style={{top: topGES}}>
+                            <div className={css.cursor} style={{left: "45px",top: topGES}}>
                                 <span>Emission</span>
                                 <b>{textGES}</b>
                             </div>
