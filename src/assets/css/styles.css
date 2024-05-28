@@ -3096,7 +3096,11 @@ textarea {
 .bien-teaser .card figure img {
   opacity: 1;
   transition: var(--transition);
-  height: 383px;
+}
+@media (min-width: 767px) {
+  .bien-teaser .card figure img {
+    height: 383px;
+  }
 }
 .bien-teaser .card figure figcaption {
   position: absolute;

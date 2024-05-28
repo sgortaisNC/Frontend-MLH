@@ -1,7 +1,9 @@
 @use '../../global/mixins' as *;
+
 .biens {
   position: relative;
   padding-bottom: 125px;
+
   &::before {
     content: '';
     position: absolute;
@@ -27,7 +29,7 @@
   h2 {
     grid-column: 1/-1;
     padding-left: 40px;
-    @include tablet{
+    @include tablet {
       padding-left: 0;
     }
     width: 100%;
@@ -78,13 +80,16 @@
         display: none;
       }
     }
+
     figure {
       position: relative;
 
       img {
         opacity: 1;
         transition: var(--transition);
-        height: 383px;
+        @media (min-width: 767px) {
+          height: 383px;
+        }
       }
 
       figcaption {
@@ -151,11 +156,11 @@
   }
 
   @include tablet {
-     svg{
-       display: none;
-     }
+    svg {
+      display: none;
+    }
 
-    .card .type{
+    .card .type {
       top: 67px;
       left: auto;
       right: 17px;
