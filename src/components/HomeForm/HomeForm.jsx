@@ -17,7 +17,7 @@ export const HomeForm = ({data}) => {
                 <div id="map" style={{zIndex: 0}}>
                     <MapComponent biens={data.biensMap} popup={true}/>
                 </div>
-                <form action={"/bien_louer"} method={"GET"} style={{zIndex: 1}}>
+                <form action={"/logements-a-louer"} method={"GET"} style={{zIndex: 1}}>
                     <h2>Trouvez facilement le logement <strong>qui vous correspond</strong></h2>
                     <div className="fields">
                         <div className="field">
