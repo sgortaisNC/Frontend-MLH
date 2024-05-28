@@ -4,8 +4,6 @@ import {useEffect, useState} from "react";
 import {useGoogleReCaptcha} from "react-google-recaptcha-v3";
 
 
-
-
 export const CustomForm = ({formId, children}) => {
     const [submit, setSubmit] = useState(false);
     const {executeRecaptcha} = useGoogleReCaptcha();
@@ -13,11 +11,16 @@ export const CustomForm = ({formId, children}) => {
     const [hasRecaptcha, setHasRecaptcha] = useState(false);
 
     useEffect(() => {
-        if  (document.querySelectorAll(".grecaptcha-badge").length > 0) {
-            setHasRecaptcha(true);
-        }
+        setTimeout(() => {
 
+            console.log('lauching recaptcha');
+            if (!hasRecaptcha && document.querySelectorAll(".grecaptcha-badge").length > 0) {
+                setHasRecaptcha(true);
+                console.log('trouvé');
+            }
+        },1000)
     }, [hasRecaptcha]);
+
     async function handleSubmit(e) {
         e.preventDefault();
 
@@ -37,7 +40,7 @@ export const CustomForm = ({formId, children}) => {
         });
 
         let responseJson = await response.json();
-        if (responseJson.success === true){
+        if (responseJson.success === true) {
             const form = e.target;
             const data = new FormData(form);
             const r = await fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/submit-form', {
@@ -50,17 +53,19 @@ export const CustomForm = ({formId, children}) => {
             }
             setSubmit(true)
 
-        }else{
+        } else {
 
         }
 
 
-
     }
+
     return (
         <>
             {submit && <div className="alerte">
-                <button title={"Fermer"} onClick={() => {setSubmit(false)}}>
+                <button title={"Fermer"} onClick={() => {
+                    setSubmit(false)
+                }}>
                     <svg xmlns="http://www.w3.org/2000/svg"
                          viewBox="0 0 384 512" width={20}>
                         <path fill={'currentColor'}
@@ -72,14 +77,16 @@ export const CustomForm = ({formId, children}) => {
                         <div className="alerte__title">{"Merci"}</div>
                     </div>
                     <strong className="alerte__content">
-                       <p className={'text-center'}>
-                           Nous avons bien reçu votre formulaire complété. <br/> Nous vous recontacterons dans les plus brefs délais.
-                       </p>
+                        <p className={'text-center'}>
+                            Nous avons bien reçu votre formulaire complété. <br/> Nous vous recontacterons dans les plus
+                            brefs délais.
+                        </p>
                     </strong>
                 </div>
             </div>}
 
-            {!hasRecaptcha && <h2>Le cookie Google reCaptcha n&apos;est pas actif, le formulaire ne pourra pas s&apos;envoyer</h2>}
+            {!hasRecaptcha &&
+                <h2>Le cookie Google reCaptcha n&apos;est pas actif, le formulaire ne pourra pas s&apos;envoyer</h2>}
             <form className={`innerForm form-${formId}`} onSubmit={handleSubmit}>
                 {children}
             </form>
