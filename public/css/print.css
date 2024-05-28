@@ -17,8 +17,11 @@
     aspect-ratio: 24/9;
   }
   body .infos {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     padding: 10px;
+  }
+  body .infos svg {
+    display: none;
   }
   body .embla {
     padding: 0;
@@ -35,3 +38,5 @@
     width: 100%;
   }
 }
+
+/*# sourceMappingURL=print.css.map */
