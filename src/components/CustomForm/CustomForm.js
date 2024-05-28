@@ -79,8 +79,8 @@ export const CustomForm = ({formId, children}) => {
                 </div>
             </div>}
 
+            {!hasRecaptcha && <h2>Le cookie Google reCaptcha n&apos;est pas actif, le formulaire ne pourra pas s&apos;envoyer</h2>}
             <form className={`innerForm form-${formId}`} onSubmit={handleSubmit}>
-                {!hasRecaptcha && <h2>Le cookie Google reCaptcha n‘est pas actif, le formulaire ne pourra pas s‘envoyer</h2>}
                 {children}
             </form>
         </>
