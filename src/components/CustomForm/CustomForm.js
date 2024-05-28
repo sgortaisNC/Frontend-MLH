@@ -8,15 +8,12 @@ export const CustomForm = ({formId, children}) => {
     const [submit, setSubmit] = useState(false);
     const {executeRecaptcha} = useGoogleReCaptcha();
 
-    const [hasRecaptcha, setHasRecaptcha] = useState(false);
+    const [hasRecaptcha, setHasRecaptcha] = useState(true);
 
     useEffect(() => {
         setTimeout(() => {
-
-            console.log('lauching recaptcha');
-            if (!hasRecaptcha && document.querySelectorAll(".grecaptcha-badge").length > 0) {
-                setHasRecaptcha(true);
-                console.log('trouvé');
+            if (!hasRecaptcha && document.querySelectorAll(".grecaptcha-badge").length === 0) {
+                setHasRecaptcha(false);
             }
         },1000)
     }, [hasRecaptcha]);
