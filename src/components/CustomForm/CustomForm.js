@@ -12,7 +12,7 @@ export const CustomForm = ({formId, children}) => {
 
     useEffect(() => {
         setTimeout(() => {
-            if (!hasRecaptcha && document.querySelectorAll(".grecaptcha-badge").length === 0) {
+            if (hasRecaptcha && document.querySelectorAll(".grecaptcha-badge").length === 0) {
                 setHasRecaptcha(false);
             }
         },1000)
