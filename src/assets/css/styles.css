@@ -3093,10 +3093,12 @@ textarea {
 }
 .bien-teaser .card figure {
   position: relative;
+  overflow: hidden;
 }
 .bien-teaser .card figure img {
   opacity: 1;
   transition: var(--transition);
+  scale: 1;
 }
 @media (min-width: 767px) {
   .bien-teaser .card figure img {
@@ -3139,7 +3141,7 @@ textarea {
   background: var(--pourpre);
 }
 .bien-teaser:hover .card figure img {
-  opacity: 0.7;
+  scale: 1.1;
 }
 .bien-teaser:hover .card figure figcaption {
   color: white;
