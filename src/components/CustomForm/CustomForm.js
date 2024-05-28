@@ -1,6 +1,6 @@
 "use client";
 
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useGoogleReCaptcha} from "react-google-recaptcha-v3";
 
 
@@ -9,6 +9,15 @@ import {useGoogleReCaptcha} from "react-google-recaptcha-v3";
 export const CustomForm = ({formId, children}) => {
     const [submit, setSubmit] = useState(false);
     const {executeRecaptcha} = useGoogleReCaptcha();
+
+    const [hasRecaptcha, setHasRecaptcha] = useState(false);
+
+    useEffect(() => {
+        if  (document.querySelectorAll(".grecaptcha-badge").length > 0) {
+            setHasRecaptcha(true);
+        }
+
+    }, [hasRecaptcha]);
     async function handleSubmit(e) {
         e.preventDefault();
 
@@ -71,6 +80,7 @@ export const CustomForm = ({formId, children}) => {
             </div>}
 
             <form className={`innerForm form-${formId}`} onSubmit={handleSubmit}>
+                {!hasRecaptcha && <h2>Le cookie Google reCaptcha n'est pas actif, le formulaire ne pourra pas s'envoyer</h2>}
                 {children}
             </form>
         </>
