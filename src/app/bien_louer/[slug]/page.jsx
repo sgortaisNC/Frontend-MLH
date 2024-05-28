@@ -376,7 +376,7 @@ export default async function Page({params}) {
                         <div>
                             <strong>{bien.loyer}€/mois</strong><br/><br/>
                             <b>charges : </b>{bien.charges}€ <span className={css.sep}></span><b>Loyer CC
-                            :</b> {parseInt(bien.charges) + parseInt(bien.loyer)}€
+                            :</b> {bien.loyercc}€
                         </div>
                     </div>
                 </div>
