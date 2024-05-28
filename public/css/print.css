@@ -17,9 +17,11 @@
     aspect-ratio: 24/9;
   }
   body .infos {
-    grid-template-columns: repeat(5, 1fr);
-    place-items: center;
+    display: flex;
     padding: 10px;
+  }
+  body .info::after{
+    display: none;
   }
   body .infos svg {
     display: none;
