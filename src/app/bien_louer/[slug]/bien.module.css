@@ -1,15 +1,15 @@
 @media print {
   .printNone {
-    display: none;
+    display: none !important;
   }
 }
 
 .printOnly {
-  display: none;
+  display: none !important;
 }
 @media print {
   .printOnly {
-    display: block;
+    display: grid !important;
   }
 }
 

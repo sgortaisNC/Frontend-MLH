@@ -1,12 +1,12 @@
 .printNone{
     @media print{
-        display: none;
+        display: none !important;
     }
 }
 .printOnly{
-    display: none;
+    display: none !important;
     @media print{
-        display: block;
+        display: grid !important;
     }
 }
 
