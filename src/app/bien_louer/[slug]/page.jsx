@@ -73,43 +73,44 @@ export default async function Page({params}) {
 
     const consoDPE = bien.energie
     const emissionGES = bien.ges;
-    let DPEtext = '';
+    let textGES = '';
     let topDPE = 0;
     let topGES = 0;
     if (consoDPE === "A") {
-        DPEtext = "< 70";
         topDPE = 17
     } else if (consoDPE === "B") {
-        DPEtext = "70 à 110";
         topDPE = 50
     } else if (consoDPE === "C") {
-        DPEtext = "110 à 180";
         topDPE = 87
     } else if (consoDPE === "D") {
-        DPEtext = "110 à 250";
         topDPE = 123
     } else if (consoDPE === "E") {
-        DPEtext = "250 à 330";
         topDPE = 158
     } else if (consoDPE === "F") {
-        DPEtext = "> 330";
         topDPE = 193
     } else {
         topDPE = 230
     }
     if (emissionGES < 6) {
+        textGES = "A";
         topGES = 17
     } else if (emissionGES < 11) {
+        textGES = "B";
         topGES = 50
     } else if (emissionGES < 30) {
+        textGES = "C";
         topGES = 87
     } else if (emissionGES < 50) {
+        textGES = "D";
         topGES = 123
     } else if (emissionGES < 70) {
+        textGES = "E";
         topGES = 158
     } else if (emissionGES < 100) {
+        textGES = "F";
         topGES = 193
     } else {
+        textGES = "G";
         topGES = 230
     }
 
@@ -300,7 +301,7 @@ export default async function Page({params}) {
 
                             <div className={css.cursor} style={{top: topDPE}}>
                                 <span>Consommation</span>
-                                <b>{DPEtext}</b>
+                                <b>{consoDPE}</b>
                                 <span>KWh/m2 par an</span>
                             </div>
                         </>
@@ -365,7 +366,7 @@ export default async function Page({params}) {
 
                             <div className={css.cursor} style={{top: topGES}}>
                                 <span>Emission</span>
-                                <b>{bien.ges}</b>
+                                <b>{textGES}</b>
                                 <span>Kg CO2 par an</span>
                             </div>
                         </>
