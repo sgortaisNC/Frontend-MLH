@@ -1,7 +1,7 @@
 "use client";
 import {useEffect, useState} from "react";
 
-export const Fixed = () => {
+export const Fixed = ({clickModal}) => {
 
     const [hidden, setHidden] = useState(false);
     useEffect(() => {
@@ -15,7 +15,7 @@ export const Fixed = () => {
         <>
             <div className={"fixed"+(hidden ? " hidden" : "")}>
                 <ul>
-                    <li><a href="">
+                  {/*  <li><a href="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
                             <g id="FAQ" transform="translate(-1748 -608)">
                                 <circle id="Ellipse_205" data-name="Ellipse 205" cx="19" cy="19" r="19"
@@ -26,7 +26,7 @@ export const Fixed = () => {
                             </g>
                         </svg>
                         FAQ
-                    </a></li>
+                    </a></li>*/}
                     <li><a href="/nous-contacter">
                         <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
                             <g id="FAQ" transform="translate(-1748 -608)">
@@ -40,7 +40,7 @@ export const Fixed = () => {
 
                         CONTACT
                     </a></li>
-                    <li><a href="">
+                    <li><a onClick={clickModal}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
                             <g id="FAQ" transform="translate(-1748 -608)">
                                 <circle id="Ellipse_205" data-name="Ellipse 205" cx="19" cy="19" r="19"

@@ -3,11 +3,13 @@
 import Image from 'next/image';
 import Link from "next/link";
 import {useState} from "react";
+import {Fixed} from "@/components/Fixed/Fixed";
 
 export default function Footer({data}) {
     const [modal, setModal] = useState(false);
     return (
         <footer className="footer">
+            <Fixed clickModal={() => setModal(true)} />
             {modal && <div className="alerte">
                 <button onClick={() => {
                     setModal(false)
