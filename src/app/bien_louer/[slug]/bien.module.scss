@@ -1,3 +1,15 @@
+.printNone{
+    @media print{
+        display: none;
+    }
+}
+.printOnly{
+    display: none;
+    @media print{
+        display: block;
+    }
+}
+
 .flex {
   display: flex;
   align-items: flex-start;

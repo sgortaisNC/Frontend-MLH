@@ -242,10 +242,18 @@ export default async function Page({params}) {
                         <b>Date de publication</b>
                         <span>{bien.date}</span>
                     </div>
+                    <div className={css.printOnly}>
+                        <b>DPE</b>
+                        <span>{consoDPE}</span>
+                    </div>
+                    <div className={css.printOnly}>
+                        <b>GES</b>
+                        <span>{textGES}</span>
+                    </div>
                 </div>
 
                 <div className={css.flex}>
-                    <div className={css.dpe}>
+                    <div className={css.dpe + " " + css.printNone}>
                         {bien.energie && <>
                             <b>Logement économe</b>
                             <svg xmlns="http://www.w3.org/2000/svg" width="180.21" height="247.177"
@@ -306,7 +314,7 @@ export default async function Page({params}) {
                         </>
                         }
                     </div>
-                    <div className={css.dpe}>
+                    <div className={css.dpe + " " + css.printNone}>
                         {bien.ges && <>
                             <b>Basse émission de GES</b>
                             <svg xmlns="http://www.w3.org/2000/svg" width="180.21" height="247.177"

@@ -1,3 +1,18 @@
+@media print {
+  .printNone {
+    display: none;
+  }
+}
+
+.printOnly {
+  display: none;
+}
+@media print {
+  .printOnly {
+    display: block;
+  }
+}
+
 .flex {
   display: flex;
   align-items: flex-start;
