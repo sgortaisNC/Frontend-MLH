@@ -242,11 +242,11 @@ export default async function Page({params}) {
                         <b>Date de publication</b>
                         <span>{bien.date}</span>
                     </div>
-                    <div className={css.printOnly}>
+                    <div className={"info " + css.printOnly}>
                         <b>DPE</b>
                         <span>{consoDPE}</span>
                     </div>
-                    <div className={css.printOnly}>
+                    <div className={"info " + css.printOnly}>
                         <b>GES</b>
                         <span>{textGES}</span>
                     </div>
