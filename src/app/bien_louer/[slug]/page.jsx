@@ -457,7 +457,7 @@ export default async function Page({params}) {
 
                 <div className="situation">
                     <h2>Situation</h2>
-                    <MapComponent zoom={7} biens={[bien]} popup={false}/>
+                    <MapComponent zoom={15} biens={[bien]} popup={false}/>
                 </div>
                 <div style={{margin: '50px 0 110px 0'}}>
                     <Link href={"/bien_louer"} className={"btn btn--outline"}>Retour</Link>
