@@ -115,7 +115,7 @@ export default async function Page({params}) {
     }
 
     const ariane = [
-        {label: 'Biens à louer', url:'/bien_louer'},
+        {label: 'Logements à louer', url:'/logements-a-louer'},
         {label: bien.titre, url:''},
     ]
 
@@ -467,7 +467,7 @@ export default async function Page({params}) {
                     <MapComponent zoom={15} biens={[bien]} popup={false}/>
                 </div>
                 <div style={{margin: '50px 0 110px 0'}}>
-                    <Link href={"/bien_louer"} className={"btn btn--outline"}>Retour</Link>
+                    <Link href={"/logements-a-louer"} className={"btn btn--outline"}>Retour</Link>
                 </div>
 
             </div>

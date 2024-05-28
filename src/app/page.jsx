@@ -93,7 +93,7 @@ export default async function Home() {
                     <h2><strong>La sélection</strong> du moment</h2>
                     {data.biens.map((data) => <TeaserLogement key={data.id} bien={data}/>)}
                     <div className="biens__cta">
-                        <Link href="/bien_louer" className="btn">Tous les logements à louer</Link>
+                        <Link href="/logements-a-louer" className="btn">Tous les logements à louer</Link>
                     </div>
                 </section>
             </div>

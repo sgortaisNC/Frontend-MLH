@@ -3,14 +3,14 @@ import './listeBiens.scss';
 import {ListeBiens} from "@/components/ListeBiens/ListeBiens";
 
 export const metadata= {
-    title: 'Biens à louer',
+    title: 'Logements à louer',
     description: 'Découvrez nos biens à louer de Montluçon et ses environs.',
     keywords: 'biens, louer, agence, immobilière'
 }
 
 export default function Page() {
     return <div>
-        <Titre titre={'Biens à louer'} ariane={[{label: 'Biens à louer', url: ''}]}/>
+        <Titre titre={'Logements à louer'} ariane={[{label: 'Logements à louer', url: ''}]}/>
         <div className="container">
             <ListeBiens/>
         </div>
