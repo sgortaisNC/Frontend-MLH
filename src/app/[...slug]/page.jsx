@@ -67,6 +67,9 @@ export async function generateMetadata({params, searchParams}, parent) {
 export default async function Page({params}) {
 
     const lastSlug = params.slug[params.slug.length - 1]
+    const chiffreA = Math.random() * 10;
+    const chiffreB = Math.random() * 10;
+
     const data = await getData(lastSlug)
     if (!data || data.length === 0) {
         return <PostNotFound/>
@@ -92,6 +95,16 @@ export default async function Page({params}) {
                     <CustomForm formId={formID}>
                         <input type="hidden" name="form_id" value={formID}/>
                         {formulaire.map((wrapper) => <ForminatorField key={wrapper.wrapper_id} wrapper={wrapper}/>)}
+
+                        <div className="form-group">
+                            <p className="error-capt"></p>
+                            <label className={'form-label'} htmlFor="">Captcha <span
+                                className="required">*</span> : {Math.floor(chiffreA)} + {Math.floor(chiffreB)}</label>
+                            <input type="number" name={"a_valider"} required={true} />
+                            <input type="hidden" name="valideur" value={Math.floor(chiffreA) + Math.floor(chiffreB)}/>
+
+                        </div>
+
                         <div className="actions">
                             <button type={'submit'} className={'btn'}>Envoyer</button>
                             &nbsp;

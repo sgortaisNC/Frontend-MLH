@@ -6,53 +6,34 @@ import {useGoogleReCaptcha} from "react-google-recaptcha-v3";
 
 export const CustomForm = ({formId, children}) => {
     const [submit, setSubmit] = useState(false);
-    const {executeRecaptcha} = useGoogleReCaptcha();
 
-    const [hasRecaptcha, setHasRecaptcha] = useState(true);
-
-    useEffect(() => {
-        setTimeout(() => {
-            if (hasRecaptcha && document.querySelectorAll(".grecaptcha-badge").length === 0) {
-                setHasRecaptcha(false);
-            }
-        },1000)
-    }, [hasRecaptcha]);
 
     async function handleSubmit(e) {
         e.preventDefault();
 
-        if (!executeRecaptcha) {
+
+        const form = e.target;
+        const data = new FormData(form);
+        console.log(data.get('a_valider'));
+        console.log(data.get('valideur'));
+        console.log(data.get('a_valider') !== data.get('valideur'))
+        if  (data.get('a_valider') !== data.get('valideur')) {
+            form.querySelector(".error-capt").style = "color:red; font-weight: bold";
+            form.querySelector(".error-capt").innerText = "Le captcha n'est pas correct."
             return;
+        }else{
+            form.querySelector(".error-capt").style.display = "none";
         }
 
-        const gRecaptchaToken = await executeRecaptcha('forminatorForm');
-
-        const response = await fetch('/api/recaptchaSubmit', {
+        const r = await fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/submit-form', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json, text/plain, */*'
-            },
-            body: JSON.stringify({gRecaptchaToken: gRecaptchaToken})
+            body: data
         });
-
-        let responseJson = await response.json();
-        if (responseJson.success === true) {
-            const form = e.target;
-            const data = new FormData(form);
-            const r = await fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/submit-form', {
-                method: 'POST',
-                body: data
-            });
-            const entryID = await r.json();
-            if (parseInt(entryID) > 0) {
-                form.reset();
-            }
-            setSubmit(true)
-
-        } else {
-
+        const entryID = await r.json();
+        if (parseInt(entryID) > 0) {
+            form.reset();
         }
+        setSubmit(true)
 
 
     }
@@ -82,8 +63,6 @@ export const CustomForm = ({formId, children}) => {
                 </div>
             </div>}
 
-            {!hasRecaptcha &&
-                <h2>Le cookie Google reCaptcha n&apos;est pas actif, le formulaire ne pourra pas s&apos;envoyer</h2>}
             <form className={`innerForm form-${formId}`} onSubmit={handleSubmit}>
                 {children}
             </form>

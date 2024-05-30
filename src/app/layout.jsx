@@ -5,7 +5,6 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import Matomo from "@/Utils/Matomo";
 import Script from "next/script";
-import {GoogleCaptchaWrapper} from "@/app/GoogleCaptchaWrapper";
 
 const leagueSpartan = League_Spartan({subsets: ['latin']});
 export const revalidate = 0;
@@ -31,9 +30,6 @@ async function getDatas() {
     return {header: headerJSON, footer: footerJSON};
 
 }
-
-const googleSiteKey = process.env.RECAPTCHA_SITE_KEY;
-
 export default async function RootLayout({children}) {
 
     const {header, footer} = await getDatas();
@@ -48,9 +44,7 @@ export default async function RootLayout({children}) {
         </head>
         <body className={leagueSpartan.className}>
         <Header data={header}/>
-        <GoogleCaptchaWrapper siteKey={googleSiteKey}>
             {children}
-        </GoogleCaptchaWrapper>
         <Footer data={footer}/>
         <Matomo/>
         </body>
