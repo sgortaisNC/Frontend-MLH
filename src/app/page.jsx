@@ -40,7 +40,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     return metas
 }
 async function getData() {
-    const res = await fetch(`https://${process.env.BACK_DNS}/wp-json/montlucon/v1/options/homepage`, {
+    const res = await fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/options/homepage`, {
         next: {
             revalidate: 0
         },

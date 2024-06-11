@@ -2,7 +2,7 @@ import Titre from "@/components/Titre/Titre";
 import {GlobalSearch} from "@/components/GlobalSearch/GlobalSearch";
 
 async function getHomeData() {
-    const res = await fetch(`https://${process.env.BACK_DNS}/wp-json/montlucon/v1/options/homepage`);
+    const res = await fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/options/homepage`);
 
     if (!res.ok) {
         return false;
@@ -43,7 +43,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 }
 
 async function getData(motCle) {
-    const res = await fetch(`https://${process.env.BACK_DNS}/wp-json/montlucon/v1/recherche/${motCle}`);
+    const res = await fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/recherche/${motCle}`);
 
     if (!res.ok) {
         return false;

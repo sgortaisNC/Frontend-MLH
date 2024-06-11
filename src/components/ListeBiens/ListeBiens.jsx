@@ -51,7 +51,7 @@ export const ListeBiens = ({data}) => {
             }
         }
 
-        fetch(`https://${process.env.BACK_DNS}/wp-json/montlucon/v1/biens-louer?loyer=${loyer}&ville=${ville}&rayon=${rayon}&type=${type}&surface=${surface}&nombre=${nombre}`).then(r => {
+        fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/biens-louer?loyer=${loyer}&ville=${ville}&rayon=${rayon}&type=${type}&surface=${surface}&nombre=${nombre}`).then(r => {
             return r.json();
         }).then(r => {
             setBiens(r.louer);

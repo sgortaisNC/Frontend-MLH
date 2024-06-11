@@ -8,7 +8,7 @@ function strip(html) {
 }
 
 async function getData(slug) {
-    const res = await fetch(`https://${process.env.BACK_DNS}/wp-json/montlucon/v1/page/${slug}`,
+    const res = await fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/page/${slug}`,
         {
             next: {
                 revalidate: 1,

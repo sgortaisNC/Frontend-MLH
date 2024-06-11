@@ -5,7 +5,7 @@ export const metadata = {
     description: "Retrouvez sur cette page le plan du site de Montluçon Habitat"
 }
 async function getData() {
-    const res = await fetch(`https://${process.env.BACK_DNS}/wp-json/montlucon/v1/options/header`);
+    const res = await fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/options/header`);
     if (!res.ok) {
         return false;
     }

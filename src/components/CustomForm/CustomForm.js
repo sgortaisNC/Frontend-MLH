@@ -25,7 +25,7 @@ export const CustomForm = ({formId, children}) => {
             form.querySelector(".error-capt").style.display = "none";
         }
 
-        const r = await fetch(`https://${process.env.BACK_DNS}/wp-json/montlucon/v1/submit-form`, {
+        const r = await fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/submit-form`, {
             method: 'POST',
             body: data
         });

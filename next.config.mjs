@@ -9,8 +9,8 @@ const nextConfig = {
         ]
     },
     env:{
-        BACK_DNS: process.env.BACK_DNS,
-        FRONT_DNS: process.env.FRONT_DNS
+        NEXT_PUBLIC_BACK_DNS: process.env.NEXT_PUBLIC_BACK_DNS,
+        NEXT_PUBLIC_FRONT_DNS: process.env.NEXT_PUBLIC_FRONT_DNS
     }
 };
 
