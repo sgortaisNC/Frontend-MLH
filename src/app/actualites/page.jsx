@@ -4,7 +4,7 @@ import Titre from "@/components/Titre/Titre";
 import ListeActualites from "@/components/ListeActualites/ListeActualites";
 
 async function getData(){
-    const res = await fetch(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/actualites`)
+    const res = await fetch(`https://${process.env.BACK_DNS}/wp-json/montlucon/v1/actualites`)
 
     if (!res.ok) {
         return false;

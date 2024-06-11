@@ -22,7 +22,7 @@ export const InnerPrivate = ({data}) => {
         e.preventDefault();
         const form = e.target;
         const data = new FormData(form);
-        fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/submit-form', {
+        fetch(`https://${process.env.BACK_DNS}/wp-json/montlucon/v1/submit-form`, {
             method: 'POST',
             body: data
         }).then(r => r.json()).then(r => {

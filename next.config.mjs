@@ -7,6 +7,10 @@ const nextConfig = {
                 hostname: '**',
             },
         ]
+    },
+    env:{
+        BACK_DNS: process.env.BACK_DNS,
+        FRONT_DNS: process.env.FRONT_DNS
     }
 };
 

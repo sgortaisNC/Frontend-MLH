@@ -7,7 +7,7 @@ function strip(html) {
 }
 
 async function getData($slug) {
-    const url = `https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/page/espace-administrateur`;
+    const url = `https://${process.env.BACK_DNS}/wp-json/montlucon/v1/page/espace-administrateur`;
     const res = await fetch(url,{next: {revalidate: 1}});
 
     if (!res.ok) {
@@ -55,7 +55,7 @@ export async function generateMetadata({params, searchParams}, parent) {
 export default async function Dashboard() {
 
     const lastSlug = 'espace-administrateur';
-    const data = await getData(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/page/${lastSlug}`);
+    const data = await getData(`https://${process.env.BACK_DNS}/wp-json/montlucon/v1/page/${lastSlug}`);
     
     if (!data) return <PostNotFound/>
 

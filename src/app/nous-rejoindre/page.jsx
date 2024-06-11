@@ -7,7 +7,7 @@ function strip(html) {
 }
 
 async function getData() {
-    const res = await fetch(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/offres`)
+    const res = await fetch(`https://${process.env.BACK_DNS}/wp-json/montlucon/v1/offres`)
 
     if (!res.ok) {
         return false;

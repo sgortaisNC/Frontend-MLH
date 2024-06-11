@@ -9,7 +9,7 @@ function strip(html)
     return html.replace(/<[^>]+>/ig,"").replace(/\s+/g, ' ').trim().substring(0, 160)
 }
 async function getData($slug) {
-    const res = await fetch(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/offre/${$slug}`)
+    const res = await fetch(`https://${process.env.BACK_DNS}/wp-json/montlucon/v1/offre/${$slug}`)
 
     if (!res.ok) {
         return false;

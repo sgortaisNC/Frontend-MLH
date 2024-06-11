@@ -44,7 +44,7 @@ export const FormConnect = () => {
         if (responseJson.success === true){
             try {
                 // Send a POST request to the custom authentication endpoint
-                const response = await fetch('https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/connect', {
+                const response = await fetch(`https://${process.env.BACK_DNS}/wp-json/montlucon/v1/connect`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

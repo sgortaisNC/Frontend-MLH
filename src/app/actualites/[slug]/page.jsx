@@ -14,7 +14,7 @@ function strip(html) {
 }
 
 async function getData(slug) {
-    const res = await fetch(`https://api-montlucon.netcomdev2.com/wp-json/montlucon/v1/actualite/${slug}`, {cache: "no-cache"})
+    const res = await fetch(`https://${process.env.BACK_DNS}/wp-json/montlucon/v1/actualite/${slug}`, {cache: "no-cache"})
 
     if (!res.ok) {
         return false;
