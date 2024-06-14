@@ -15,10 +15,15 @@ const nextConfig = {
     redirects: async () => {
         return [
             {
-                source: '/123456',
-                destination: '/',
+                source: '/SITE_INTERNET_MH_web/fr/Logements/:slug*',
+                destination: '/logements-a-louer',
                 permanent: true,
             },
+            {
+                source: '/SITE_INTERNET_MH_web/FR/Actualites/:slug*',
+                destination: '/actualites',
+                permanent: true,
+            }
         ]
     }
 };
