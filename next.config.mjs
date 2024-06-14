@@ -23,6 +23,11 @@ const nextConfig = {
                 source: '/SITE_INTERNET_MH_web/FR/Actualites/:slug*',
                 destination: '/actualites',
                 permanent: true,
+            },
+            {
+                source: '/SITE_INTERNET_MH_web/FR/:slug*',
+                destination: '/',
+                permanent: true,
             }
         ]
     }
