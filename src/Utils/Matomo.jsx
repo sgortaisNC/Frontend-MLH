@@ -3,8 +3,8 @@ import { init, push } from '@socialgouv/matomo-next'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { Suspense, useEffect, useState } from 'react'
 
-const MATOMO_URL = 'https://matomo.net-com.fr'
-const MATOMO_SITE_ID = '24'
+const MATOMO_URL = 'https://matomo.montlucon-habitat.fr'
+const MATOMO_SITE_ID = '26'
 
 const MatomoComponent = () => {
     const [initialised, setInitialised] = useState(false)
