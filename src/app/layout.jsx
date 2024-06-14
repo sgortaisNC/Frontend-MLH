@@ -13,7 +13,10 @@ export const metadata = {
     title: {
         template: '%s | Montluçon Habitat',
     },
-    description: 'Location de logement (appartement et maison) pas cher à Montluçon y compris pour les étudiants.'
+    description: 'Location de logement (appartement et maison) pas cher à Montluçon y compris pour les étudiants.',
+    verification: {
+        google: "FE6sTnI31Z9UVvNiT_oiJsFR43UC8NROCRHnwD7JsKQ"
+    }
 }
 
 async function getDatas() {
@@ -38,7 +41,6 @@ export default async function RootLayout({children}) {
     return (
         <html lang="fr">
         <head>
-            <meta name="google-site-verification" content="FE6sTnI31Z9UVvNiT_oiJsFR43UC8NROCRHnwD7JsKQ"/>
             <Script
                 strategy={"beforeInteractive"}
                 src={`https://tarteaucitron.io/load.js?domain=${process.env.NEXT_PUBLIC_FRONT_DNS}&uuid=3c168a9d97f5c0995db99e0cb855768137ff4403`}/>
