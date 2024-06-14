@@ -1,4 +1,7 @@
 @media print {
+  [class^="bien_sdb"]{
+    display: none;
+  }
   header, footer, #ariane, .next-to, .bien_sdb__cNFpo, .btn--outline, .situation {
     display: none;
   }
