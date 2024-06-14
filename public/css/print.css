@@ -2,7 +2,7 @@
   [class^="bien_sdb"],#tarteaucitronRoot{
     display: none;
   }
-  header, footer, #ariane, .next-to, .bien_sdb__cNFpo, .btn--outline, .situation {
+  header, footer, #ariane, .next-to, .btn--outline, .situation {
     display: none;
   }
   body .titre {
@@ -34,23 +34,23 @@
   body .embla {
     padding: 0;
   }
-  body .bien_flexB__Xqx6T {
+  body [class^="bien_flexB"] {
     margin-top: 30px;
   }
-  body .bien_flex__ptBtD {
+  body [class^="bien_flex"] {
     flex-wrap: wrap;
   }
-  body .bien_flex__ptBtD > :last-child {
+  body [class^="bien_flex"] > :last-child {
     width: 100%;
   }
 
-  body .bien_loyer__3hxOc{
+  body [class^=".bien_loyer"]{
     padding: 0;
     border: none;
     text-align: center;
   }
 
-  body .bien_loyer__3hxOc h2{
+  body [class^=".bien_loyer"] h2{
     display: none;
   }
 }
