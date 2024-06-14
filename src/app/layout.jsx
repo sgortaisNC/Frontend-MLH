@@ -38,6 +38,7 @@ export default async function RootLayout({children}) {
     return (
         <html lang="fr">
         <head>
+            <meta name="google-site-verification" content="FE6sTnI31Z9UVvNiT_oiJsFR43UC8NROCRHnwD7JsKQ"/>
             <Script
                 strategy={"beforeInteractive"}
                 src={`https://tarteaucitron.io/load.js?domain=${process.env.NEXT_PUBLIC_FRONT_DNS}&uuid=3c168a9d97f5c0995db99e0cb855768137ff4403`}/>
