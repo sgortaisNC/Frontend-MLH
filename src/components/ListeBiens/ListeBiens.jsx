@@ -47,7 +47,7 @@ export const ListeBiens = ({data}) => {
                 setSurface(url.searchParams.get('surface') || 250);
                 setType(url.searchParams.get('type') || '');
                 setRayon(url.searchParams.get('rayon') || 50);
-                setLoyer(url.searchParams.get('loyer') || 1500);
+                setLoyer(url.searchParams.get('loyer') || 1000);
             }
         }
 
