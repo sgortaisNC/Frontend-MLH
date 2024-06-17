@@ -19,24 +19,20 @@ export const metadata = {
     }
 }
 
-async function getDatas() {
-    const header = await fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/options/header`,
-        {next: {revalidate: 0}}
-    );
-    const headerJSON = await header.json();
+async function getHeaderData() {
+    const response = await fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/options/header`);
+    return await response.json();
+}
 
-    const footer = await fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/options/footer`,
-        {next: {revalidate: 0}}
-    );
-    const footerJSON = await footer.json();
-
-    return {header: headerJSON, footer: footerJSON};
-
+async function getFooterData() {
+    const response = await fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/options/footer`);
+    return await response.json();
 }
 
 export default async function RootLayout({children}) {
 
-    const {header, footer} = await getDatas();
+    const header = await getHeaderData()
+    const footer = await getFooterData();
 
     return (
         <html lang="fr">

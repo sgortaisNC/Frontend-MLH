@@ -16,7 +16,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
             title: 'Montluçon Habitat, tout le monde a droit d`apprécier son logement',
             images: [
                 {
-                    url: data.baseline.image, // Must be an absolute URL
+                    url: data.baseline?.image, // Must be an absolute URL
                     width: 800,
                     height: 600,
                 },
@@ -27,7 +27,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
         twitter: {
             card: 'summary_large_image',
             title: "Montluçon Habitat, tout le monde a droit d`apprécier son logement",
-            images: [data.baseline.image], // Must be an absolute URL
+            images: [data.baseline?.image], // Must be an absolute URL
         },
     }
 
