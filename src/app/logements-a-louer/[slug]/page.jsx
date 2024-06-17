@@ -72,8 +72,7 @@ export default async function Page({params}) {
     bien.images.map((img) => img.url ? SLIDES.push(img.url) : null);
 
     const consoDPE = bien.energie
-    const emissionGES = bien.ges;
-    let textGES = '';
+    const textGES = bien.ges;
     let topDPE = 0;
     let topGES = 0;
     if (consoDPE === "A") {
@@ -91,26 +90,19 @@ export default async function Page({params}) {
     } else {
         topDPE = 230
     }
-    if (emissionGES < 6) {
-        textGES = "A";
+    if (textGES === "A") {
         topGES = 17
-    } else if (emissionGES < 11) {
-        textGES = "B";
+    } else if (textGES === "B") {
         topGES = 50
-    } else if (emissionGES < 30) {
-        textGES = "C";
+    } else if (textGES === "C") {
         topGES = 87
-    } else if (emissionGES < 50) {
-        textGES = "D";
+    } else if (textGES === "D") {
         topGES = 123
-    } else if (emissionGES < 70) {
-        textGES = "E";
+    } else if (textGES === "E") {
         topGES = 158
-    } else if (emissionGES < 100) {
-        textGES = "F";
+    } else if (textGES === "F") {
         topGES = 193
     } else {
-        textGES = "G";
         topGES = 230
     }
 

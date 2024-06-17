@@ -2030,7 +2030,7 @@ body:not(:has(.innerForm)) .grecaptcha-badge {
 }
 .wysiwyg h3 {
   font-weight: 500;
-  font-size: 45px;
+  font-size: 40px;
   line-height: 53px;
   color: var(--bleu);
 }
