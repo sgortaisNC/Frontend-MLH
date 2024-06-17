@@ -2229,7 +2229,7 @@ body:not(:has(.innerForm)) .grecaptcha-badge {
 .hero::after {
   position: absolute;
   content: "";
-  bottom: -1px;
+  bottom: -5px;
   left: 0;
   right: 0;
   height: 66px;
