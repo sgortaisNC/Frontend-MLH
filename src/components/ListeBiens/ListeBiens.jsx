@@ -237,7 +237,7 @@ export const ListeBiens = ({data}) => {
         {vueListe ? <>
             {biens.length === 0 && <h2>Aucun bien ne correspond à votre recherche</h2>}
             <div className="biens_grid">
-                {louer.map(bien => <TeaserLogement key={bien.id} bien={bien}/>)}
+                {louer.map(bien => <TeaserLogement key={bien.id} newWindow={true} bien={bien}/>)}
             </div>
 
             {biens.length > nbPerPage && <div className={"pagination"}>

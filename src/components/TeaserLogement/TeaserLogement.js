@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-export default function TeaserLogement({bien}) {
 
-    return <Link href={bien.lien} className="bien-teaser">
+export default function TeaserLogement({newWindow = false, bien}) {
+
+    return <Link href={bien.lien} target={newWindow ? "_blank" : "_self"} className="bien-teaser">
         <h3>{bien.titre}</h3>
         <div className="card">
             <figure>
@@ -106,7 +107,7 @@ export default function TeaserLogement({bien}) {
                             </g>
                         </svg>
                         <span>{bien.surface
-                         }m²</span>
+                        }m²</span>
                     </div>
                 </div>
 
