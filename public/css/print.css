@@ -1,6 +1,9 @@
 @media print {
-  [class^="bien_sdb"],#tarteaucitronRoot{
+  [class^="bien_sdb"],#tarteaucitronRoot,.share, .embla__slide:not(:first-child){
     display: none;
+  }
+  .embla__container{
+    transform: translate(0) !important;
   }
   header, footer, #ariane, .next-to, .btn--outline, .situation {
     display: none;
@@ -15,9 +18,11 @@
     font-size: 32px;
   }
   body .embla__slide__img {
-    width: 100%;
+    width: 40%;
+    margin: 0 auto;
     height: auto;
-    aspect-ratio: 24/9;
+    aspect-ratio: 24 / 14;
+    object-position: bottom;
   }
   body .infos {
     display: flex;
@@ -34,6 +39,7 @@
   body .embla {
     padding: 0;
   }
+
   body [class^="bien_flexB"] {
     margin-top: 30px;
   }
@@ -44,13 +50,13 @@
     width: 100%;
   }
 
-  body [class^=".bien_loyer"]{
+  body [class^="bien_loyer"]{
     padding: 0;
     border: none;
     text-align: center;
   }
 
-  body [class^=".bien_loyer"] h2{
+  body [class^="bien_loyer"] h2{
     display: none;
   }
 }
