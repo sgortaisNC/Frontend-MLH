@@ -8,6 +8,8 @@ import Script from "next/script";
 
 const leagueSpartan = League_Spartan({subsets: ['latin']});
 export const revalidate = 0;
+// Opt out of caching for all data requests in the route segment
+export const dynamic = 'force-dynamic'
 export const metadata = {
     metadataBase: new URL(`https://${process.env.NEXT_PUBLIC_FRONT_DNS}.com`),
     title: {

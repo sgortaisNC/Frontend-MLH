@@ -12,7 +12,8 @@ async function getData(){
 
     return res.json()
 }
-
+export const revalidate = 0;
+export const dynamic = 'force-dynamic'
 export async function generateMetadata({params, searchParams}, parent) {
     let title = 'Nos actualités'
     let metas = {

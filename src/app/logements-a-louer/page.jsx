@@ -8,6 +8,9 @@ export const metadata= {
     keywords: 'biens, louer, agence, immobilière'
 }
 
+export const revalidate = 0;
+export const dynamic = 'force-dynamic'
+
 export default function Page() {
     return <div>
         <Titre titre={'Logements à louer'} ariane={[{label: 'Logements à louer', url: ''}]}/>

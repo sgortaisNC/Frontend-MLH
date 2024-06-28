@@ -19,6 +19,9 @@ async function getData(slug) {
     return res.json()
 }
 
+export const revalidate = 0;
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({ params, searchParams }, parent) {
     const lastSlug = params.slug;
     const data = (await getData(lastSlug))[0];

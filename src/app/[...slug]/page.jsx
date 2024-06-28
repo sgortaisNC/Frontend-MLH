@@ -9,6 +9,9 @@ import Link from "next/link";
 import ForminatorAnnuler from "@/components/ForminatorAnnuler/ForminatorAnnuler";
 
 
+export const revalidate = 0;
+export const dynamic = 'force-dynamic'
+
 function strip(html) {
     return html.replace(/<[^>]+>/ig, "").replace(/\s+/g, ' ').trim().substring(0, 160)
 }
