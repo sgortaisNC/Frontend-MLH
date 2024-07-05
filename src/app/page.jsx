@@ -10,10 +10,10 @@ export async function generateMetadata({ params, searchParams }, parent) {
     const data = await getData();
     let metas = {
         title: {
-            absolute: 'Montluçon Habitat, tout le monde a droit d`apprécier son logement'
+            absolute: "Montluçon Habitat, pour un logement de qualité au cœur de l'Allier"
         },
         openGraph: {
-            title: 'Montluçon Habitat, tout le monde a droit d`apprécier son logement',
+            title: "Montluçon Habitat, pour un logement de qualité au cœur de l'Allier",
             images: [
                 {
                     url: data.baseline?.image, // Must be an absolute URL
@@ -26,7 +26,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
         },
         twitter: {
             card: 'summary_large_image',
-            title: "Montluçon Habitat, tout le monde a droit d`apprécier son logement",
+            title: "Montluçon Habitat, pour un logement de qualité au cœur de l'Allier",
             images: [data.baseline?.image], // Must be an absolute URL
         },
     }
