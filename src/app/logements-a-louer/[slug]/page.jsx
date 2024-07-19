@@ -389,7 +389,7 @@ export default async function Page({params}) {
                         <div className={'wysiwyg'} dangerouslySetInnerHTML={{__html: bien.description}}></div>
                     </div>
                     <div className={css.sdb}>
-                        <a href="javascript:window.print()" className={css.btn}>
+                        <a href={`https://api.montlucon-habitat.fr/pdf/files/${bien.id}.pdf`} target={"_blank"}  className={css.btn}>
                             <svg id="ink_1752497" xmlns="http://www.w3.org/2000/svg" width="39.557" height="37.127"
                                  viewBox="0 0 39.557 37.127">
                                 <path id="Tracé_15254" data-name="Tracé 15254"
