@@ -876,6 +876,9 @@ span#tarteaucitronDisclaimerAlert {
   padding: 0;
   position: fixed;
   left: 0;
+  @media (max-width : 1000px) {
+    bottom: 48px;
+  }
   text-align: center;
   width: auto;
   z-index: 2147483646;

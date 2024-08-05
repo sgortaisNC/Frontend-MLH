@@ -895,6 +895,11 @@ span#tarteaucitronDisclaimerAlert {
   width: auto;
   z-index: 2147483646;
 }
+@media (max-width: 1000px) {
+  #tarteaucitronAlertSmall {
+    bottom: 48px;
+  }
+}
 
 #tarteaucitronAlertSmall #tarteaucitronManager {
   color: #fff;
