@@ -2052,14 +2052,17 @@ body:not(:has(.innerForm)) .grecaptcha-badge {
 .wysiwyg > * {
   margin-bottom: 20px;
 }
-.wysiwyg ul:not([class]) {
+.wysiwyg ul:not([class]),
+.wysiwyg ul.wp-block-list {
   list-style-type: none;
   padding-left: 20px;
 }
-.wysiwyg ul:not([class]) li {
+.wysiwyg ul:not([class]) li,
+.wysiwyg ul.wp-block-list li {
   position: relative;
 }
-.wysiwyg ul:not([class]) li::before {
+.wysiwyg ul:not([class]) li::before,
+.wysiwyg ul.wp-block-list li::before {
   position: absolute;
   position: absolute;
   left: -25px;
@@ -2069,7 +2072,8 @@ body:not(:has(.innerForm)) .grecaptcha-badge {
   height: 18px;
   background: url("/list-marker.png");
 }
-.wysiwyg ul:not([class]) li ul li::before {
+.wysiwyg ul:not([class]) li ul li::before,
+.wysiwyg ul.wp-block-list li ul li::before {
   width: 10px;
   height: 2px;
   top: 10px;
