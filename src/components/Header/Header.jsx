@@ -92,7 +92,7 @@ export default function Header({data}) {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href={data.demande_logement ?? "#"} target={"_blank"}>
+                                        <a href={data.demande_logement ?? "#"} className={"demandeLogement"} target={"_blank"}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27"
                                                  viewBox="0 0 27 27">
                                                 <g transform="translate(-1447 -12)">
