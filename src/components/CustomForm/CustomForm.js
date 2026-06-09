@@ -1,7 +1,6 @@
 "use client";
 
 import {useEffect, useState} from "react";
-import {useGoogleReCaptcha} from "react-google-recaptcha-v3";
 
 
 export const CustomForm = ({formId, children}) => {

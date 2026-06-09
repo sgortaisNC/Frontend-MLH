@@ -21,14 +21,27 @@ export const metadata = {
     }
 }
 
+const HEADER_FALLBACK = { menu: [], alerte: {}, logo: null, espace: null, demande_logement: null };
+const FOOTER_FALLBACK = { menu: [], logo: { sizes: {} }, coordonnees: '', acces_rapide: [], social: {} };
+
 async function getHeaderData() {
-    const response = await fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/options/header`);
-    return await response.json();
+    try {
+        const response = await fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/options/header`);
+        if (!response.ok) return HEADER_FALLBACK;
+        return await response.json();
+    } catch {
+        return HEADER_FALLBACK;
+    }
 }
 
 async function getFooterData() {
-    const response = await fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/options/footer`);
-    return await response.json();
+    try {
+        const response = await fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/options/footer`);
+        if (!response.ok) return FOOTER_FALLBACK;
+        return await response.json();
+    } catch {
+        return FOOTER_FALLBACK;
+    }
 }
 
 export default async function RootLayout({children}) {

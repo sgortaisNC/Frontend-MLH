@@ -41,12 +41,12 @@ export default function Footer({data}) {
             <div className="footer__top">
                 <div className="container container--flex">
                     <div className="footer__logo">
-                        <Image
+                        {data.logo?.sizes?.nc_footer && <Image
                             src={data.logo.sizes.nc_footer}
                             alt="Logo de Montluçon Habitat"
                             width={216}
                             height={97}
-                        />
+                        />}
                     </div>
                     <div className="footer__coordonnees">
                         <p style={{marginBottom: 10}}>

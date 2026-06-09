@@ -1,6 +1,5 @@
 import Titre from "@/components/Titre/Titre";
-import {FormConnect} from "@/components/FormConnect/FormConnect";
-
+import ConnexionClient from "@/app/connexion/ConnexionClient";
 
 export const metadata = {
     title: 'Connexion',
@@ -9,12 +8,11 @@ export const metadata = {
 }
 
 const LoginPage = () => {
-
     return (
         <div>
             <Titre titre={'Connectez-vous à l\'espace administrateur'}></Titre>
             <div className="container">
-                <FormConnect/>
+                <ConnexionClient/>
             </div>
         </div>
     );
