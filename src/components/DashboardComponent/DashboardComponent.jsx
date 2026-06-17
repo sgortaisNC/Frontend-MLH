@@ -1,6 +1,7 @@
 "use client";
 import {useEffect, useState} from "react";
 import {redirect} from "next/navigation";
+import FileBirdBrowser from "@/components/FileBirdBrowser/FileBirdBrowser";
 
 export const DashboardComponent = ({contenu}) => {
 
@@ -26,6 +27,7 @@ export const DashboardComponent = ({contenu}) => {
         </div>
         <div className="content">
             <div className="wysiwyg" dangerouslySetInnerHTML={{__html: contenu}}></div>
+            <FileBirdBrowser/>
         </div>
     </>
 }

@@ -1,0 +1,173 @@
+.filebird {
+  margin-top: 40px;
+
+  &__title {
+    font-weight: normal;
+    font-size: 34px;
+    color: var(--vert);
+    margin: 0 0 48px;
+  }
+
+  &__body {
+    position: relative;
+    min-height: 160px;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: var(--radius);
+    z-index: 5;
+  }
+
+  &__spinner {
+    animation: filebird-spin 0.8s linear infinite;
+    transform-origin: center;
+  }
+
+  &__state {
+    color: var(--fontColor);
+    font-style: italic;
+
+    &--error { color: var(--pourpre); }
+  }
+
+  &__grid {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+    display: grid;
+    gap: 18px;
+
+    &--folders {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    &--files {
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    }
+  }
+
+  &__folder {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 22px 16px;
+    background: var(--lightGrey);
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+
+    &:hover {
+      border-color: var(--bleu);
+      background: var(--lightBleu);
+    }
+
+    &-name {
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--fontColor);
+    }
+
+    &--back {
+      background: #fff;
+      border-color: var(--pourpre);
+
+      &:hover {
+        border-color: var(--pourpre);
+        background: #fbecf0;
+      }
+
+      .filebird__folder-name {
+        color: var(--pourpre);
+      }
+    }
+  }
+
+  &__count {
+    font-size: 13px;
+    color: var(--bordure);
+  }
+
+  &__file {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--bordureSelect);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #fff;
+  }
+
+  &__preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    background: var(--lightGrey);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__doc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__ext {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--pourpre);
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px 14px 4px;
+    flex: 1;
+  }
+
+  &__file-name {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    color: var(--fontColor);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__size {
+    font-size: 13px;
+    color: var(--bordure);
+  }
+
+  &__download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin: 12px 14px 14px;
+  }
+}
+
+@keyframes filebird-spin {
+  to { transform: rotate(360deg); }
+}
