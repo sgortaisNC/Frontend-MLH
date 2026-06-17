@@ -3,6 +3,13 @@ import {NextResponse} from "next/server";
 export async function POST(request) {
     const {gRecaptchaToken} = await request.json();
 
+    // Dérogation développement : si la clé secrète n'est pas configurée, on saute
+    // la vérification. Inactif en production (NODE_ENV === 'production').
+    if (process.env.NODE_ENV === 'development' && !process.env.RECAPTCHA_SECRET_KEY) {
+        console.warn('[DEV] RECAPTCHA_SECRET_KEY absente : vérification ignorée.');
+        return NextResponse.json({success: true, score: 1, bypass: true});
+    }
+
     const response = await fetch(
         `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${gRecaptchaToken}`,
         {method: 'POST'}

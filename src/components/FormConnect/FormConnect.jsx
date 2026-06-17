@@ -4,6 +4,12 @@ import {useEffect, useState} from "react";
 import {redirect} from "next/navigation";
 import {useGoogleReCaptcha} from "react-google-recaptcha-v3";
 
+// Dérogation développement : en local, si la clé reCAPTCHA n'est pas configurée,
+// on saute la vérification pour pouvoir tester la connexion.
+// Inactif en production (NODE_ENV === 'production'), donc aucun risque côté prod.
+const RECAPTCHA_BYPASS =
+    process.env.NODE_ENV === 'development' && !process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
 export const FormConnect = () => {
 
     const [email, setEmail] = useState('');
@@ -11,6 +17,7 @@ export const FormConnect = () => {
     const [token, setToken] = useState(null);
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const {executeRecaptcha} = useGoogleReCaptcha();
 
@@ -23,54 +30,65 @@ export const FormConnect = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError(null);
 
-        if (!executeRecaptcha) {
+        if (!RECAPTCHA_BYPASS && !executeRecaptcha) {
+            setError('Le service de vérification est indisponible. Veuillez réessayer.');
             return;
         }
 
-        const gRecaptchaToken = await executeRecaptcha('login');
+        setLoading(true);
 
-        const response = await fetch('/api/recaptchaSubmit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json, text/plain, */*'
-            },
-            body: JSON.stringify({gRecaptchaToken: gRecaptchaToken})
-        });
+        try {
+            if (RECAPTCHA_BYPASS) {
+                console.warn('[DEV] reCAPTCHA non configuré : vérification ignorée.');
+            } else {
+                const gRecaptchaToken = await executeRecaptcha('login');
 
-        let responseJson = await response.json();
-
-        if (responseJson.success === true){
-            try {
-                // Send a POST request to the custom authentication endpoint
-                const response = await fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/connect`, {
+                const recaptchaResponse = await fetch('/api/recaptchaSubmit', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Accept': 'application/json, text/plain, */*'
                     },
-                    body: JSON.stringify({email, password}),
-                }).then((r) => r.json()).then(r => {
-                    if (!r.token) {
-                        throw new Error('Failed to authenticate');
-                    } else {
-                        window.localStorage.setItem('token', r.token);
-                        setToken(r.token);
-                        window.location.reload();
-                    }
+                    body: JSON.stringify({gRecaptchaToken: gRecaptchaToken})
                 });
-                // Redirect or perform further actions upon successful login
-                // For demonstration purposes, we're not handling this here
-            } catch (error) {
+
+                const recaptchaJson = await recaptchaResponse.json();
+
+                if (recaptchaJson.success !== true) {
+                    setToken(null);
+                    setError('Le captcha n\'a pas été validé. Veuillez réessayer.');
+                    return;
+                }
+            }
+
+            // Send a POST request to the custom authentication endpoint
+            const response = await fetch(`https://${process.env.NEXT_PUBLIC_BACK_DNS}/wp-json/montlucon/v1/connect`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({email, password}),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok || !data.token) {
                 setToken(null);
                 setError('Le couple email/mot de passe est incorrect. Veuillez réessayer.');
+                return;
             }
-        }else{
+
+            window.localStorage.setItem('token', data.token);
+            setToken(data.token);
+            window.location.reload();
+        } catch (error) {
             setToken(null);
-            setError('Le captcha n\'a pas été validé. Veuillez réessayer.');
+            setError('Une erreur est survenue lors de la connexion. Veuillez réessayer.');
+        } finally {
+            setLoading(false);
         }
-
-
     };
 
 
@@ -86,9 +104,16 @@ export const FormConnect = () => {
                         <label>Mot de passe:</label>
                         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                     </div>
-                    <button type="submit" className={'btn btn--xs'}>Se connecter</button>
+                    <button type="submit" className={'btn btn--xs'} disabled={loading}>
+                        {loading ? 'Connexion…' : 'Se connecter'}
+                    </button>
                 </form>
-                {error && <p style={{color: 'red'}}>{error}</p>}
+                {error && (
+                    <p className="formConnect__error" role="alert"
+                       style={{color: 'red', fontWeight: 'bold', marginTop: '1rem'}}>
+                        {error}
+                    </p>
+                )}
             </div>
         </>
     )
