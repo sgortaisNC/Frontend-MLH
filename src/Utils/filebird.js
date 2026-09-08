@@ -35,6 +35,13 @@ export function findNode(nodes, id) {
     return null;
 }
 
+// Nombre total de fichiers d'un dossier, sous-dossiers compris (récursif).
+// L'API FileBird ne fournit que le compte direct via `data-count`.
+export function getRecursiveCount(node) {
+    const own = Number(node["data-count"] ?? 0);
+    return (node.children ?? []).reduce((sum, child) => sum + getRecursiveCount(child), own);
+}
+
 // Chemin (fil d'Ariane) depuis `root` jusqu'au dossier `targetId` inclus.
 export function getBreadcrumb(root, targetId) {
     const path = [];

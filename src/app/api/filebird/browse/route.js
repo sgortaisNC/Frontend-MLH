@@ -6,6 +6,7 @@ import {
     getBreadcrumb,
     getAttachmentIds,
     getMedia,
+    getRecursiveCount,
 } from "@/Utils/filebird";
 
 export const dynamic = "force-dynamic";
@@ -41,7 +42,7 @@ export async function GET(request) {
             .map((child) => ({
                 id: Number(child.id),
                 name: child.title,
-                count: Number(child["data-count"] ?? 0),
+                count: getRecursiveCount(child),
             }))
             .sort((a, b) => a.name.localeCompare(b.name, "fr", { sensitivity: "base" }));
 
